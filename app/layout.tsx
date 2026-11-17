@@ -9,7 +9,12 @@ export const metadata: Metadata = {
   },
   description:
     'SeedPower Foundation works to exploit potential and eradicate poverty through education, community outreach, and empowerment programmes in Kenya.',
-  metadataBase: new URL('https://seedpowerfoundation.org'),
+  // Production domain pending client confirmation.
+  // Replace with the verified domain before deployment.
+  // See docs/architecture/phase-1-implementation-decisions.md — Decision 4.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+  ),
 };
 
 export default function RootLayout({
