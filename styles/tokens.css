@@ -28,6 +28,9 @@
   --color-bg-warm:     #f5f3f0;
   --color-bg-dark:     #1a1a1a;
   --color-bg-disabled: #cccccc;
+  --color-bg-dark-hover:        #333333;
+  --color-bg-dark-active:       #111111;
+  --color-brand-active-surface: #e3ecd8;
 
   /* ─── Border Colours ─────────────────────────────────────────── */
   --color-border:           #e0e0e0;
@@ -79,6 +82,7 @@
   --text-label:     1rem;      /* 16px */
   --text-label--lh: 1;
   --text-label-sm:  0.875rem;  /* 14px */
+  --text-label-sm--lh: 1;
   --text-nav:       0.9375rem; /* 15px */
   --text-nav--lh:   1;
   --text-caption:   0.75rem;   /* 12px */
