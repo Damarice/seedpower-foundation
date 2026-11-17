@@ -1,0 +1,196 @@
+/*
+ * SeedPower Foundation — Design Tokens
+ * Source of truth: Visual Design Direction v2.0
+ * All tokens live here inside @theme for Tailwind CSS 4 CSS-first configuration.
+ * Do not duplicate these values in any JS config file.
+ */
+
+@theme {
+  /* ─── Brand Colours ─────────────────────────────────────────── */
+  --color-brand:         #2D5016;
+  --color-brand-hover:   #1f3a0f;
+  --color-brand-active:  #172a08;
+  --color-brand-surface: #f0f4e8;
+
+  /* ─── Text Colours ───────────────────────────────────────────── */
+  --color-text-primary:          #1a1a1a;
+  --color-text-secondary:        #666666;
+  --color-text-disabled:         #505050;
+  --color-text-on-brand:         #ffffff;
+  --color-text-on-dark:          #ffffff;
+  --color-text-footer-secondary: #aaaaaa;
+  --color-text-visited:          #4a6b2e;
+  --color-text-placeholder:      #6b7280;
+
+  /* ─── Background Colours ─────────────────────────────────────── */
+  --color-bg-page:     #ffffff;
+  --color-bg-soft:     #f9faf8;
+  --color-bg-warm:     #f5f3f0;
+  --color-bg-dark:     #1a1a1a;
+  --color-bg-disabled: #cccccc;
+
+  /* ─── Border Colours ─────────────────────────────────────────── */
+  --color-border:           #e0e0e0;
+  --color-border-separator: #888888;
+
+  /* ─── Semantic Colours ───────────────────────────────────────── */
+  --color-error: #b91c1c;
+
+  /* ─── Font Families ──────────────────────────────────────────── */
+  --font-heading: var(--font-manrope), system-ui, sans-serif;
+  --font-body:    var(--font-inter), system-ui, sans-serif;
+
+  /* ─── Type Scale — Mobile-first (base = mobile) ──────────────── */
+  /* Hero H1 */
+  --text-hero:      1.75rem;   /* 28px mobile */
+  --text-hero--lh:  1.15;
+  --text-hero--ls:  -0.02em;
+
+  /* H1 page title */
+  --text-h1:     1.5rem;    /* 24px mobile */
+  --text-h1--lh: 1.25;
+  --text-h1--ls: -0.01em;
+
+  /* H2 */
+  --text-h2:     1.375rem;  /* 22px mobile */
+  --text-h2--lh: 1.3;
+
+  /* H3 */
+  --text-h3:     1.125rem;  /* 18px mobile */
+  --text-h3--lh: 1.4;
+
+  /* H4 */
+  --text-h4:     1rem;      /* 16px mobile */
+  --text-h4--lh: 1.4;
+
+  /* Body large */
+  --text-body-lg:     1rem;   /* 16px mobile */
+  --text-body-lg--lh: 1.65;
+
+  /* Body */
+  --text-body:     0.9375rem;  /* 15px mobile */
+  --text-body--lh: 1.65;
+
+  /* Body small */
+  --text-body-sm:     0.8125rem; /* 13px mobile */
+  --text-body-sm--lh: 1.5;
+
+  /* Static tokens (no responsive change) */
+  --text-label:     1rem;      /* 16px */
+  --text-label--lh: 1;
+  --text-label-sm:  0.875rem;  /* 14px */
+  --text-nav:       0.9375rem; /* 15px */
+  --text-nav--lh:   1;
+  --text-caption:   0.75rem;   /* 12px */
+  --text-caption--lh: 1.4;
+  --text-caption--ls: 0.02em;
+
+  /* Font weights */
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  /* ─── Spacing (8px base unit) ────────────────────────────────── */
+  --space-1:  0.25rem;   /* 4px  */
+  --space-2:  0.5rem;    /* 8px  */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+
+  /* ─── Container Widths ───────────────────────────────────────── */
+  --container-max:              75rem;   /* 1200px */
+  --container-wide:             87.5rem; /* 1400px */
+  --container-narrow:           45rem;   /* 720px  */
+  --container-padding-mobile:   1rem;    /* 16px   */
+  --container-padding-tablet:   1.5rem;  /* 24px   */
+
+  /* ─── Breakpoints ────────────────────────────────────────────── */
+  --bp-mobile:  20rem;   /* 320px  — minimum supported width */
+  --bp-tablet:  48rem;   /* 768px  — tablet and above        */
+  --bp-desktop: 64rem;   /* 1024px — desktop and above       */
+  --bp-wide:    90rem;   /* 1440px — large desktop           */
+
+  /* ─── Border Radii ───────────────────────────────────────────── */
+  --radius-sm:   0.25rem;    /* 4px     — buttons, inputs        */
+  --radius-md:   0.375rem;   /* 6px     — cards, dropdowns       */
+  --radius-lg:   0.75rem;    /* 12px    — large cards, images    */
+  --radius-full: 9999px;     /* circles — avatars, pill badges   */
+
+  /* ─── Shadows ────────────────────────────────────────────────── */
+  --shadow-none:     none;
+  --shadow-card:     0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-modal:    0 8px 32px rgba(0, 0, 0, 0.16);
+
+  /* ─── Transitions ────────────────────────────────────────────── */
+  --transition-fast: 150ms ease-out;
+  --transition-std:  200ms ease-out;
+  --transition-slow: 300ms ease-out;
+
+  /* ─── Focus Ring ─────────────────────────────────────────────── */
+  --focus-ring-color:  #2D5016;
+  --focus-ring-width:  2px;
+  --focus-ring-offset: 3px;
+  --focus-ring-style:  solid;
+
+  /* ─── Component Dimensions ───────────────────────────────────── */
+  --nav-height-mobile:  3.5rem;  /* 56px */
+  --nav-height-desktop: 4rem;    /* 64px */
+  --touch-target-min:   2.75rem; /* 44px */
+  --card-image-ratio:   4/3;
+  --avatar-size:        4rem;    /* 64px */
+  --icon-size-sm:       1.25rem; /* 20px */
+  --icon-size-md:       1.5rem;  /* 24px */
+  --icon-size-lg:       2rem;    /* 32px */
+}
+
+/*
+ * Responsive typography overrides.
+ * Tailwind 4 @theme does not support media queries inside the block,
+ * so responsive font-size overrides are applied here as plain CSS custom
+ * properties, which components reference via var().
+ */
+
+/* Tablet overrides (768px–1023px) */
+@media (min-width: 768px) {
+  :root {
+    --text-hero:    2.25rem;   /* 36px */
+    --text-h1:      2rem;      /* 32px */
+    --text-h2:      1.75rem;   /* 28px */
+    --text-h3:      1.375rem;  /* 22px */
+    --text-h4:      1.125rem;  /* 18px */
+    --text-body-lg: 1.0625rem; /* 17px */
+    --text-body:    1rem;      /* 16px */
+    --text-body-sm: 0.875rem;  /* 14px */
+  }
+}
+
+/* Desktop overrides (1024px+) */
+@media (min-width: 1024px) {
+  :root {
+    --text-hero:    3rem;      /* 48px */
+    --text-h1:      2.5rem;    /* 40px */
+    --text-h2:      2rem;      /* 32px */
+    --text-h3:      1.5rem;    /* 24px */
+    --text-h4:      1.25rem;   /* 20px */
+    --text-body-lg: 1.125rem;  /* 18px */
+    --text-body:    1rem;      /* 16px */
+    --text-body-sm: 0.875rem;  /* 14px */
+  }
+}
+
+/* Reduced motion — suppress all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
