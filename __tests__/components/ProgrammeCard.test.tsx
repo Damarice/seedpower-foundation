@@ -95,11 +95,12 @@ describe('ProgrammeCard', () => {
     expect(screen.getByRole('article').className).toContain('extra-class');
   });
 
-  it('renders an accessible link with a discernible name', async () => {
+  it('renders an accessible link with programme-specific name', async () => {
     await act(async () => {
       render(<ProgrammeCard {...baseProps} />);
     });
-    expect(screen.getByRole('link', { name: /learn more/i })).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /learn more about education centers/i });
+    expect(link).toBeInTheDocument();
   });
 
   it('has the correct heading colour class', async () => {

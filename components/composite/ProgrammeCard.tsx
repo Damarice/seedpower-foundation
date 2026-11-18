@@ -151,7 +151,7 @@ export function ProgrammeCard({
 
         {/* CTA — Ghost ButtonLink, left-aligned */}
         <div className="mt-auto pt-1">
-          <ButtonLink href={href} variant="ghost" size="sm">
+          <ButtonLink href={href} variant="ghost" size="sm" aria-label={`Learn more about ${title}`}>
             Learn More
           </ButtonLink>
         </div>
