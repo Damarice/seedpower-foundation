@@ -7,11 +7,11 @@
  *
  * Images are not yet available; a placeholder div is used for the
  * image area until assets are provided.
+ *
+ * Server Component — hover scale effect is handled via CSS group utility
+ * rather than useState, eliminating the need for 'use client'.
  */
-'use client';
-
-import type { CSSProperties } from 'react';
-import React, { useState } from 'react';
+import React from 'react';
 import { cn } from '@/lib/cn';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
@@ -36,17 +36,6 @@ export interface ProgrammeCardProps {
   className?: string;
 }
 
-/**
- * Inline style for the image wrapper using CSS custom property
- * aspect ratios (4:3 desktop, 16:9 mobile).  Tailwind 4 does not
- * generate arbitrary `aspect-ratio` utilities from CSS variables,
- * so we fall back to explicit Tailwind classes and inline override.
- */
-const imageWrapperStyles: CSSProperties = {
-  overflow: 'hidden',
-  position: 'relative',
-};
-
 export function ProgrammeCard({
   title,
   description,
@@ -56,51 +45,37 @@ export function ProgrammeCard({
   imageAlt,
   className,
 }: ProgrammeCardProps) {
-  const [imageScale, setImageScale] = useState(false);
-
   return (
     <article
       className={cn(
         /* Base card — no padding here; padding is managed per-zone below */
+        'group',
         'bg-[var(--color-bg-page)]',
         'border border-[var(--color-border)]',
         'rounded-[var(--radius-md)]',
         'overflow-hidden',
+        '[transition:box-shadow_var(--transition-std)]',
         className
       )}
-      style={{ transition: 'box-shadow var(--transition-std)' }}
-      onMouseEnter={() => setImageScale(true)}
-      onMouseLeave={() => setImageScale(false)}
-      onFocusCapture={() => setImageScale(true)}
-      onBlurCapture={() => setImageScale(false)}
     >
       {/* ── Image area ──────────────────────────────────────────── */}
       {/* Mobile: 16:9 aspect ratio; Desktop: 4:3 (via CSS override) */}
       <div
-        className="aspect-video desktop:aspect-[4/3] w-full"
-        style={imageWrapperStyles}
+        className="aspect-video desktop:aspect-[4/3] w-full overflow-hidden relative"
       >
         {imageSrc ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={imageSrc}
             alt={imageAlt ?? ''}
-            className="w-full h-full object-cover"
-            style={{
-              transform: imageScale ? 'scale(1.03)' : 'scale(1)',
-              transition: 'transform var(--transition-slow)',
-            }}
+            className="w-full h-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03]"
           />
         ) : (
           /* Placeholder — shown until image assets are provided */
           <div
-            className="w-full h-full bg-[var(--color-bg-soft)]"
+            className="w-full h-full bg-[var(--color-bg-soft)] [transition:transform_var(--transition-slow)] group-hover:scale-[1.03]"
             role="img"
             aria-label={imageAlt ?? `${title} programme`}
-            style={{
-              transform: imageScale ? 'scale(1.03)' : 'scale(1)',
-              transition: 'transform var(--transition-slow)',
-            }}
           />
         )}
       </div>

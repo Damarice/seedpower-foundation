@@ -103,6 +103,20 @@ describe('Header', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
+  it('desktop dropdown triggers use aria-haspopup="menu"', async () => {
+    await act(async () => {
+      render(<Header />);
+    });
+    // a11y-shared #4: dropdown triggers declare aria-haspopup="menu" (not "true").
+    const triggers = screen
+      .getAllByRole('button')
+      .filter((btn) => btn.hasAttribute('aria-haspopup'));
+    expect(triggers.length).toBeGreaterThan(0);
+    for (const trigger of triggers) {
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+    }
+  });
+
   it('passes axe accessibility check', async () => {
     let container!: HTMLElement;
     await act(async () => {

@@ -60,7 +60,6 @@ export function ImpactCard({ figure, label, icon, className }: ImpactCardProps) 
           'leading-none',
           'text-[var(--color-brand)]',
         )}
-        aria-label={`${figure} — ${label}`}
       >
         {figure}
       </p>

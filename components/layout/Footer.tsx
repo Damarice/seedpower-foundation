@@ -98,7 +98,7 @@ export function Footer() {
           'pt-12 pb-8',
         ].join(' ')}
       >
-        <div className="grid grid-cols-1 desktop:grid-cols-4 gap-8 desktop:gap-12">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-8 desktop:gap-12">
           {/* Column 1 — Logo, tagline, contact */}
           <div className="desktop:col-span-1">
             {/* Logo — text fallback until /public/images/logo-white.png is available */}

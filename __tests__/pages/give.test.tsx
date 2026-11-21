@@ -52,6 +52,14 @@ describe('GivePage', () => {
     expect(eventsHeadings.length).toBeGreaterThanOrEqual(1);
   });
 
+  it('gives the Sponsor a Child "Learn More" button a distinguishing accessible name', () => {
+    render(<GivePage />);
+    // a11y-content F-3: disambiguate the out-of-context "Learn More" link text.
+    expect(
+      screen.getByRole('link', { name: /learn more about sponsor a child/i })
+    ).toBeInTheDocument();
+  });
+
   it('passes axe accessibility check', async () => {
     const { container } = render(<GivePage />);
     expect(await axe(container)).toHaveNoViolations();

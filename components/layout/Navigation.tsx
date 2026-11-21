@@ -100,7 +100,7 @@ function DropdownItem({ item }: DropdownItemProps) {
           }
         }}
         aria-expanded={open}
-        aria-haspopup="true"
+        aria-haspopup="menu"
         aria-controls={dropdownId}
         className={cn(
           'px-5 py-2 text-[length:var(--text-nav)] font-medium',

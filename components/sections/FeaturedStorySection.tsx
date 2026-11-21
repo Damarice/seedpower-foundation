@@ -53,7 +53,7 @@ export function FeaturedStorySection({
                            rounded-[var(--radius-lg)] flex items-center 
                            justify-center"
                 role="img"
-                aria-label={imageAlt ?? 'Featured story image'}
+                aria-label={imageAlt ?? `Image for: ${heading}`}
               >
                 <span className="text-[var(--color-text-secondary)] text-sm">
                   Image pending
@@ -80,7 +80,7 @@ export function FeaturedStorySection({
             </p>
 
             <div className="mt-2">
-              <ButtonLink href={ctaHref} variant="ghost" size="default">
+              <ButtonLink href={ctaHref} variant="ghost" size="default" aria-label="More success stories">
                 More Stories
               </ButtonLink>
             </div>

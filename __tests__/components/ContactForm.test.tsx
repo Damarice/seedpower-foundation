@@ -257,4 +257,19 @@ describe('ContactForm', () => {
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
   });
 
+  // ── Coverage gap 5: field errors render as block-level <p role="alert"> ──
+  it('renders field validation errors in block-level <p role="alert"> elements', async () => {
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await user.click(screen.getByRole('button', { name: /send message/i }));
+    await waitFor(() => {
+      const alerts = screen.getAllByRole('alert');
+      expect(alerts.length).toBeGreaterThan(0);
+      // a11y-content F-1: errors are announced from block <p> elements, not inline <span>.
+      for (const alert of alerts) {
+        expect(alert.tagName).toBe('P');
+      }
+    });
+  });
+
 });

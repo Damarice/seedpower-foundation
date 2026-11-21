@@ -19,7 +19,7 @@ const backgroundStyles: Record<SectionBackground, string> = {
   white: 'bg-[var(--color-bg-page)] text-[var(--color-text-primary)]',
   soft: 'bg-[var(--color-bg-soft)] text-[var(--color-text-primary)]',
   warm: 'bg-[var(--color-bg-warm)] text-[var(--color-text-primary)]',
-  brand: 'bg-[var(--color-brand)] text-[var(--color-text-on-brand)]',
+  brand: 'bg-brand text-[var(--color-text-on-brand)]',
   dark: 'bg-[var(--color-bg-dark)] text-[var(--color-text-on-dark)]',
 };
 

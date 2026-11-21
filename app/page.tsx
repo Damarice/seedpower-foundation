@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       {/* ════════════════════════════════════════════════════════════
           HERO SECTION — AWAITING CLIENT DECISION (review placeholder)
 
@@ -193,6 +193,7 @@ export default function HomePage() {
       {/* ══ Get Involved CTA ══ */}
       <GetInvolvedCTA
         columns={[
+
           {
             title: 'Donate',
             description:
@@ -267,6 +268,6 @@ export default function HomePage() {
           },
         ]}
       />
-    </main>
+    </>
   );
 }

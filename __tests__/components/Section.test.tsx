@@ -40,7 +40,9 @@ describe('Section', () => {
   it('applies brand background variant with on-brand text colour', () => {
     const { container } = render(<Section background="brand">Brand</Section>);
     const el = container.firstChild as HTMLElement;
-    expect(el.className).toContain('bg-[var(--color-brand)]');
+    // a11y-shared #5: brand variant uses the bg-brand utility (not an arbitrary
+    // value) so the .bg-brand *:focus-visible rule matches and the focus ring is white.
+    expect(el.className).toContain('bg-brand');
     expect(el.className).toContain('text-[var(--color-text-on-brand)]');
   });
 

@@ -37,7 +37,7 @@ export interface MobileNavProps {
 
 export function MobileNav({ id, onClose }: MobileNavProps) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const drawerRef = useRef<HTMLElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   // Lock body scroll while drawer is open
@@ -120,8 +120,8 @@ export function MobileNav({ id, onClose }: MobileNavProps) {
         aria-hidden="true"
       />
 
-      {/* Drawer */}
-      <nav
+      {/* Drawer — role="dialog" must be on a generic container, not <nav> */}
+      <div
         id={id}
         ref={drawerRef}
         role="dialog"
@@ -177,6 +177,7 @@ export function MobileNav({ id, onClose }: MobileNavProps) {
                     type="button"
                     onClick={() => toggleExpanded(item.label)}
                     aria-expanded={expanded.has(item.label)}
+                    aria-controls={`mobile-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                     className={cn(
                       'w-full text-left px-4 py-3',
                       'text-base font-medium text-[var(--color-text-primary)]',
@@ -208,7 +209,10 @@ export function MobileNav({ id, onClose }: MobileNavProps) {
                   </button>
 
                   {expanded.has(item.label) && (
-                    <ul className="pl-4 space-y-1 py-1">
+                    <ul
+                      id={`mobile-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="pl-4 space-y-1 py-1"
+                    >
                       {item.children.map((child) => (
                         <li key={child.href}>
                           <Link
@@ -263,7 +267,7 @@ export function MobileNav({ id, onClose }: MobileNavProps) {
             </ButtonLink>
           </div>
         </div>
-      </nav>
+      </div>
     </>
   );
 }

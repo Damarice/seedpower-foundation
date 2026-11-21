@@ -53,6 +53,16 @@ describe('EducationPage', () => {
     expect(screen.queryByText(/2,460|1,260|680/)).not.toBeInTheDocument();
   });
 
+  it('announces the Nyakach heading as "Nyakach Campus" with the subtitle separate', () => {
+    render(<EducationPage />);
+    // a11y-content F-4: subtitle moved outside the <h3> so the heading's
+    // accessible name is the campus name only.
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'Nyakach Campus' })
+    ).toBeInTheDocument();
+    expect(screen.getByText('Grinnell Family Campus')).toBeInTheDocument();
+  });
+
   it('passes axe accessibility check', async () => {
     const { container } = render(<EducationPage />);
     expect(await axe(container)).toHaveNoViolations();

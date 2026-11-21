@@ -102,13 +102,13 @@ export default function EducationPage() {
             <div>
               <Heading
                 variant="h3"
-                className="text-[var(--color-brand)] mb-3"
+                className="text-[var(--color-brand)] mb-1"
               >
                 Nyakach Campus
-                <span className="block text-[length:var(--text-body-sm)] font-[var(--font-body)] font-normal text-[var(--color-text-secondary)] mt-1">
-                  Grinnell Family Campus
-                </span>
               </Heading>
+              <p className="text-[length:var(--text-body-sm)] font-[var(--font-body)] font-normal text-[var(--color-text-secondary)] mb-2">
+                Grinnell Family Campus
+              </p>
               <dl className="space-y-2 mb-4">
                 <div className="flex gap-2">
                   <dt className="font-semibold font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)] min-w-[100px]">Established</dt>

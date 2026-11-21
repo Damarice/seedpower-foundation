@@ -34,6 +34,11 @@ const globalsCss = readFileSync(
   'utf-8'
 );
 
+const tokensCss = readFileSync(
+  join(process.cwd(), 'styles', 'tokens.css'),
+  'utf-8'
+);
+
 describe('White focus ring inside brand-green sections — CSS rule', () => {
   it('globals.css contains the .bg-brand *:focus-visible rule', () => {
     expect(globalsCss).toContain('.bg-brand *:focus-visible');
@@ -60,22 +65,22 @@ describe('White focus ring inside brand-green sections — CSS rule', () => {
 describe('Section brand background class — CSS selector target', () => {
   it('Section with background="brand" applies the bg-brand class', () => {
     const { container } = render(<Section background="brand">CTA</Section>);
-    expect((container.firstChild as HTMLElement).className).toContain('bg-[var(--color-brand)]');
+    expect((container.firstChild as HTMLElement).className).toContain('bg-brand');
   });
 
   it('Section with background="white" does not apply bg-brand', () => {
     const { container } = render(<Section background="white">Content</Section>);
-    expect((container.firstChild as HTMLElement).className).not.toContain('bg-[var(--color-brand)]');
+    expect((container.firstChild as HTMLElement).className).not.toContain('bg-brand');
   });
 
   it('Section with background="soft" does not apply bg-brand', () => {
     const { container } = render(<Section background="soft">Content</Section>);
-    expect((container.firstChild as HTMLElement).className).not.toContain('bg-[var(--color-brand)]');
+    expect((container.firstChild as HTMLElement).className).not.toContain('bg-brand');
   });
 
   it('Section with background="warm" does not apply bg-brand', () => {
     const { container } = render(<Section background="warm">Content</Section>);
-    expect((container.firstChild as HTMLElement).className).not.toContain('bg-[var(--color-brand)]');
+    expect((container.firstChild as HTMLElement).className).not.toContain('bg-brand');
   });
 });
 
@@ -83,5 +88,14 @@ describe('focus:not(:focus-visible) suppression rule', () => {
   it('globals.css suppresses the default outline for mouse users', () => {
     expect(globalsCss).toContain(':focus:not(:focus-visible)');
     expect(globalsCss).toMatch(/:focus:not\(:focus-visible\)\s*\{[\s\S]*?outline\s*:\s*none/);
+  });
+});
+
+describe('Reduced-motion scroll behaviour override (tokens.css)', () => {
+  it('suppresses smooth scroll under prefers-reduced-motion', () => {
+    // a11y-shared #4: scroll-behavior is overridden to auto for reduced-motion users.
+    expect(tokensCss).toMatch(
+      /@media\s*\(prefers-reduced-motion:\s*reduce\)\s*\{[\s\S]*?scroll-behavior:\s*auto/
+    );
   });
 });

@@ -29,7 +29,11 @@ interface GetInvolvedCTAProps {
 
 export function GetInvolvedCTA({ columns }: GetInvolvedCTAProps) {
   return (
-    <section aria-labelledby="get-involved-heading" className="bg-[var(--color-brand)] py-12 tablet:py-16">
+    <section
+      aria-labelledby="get-involved-heading"
+      className="bg-[var(--color-brand)] py-12 tablet:py-16"
+      style={{ '--focus-ring-color': '#ffffff' } as React.CSSProperties}
+    >
       <Container>
         {/* Visually hidden heading provides accessible section name */}
         <h2

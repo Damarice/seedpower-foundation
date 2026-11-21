@@ -73,11 +73,15 @@ describe('ImpactCard', () => {
     expect((container.firstChild as HTMLElement).className).toContain('extra-class');
   });
 
-  it('provides an accessible label combining figure and label', async () => {
+  it('does not add a redundant aria-label to the figure (announced as separate visible text)', async () => {
     await act(async () => {
       render(<ImpactCard figure="375" label="Students supported" />);
     });
-    expect(screen.getByLabelText('375 — Students supported')).toBeInTheDocument();
+    // F3 fix: the combined aria-label was removed so screen readers announce the
+    // figure and label as separate visible texts rather than a redundant combined name.
+    const figure = screen.getByText('375');
+    expect(figure).not.toHaveAttribute('aria-label');
+    expect(screen.getByText('Students supported')).toBeInTheDocument();
   });
 
   it('passes axe accessibility check', async () => {

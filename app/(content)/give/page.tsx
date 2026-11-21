@@ -108,6 +108,7 @@ export default function GivePage() {
                 href="/get-involved/sponsor-a-child"
                 variant="ghost"
                 size="default"
+                aria-label="Learn more about Sponsor a Child"
               >
                 Learn More
               </ButtonLink>

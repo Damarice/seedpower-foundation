@@ -190,11 +190,14 @@
   }
 }
 
-/* Reduced motion — suppress all transitions and animations */
+/* Reduced motion — suppress all transitions, animations, and smooth scroll */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration:  0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }

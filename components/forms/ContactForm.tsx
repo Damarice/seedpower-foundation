@@ -77,10 +77,10 @@ function ErrorIcon() {
 
 function FieldError({ id, message }: { id: string; message: string }) {
   return (
-    <span id={id} role="alert" className={errorBase}>
+    <p id={id} role="alert" className={errorBase}>
       <ErrorIcon />
       {message}
-    </span>
+    </p>
   );
 }
 
