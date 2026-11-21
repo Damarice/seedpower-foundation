@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import ContactPage from '@/app/(content)/contact/page';
+import ContactPage, { metadata } from '@/app/(content)/contact/page';
 
 expect.extend(toHaveNoViolations);
 jest.mock('next/navigation', () => ({ usePathname: () => '/contact' }));
@@ -100,6 +100,37 @@ describe('ContactPage', () => {
     render(<ContactPage />);
     expect(screen.queryByText(/office hours|monday.*friday|9am|9:00/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/P\.?O\.? Box|postal|zip code|postcode/i)).not.toBeInTheDocument();
+  });
+
+  it('does not imply the contact form is currently available in the intro text', () => {
+    render(<ContactPage />);
+    // The intro must not say "send us an enquiry using the contact form"
+    // or similar present-tense form availability language
+    expect(
+      screen.queryByText(/send us an enquiry using the contact form/i)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/send an enquiry through our contact form/i)
+    ).not.toBeInTheDocument();
+  });
+
+  it('metadata.description does not imply the form is currently available', () => {
+    expect(metadata.description).not.toMatch(/send an enquiry through our contact form/i);
+    expect(metadata.description).not.toMatch(/send us an enquiry/i);
+    // Should mention available channels and coming-soon status
+    expect(metadata.description).toMatch(/whatsapp/i);
+    expect(metadata.description).toMatch(/facebook/i);
+    expect(metadata.description).toMatch(/coming soon/i);
+  });
+
+  it('metadata.openGraph.description does not imply the form is currently available', () => {
+    const ogDesc = metadata.openGraph?.description ?? '';
+    expect(ogDesc).not.toMatch(/our enquiry form/i);
+    expect(ogDesc).not.toMatch(/send an enquiry/i);
+    // Should mention available channels and coming-soon status
+    expect(ogDesc).toMatch(/whatsapp/i);
+    expect(ogDesc).toMatch(/facebook/i);
+    expect(ogDesc).toMatch(/coming soon/i);
   });
 
   it('passes axe accessibility check', async () => {

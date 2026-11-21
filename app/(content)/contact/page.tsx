@@ -39,12 +39,12 @@ import { ExternalLink } from '@/components/primitives/ExternalLink';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with SeedPower Foundation. Find us on WhatsApp and Facebook, or send an enquiry through our contact form.',
+    'Get in touch with SeedPower Foundation. Reach us on WhatsApp or Facebook — an online enquiry form is coming soon.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact | SeedPower Foundation',
     description:
-      'Reach SeedPower Foundation via WhatsApp, Facebook, or our enquiry form.',
+      'Reach SeedPower Foundation via WhatsApp or Facebook. An online enquiry form is coming soon.',
     url: '/contact',
     type: 'website',
   },
@@ -65,8 +65,8 @@ export default function ContactPage() {
           </Heading>
           <Text variant="body-lg" className="text-[var(--color-text-primary)]">
             We would love to hear from you. Reach SeedPower Foundation
-            through any of the channels below, or send us an enquiry using
-            the contact form.
+            through any of the channels below. An online enquiry form
+            will be available here soon.
           </Text>
         </Container>
       </Section>
