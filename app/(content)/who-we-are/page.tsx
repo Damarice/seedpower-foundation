@@ -319,8 +319,7 @@ export default function WhoWeArePage() {
           </Text>
 
           <div
-            className="grid grid-cols-1 tablet:grid-cols-2 gap-8 tablet:gap-12
-                       max-w-[800px] mx-auto"
+            className="grid grid-cols-1 tablet:grid-cols-2 gap-8 tablet:gap-12"
           >
             {founders.map((founder) => (
               <div key={founder.id} className="flex flex-col gap-4">

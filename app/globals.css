@@ -34,6 +34,17 @@ body {
   outline: none;
 }
 
+/*
+ * White focus ring inside brand-green sections.
+ * Architecture v1.2 Section 3.2; Visual Design Direction v2.0 Section 1.9.
+ * --focus-ring-color (#2D5016) is invisible against a green background.
+ * Switching to #ffffff maintains 9.25:1 contrast (AAA) against --color-brand.
+ * Only outline-color is overridden; width, style, and offset are inherited.
+ */
+.bg-brand *:focus-visible {
+  outline-color: #ffffff;
+}
+
 /* ─── Typography defaults ───────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);

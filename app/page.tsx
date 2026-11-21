@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   title: 'SeedPower Foundation | Empowering Communities Through Education',
   description:
     "SeedPower Foundation empowers vulnerable communities in Kenya through education, women's empowerment, teacher training, and sustainable development programmes.",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'SeedPower Foundation | Empowering Communities Through Education',
     description:

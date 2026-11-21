@@ -70,7 +70,8 @@ export default function GivePage() {
             Choose the giving pathway that works best for you.
           </Text>
 
-          <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6 tablet:gap-8 max-w-[800px]">
+          {/* Three pathway cards in a horizontal grid at desktop */}
+          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 tablet:gap-8">
 
             {/* Donate */}
             <div
@@ -112,23 +113,23 @@ export default function GivePage() {
               </ButtonLink>
             </div>
 
-          </div>
-
-          {/* Events — conditional, not yet available */}
-          <div
-            className="mt-8 p-5 border border-[var(--color-border)]
-                       rounded-[var(--radius-md)] max-w-[800px]"
-          >
-            <Heading
-              variant="h3"
-              className="text-[var(--color-text-secondary)] mb-2"
+            {/* Events — conditional, not yet available */}
+            <div
+              className="p-5 border border-[var(--color-border)]
+                         rounded-[var(--radius-md)] flex flex-col gap-3"
             >
-              Events
-            </Heading>
-            <Text variant="body-sm" className="text-[var(--color-text-secondary)]">
-              SeedPower Foundation hosts fundraising events to support its
-              programmes. Event details will be published here when confirmed.
-            </Text>
+              <Heading
+                variant="h3"
+                className="text-[var(--color-text-secondary)]"
+              >
+                Events
+              </Heading>
+              <Text variant="body-sm" className="text-[var(--color-text-secondary)] flex-1">
+                SeedPower Foundation hosts fundraising events to support its
+                programmes. Event details will be published here when confirmed.
+              </Text>
+            </div>
+
           </div>
         </Container>
       </Section>

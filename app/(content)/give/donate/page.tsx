@@ -122,7 +122,7 @@ export default function DonatePage() {
             Here are some examples of how donations support SeedPower&apos;s
             work.
           </Text>
-          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4 tablet:gap-6 max-w-[800px]">
+          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4 tablet:gap-6">
             {donationTiers.map((tier) => (
               <div
                 key={tier.amount}
