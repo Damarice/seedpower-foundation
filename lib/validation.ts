@@ -12,7 +12,7 @@ export const contactFormSchema = z.object({
   email:    z.string().email('Invalid email address'),
   subject:  z.string().min(2).max(200).optional(),
   message:  z.string().min(10, 'Message must be at least 10 characters').max(5000),
-  honeypot: z.string().max(0, 'Bot detected'), // Must be empty
+  honeypot: z.string(), // Must be empty — checked explicitly in the API route
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
