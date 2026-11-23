@@ -51,8 +51,10 @@ describe('ProgrammeCard', () => {
     await act(async () => {
       render(<ProgrammeCard {...baseProps} />);
     });
-    // Placeholder is rendered with role="img"
-    expect(screen.getByRole('img', { name: /education centers programme/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: 'Photo placeholder for Education Centers' })
+    ).toBeInTheDocument();
+    expect(screen.getByText('Photo placeholder')).toBeInTheDocument();
   });
 
   it('renders an img element when imageSrc is provided', async () => {
@@ -86,6 +88,27 @@ describe('ProgrammeCard', () => {
       render(<ProgrammeCard {...baseProps} />);
     });
     expect(screen.queryByLabelText('Programme statistics')).not.toBeInTheDocument();
+  });
+
+  it('renders the approved impact detail', async () => {
+    await act(async () => {
+      render(
+        <ProgrammeCard
+          {...baseProps}
+          impactDetail="375 students supported"
+        />
+      );
+    });
+    expect(screen.getByLabelText('Programme impact')).toHaveTextContent(
+      '375 students supported'
+    );
+  });
+
+  it('renders programme status when provided', async () => {
+    await act(async () => {
+      render(<ProgrammeCard {...baseProps} status="In Development" />);
+    });
+    expect(screen.getByLabelText('Programme status')).toHaveTextContent('In Development');
   });
 
   it('applies additional className to the outer element', async () => {

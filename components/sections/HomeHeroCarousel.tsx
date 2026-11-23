@@ -140,7 +140,7 @@ export function HomeHeroCarousel() {
         className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[56%] bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_1px,transparent_1px,transparent_24px)] tablet:block"
       />
 
-      <div className="mx-auto flex min-h-[inherit] w-full max-w-[1400px] flex-col justify-center px-4 pb-24 pt-8 tablet:px-6 tablet:pb-28 wide:px-10">
+      <div className="mx-auto flex min-h-[inherit] w-full max-w-[var(--container-max)] flex-col justify-center px-[var(--container-padding-mobile)] pb-24 pt-8 tablet:px-[var(--container-padding-tablet)] tablet:pb-28">
         <div
           key={activeIndex}
           role="group"
@@ -170,7 +170,7 @@ export function HomeHeroCarousel() {
       <div
         role="group"
         aria-label="Carousel controls"
-        className="absolute inset-x-4 bottom-5 flex items-center justify-between tablet:inset-x-6 tablet:bottom-7 wide:inset-x-10"
+        className="absolute inset-x-0 bottom-5 mx-auto flex w-full max-w-[var(--container-max)] items-center justify-between px-[var(--container-padding-mobile)] tablet:bottom-7 tablet:px-[var(--container-padding-tablet)]"
       >
         <div role="group" aria-label="Choose a slide" className="flex items-center gap-2">
           {slides.map((item, index) => (

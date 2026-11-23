@@ -19,6 +19,14 @@ describe('Header', () => {
     expect(document.querySelector('header')).toBeInTheDocument();
   });
 
+  it('keeps the header in normal document flow', async () => {
+    await act(async () => {
+      render(<Header />);
+    });
+    const header = document.querySelector('header');
+    expect(header?.className).not.toMatch(/\b(sticky|fixed)\b/);
+  });
+
   it('logo links to /', async () => {
     await act(async () => {
       render(<Header />);

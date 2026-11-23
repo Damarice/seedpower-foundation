@@ -22,8 +22,12 @@ export interface ProgrammeCardStat {
 export interface ProgrammeCardProps {
   /** Programme name — rendered as an H3. */
   title: string;
-  /** Programme description — clamped to 3 lines. */
+  /** Programme description. */
   description: string;
+  /** Approved impact detail displayed beneath the description. */
+  impactDetail?: string;
+  /** Programme status, when applicable. */
+  status?: string;
   /** Optional 2–3 key figures displayed beneath the description. */
   stats?: ProgrammeCardStat[];
   /** Internal href for the programme page. */
@@ -39,6 +43,8 @@ export interface ProgrammeCardProps {
 export function ProgrammeCard({
   title,
   description,
+  impactDetail,
+  status,
   stats,
   href,
   imageSrc,
@@ -48,84 +54,89 @@ export function ProgrammeCard({
   return (
     <article
       className={cn(
-        /* Base card — no padding here; padding is managed per-zone below */
-        'group',
+        'group flex h-full flex-col overflow-hidden rounded-[var(--radius-md)]',
         'bg-[var(--color-bg-page)]',
         'border border-[var(--color-border)]',
-        'rounded-[var(--radius-md)]',
-        'overflow-hidden',
-        '[transition:box-shadow_var(--transition-std)]',
+        '[transition:transform_var(--transition-std),border-color_var(--transition-std),box-shadow_var(--transition-std)]',
+        '[@media(hover:hover)]:hover:-translate-y-1',
+        '[@media(hover:hover)]:hover:border-[var(--color-brand)]',
+        '[@media(hover:hover)]:hover:shadow-[var(--shadow-card)]',
         className
       )}
     >
       {/* ── Image area ──────────────────────────────────────────── */}
-      {/* Mobile: 16:9 aspect ratio; Desktop: 4:3 (via CSS override) */}
       <div
-        className="aspect-video desktop:aspect-[4/3] w-full overflow-hidden relative"
+        className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-bg-soft)]"
       >
         {imageSrc ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={imageSrc}
             alt={imageAlt ?? ''}
-            className="w-full h-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
+            className="h-full w-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
           />
         ) : (
-          /* Placeholder — shown until image assets are provided */
           <div
-            className="w-full h-full bg-[var(--color-bg-soft)] [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
+            className="flex h-full w-full items-center justify-center bg-[radial-gradient(ellipse_at_78%_32%,rgba(255,255,255,0.7),transparent_38%),linear-gradient(135deg,var(--color-bg-warm),var(--color-bg-soft))]"
             role="img"
-            aria-label={imageAlt ?? `${title} programme`}
-          />
+            aria-label={imageAlt ?? `Photo placeholder for ${title}`}
+          >
+            <span className="flex flex-col items-center gap-2 text-center text-[var(--color-text-secondary)]">
+              <svg
+                className="h-8 w-8 text-[var(--color-brand)]/70"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <circle cx="12" cy="12" r="3" />
+                <path d="M7 5l1-2h8l1 2" />
+              </svg>
+              <span className="text-xs font-medium uppercase tracking-[0.12em]">
+                Photo placeholder
+              </span>
+            </span>
+          </div>
         )}
       </div>
 
       {/* ── Content area ────────────────────────────────────────── */}
-      <div className="p-4 tablet:p-5 desktop:p-6 flex flex-col gap-3">
-
-        {/* Programme name — H3, brand colour, Manrope 24px desktop */}
+      <div className="flex flex-1 flex-col items-start p-5 tablet:p-6">
         <h3
           className={cn(
-            'font-[var(--font-heading)]',
-            'text-[length:var(--text-h3)]',
-            'leading-[var(--text-h3--lh)]',
-            'font-semibold',
-            'text-[var(--color-brand)]',
+            'mb-3 font-[var(--font-heading)] text-[length:var(--text-h3)]',
+            'leading-[var(--text-h3--lh)] font-semibold text-[var(--color-brand)]'
           )}
         >
           {title}
         </h3>
 
-        {/* Description — Inter body, max 3 lines */}
         <p
           className={cn(
-            'font-[var(--font-body)]',
-            'text-[length:var(--text-body)]',
-            'leading-[var(--text-body--lh)]',
-            'text-[var(--color-text-primary)]',
-            'line-clamp-3',
+            'font-[var(--font-body)] text-[length:var(--text-body)]',
+            'leading-[var(--text-body--lh)] text-[var(--color-text-primary)]'
           )}
         >
           {description}
         </p>
 
-        {/* Stats row — 2–3 key figures */}
-        {stats && stats.length > 0 && (
+        {(impactDetail || status || (stats && stats.length > 0)) && (
           <p
             className={cn(
-              'font-[var(--font-body)]',
-              'text-[13px]',
-              'font-medium',
-              'text-[var(--color-text-secondary)]',
+              'mt-4 font-[var(--font-body)] text-sm font-semibold',
+              status && !impactDetail && (!stats || stats.length === 0)
+                ? 'rounded-full bg-[var(--color-bg-warm)] px-3 py-1 text-[var(--color-brand)]'
+                : 'text-[var(--color-text-secondary)]'
             )}
-            aria-label="Programme statistics"
+            aria-label={status ? 'Programme status' : 'Programme impact'}
           >
-            {stats.map((s) => s.label).join(' · ')}
+            {impactDetail ?? (stats?.length ? stats.map((s) => s.label).join(' · ') : status)}
           </p>
         )}
 
-        {/* CTA — Ghost ButtonLink, left-aligned */}
-        <div className="mt-auto pt-1">
+        <div className="mt-auto pt-5">
           <ButtonLink href={href} variant="ghost" size="sm" aria-label={`Learn more about ${title}`}>
             Learn More
           </ButtonLink>

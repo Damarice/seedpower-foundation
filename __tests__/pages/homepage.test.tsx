@@ -4,7 +4,7 @@
  * Covers:
  *   - Renders without error.
  *   - Single H1 (the active hero carousel slide).
- *   - Mission strip text present.
+ *   - The standalone mission strip is omitted from the homepage.
  *   - Impact statistics section with all four confirmed figures.
  *   - Programme grid section heading and all six programme titles.
  *   - Featured story heading and content.
@@ -33,11 +33,11 @@ describe('HomePage', () => {
     expect(h1s).toHaveLength(1);
   });
 
-  it('renders the confirmed mission statement text', () => {
+  it('does not render the standalone mission statement on the homepage', () => {
     render(<HomePage />);
     expect(
-      screen.getByText(/enable, equip and empower students with special needs/i)
-    ).toBeInTheDocument();
+      screen.queryByText(/enable, equip and empower students with special needs/i)
+    ).not.toBeInTheDocument();
   });
 
   it('renders all four confirmed impact statistics', () => {
@@ -45,14 +45,16 @@ describe('HomePage', () => {
     const impact = screen.getByRole('region', { name: /our impact/i });
     // F3 fix: each stat's figure and label render as separate visible texts
     // (the combined aria-label was removed).
-    expect(within(impact).getByText('375')).toBeInTheDocument();
-    expect(within(impact).getByText('Students Served')).toBeInTheDocument();
-    expect(within(impact).getByText('1,738')).toBeInTheDocument();
-    expect(within(impact).getByText('People Reached')).toBeInTheDocument();
+    expect(within(impact).getByText('375', { selector: '.sr-only' })).toBeInTheDocument();
+    expect(within(impact).getByText('Children Supported')).toBeInTheDocument();
+    expect(within(impact).getByText('1,738', { selector: '.sr-only' })).toBeInTheDocument();
+    expect(
+      within(impact).getByText('People Reached Through Teacher Development')
+    ).toBeInTheDocument();
     expect(within(impact).queryByText('Educators Trained')).not.toBeInTheDocument();
-    expect(within(impact).getByText('~100')).toBeInTheDocument();
+    expect(within(impact).getByText('~100', { selector: '.sr-only' })).toBeInTheDocument();
     expect(within(impact).getByText('Women Trained')).toBeInTheDocument();
-    expect(within(impact).getByText('2018')).toBeInTheDocument();
+    expect(within(impact).getByText('2018', { selector: '.sr-only' })).toBeInTheDocument();
     expect(within(impact).getByText('Year Founded')).toBeInTheDocument();
   });
 
@@ -76,6 +78,38 @@ describe('HomePage', () => {
     for (const title of titles) {
       expect(screen.getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     }
+  });
+
+  it('renders the requested programme introduction and impact details', () => {
+    render(<HomePage />);
+    expect(
+      screen.getByText(
+        'Creating opportunities and lasting change through education, empowerment and community care.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('375 students supported')).toBeInTheDocument();
+    expect(screen.getByText('Nearly 100 women trained')).toBeInTheDocument();
+    expect(screen.getByText('1,738 people reached across 47 counties')).toBeInTheDocument();
+    expect(screen.getByLabelText('Programme status')).toHaveTextContent('In Development');
+  });
+
+  it('uses the existing route for each programme and the programmes index', () => {
+    render(<HomePage />);
+    const routes = [
+      ['/what-we-do/education', /learn more about education centers/i],
+      ['/what-we-do/womens-empowerment', /learn more about women's empowerment/i],
+      ['/what-we-do/teacher-training', /learn more about teacher training/i],
+      ['/what-we-do/wash', /learn more about water & sanitation/i],
+      ['/what-we-do/food-project', /learn more about sustainable food project/i],
+      ['/what-we-do/community-outreach', /learn more about community outreach/i],
+    ] as const;
+    for (const [href, accessibleName] of routes) {
+      expect(screen.getByRole('link', { name: accessibleName })).toHaveAttribute('href', href);
+    }
+    expect(screen.getByRole('link', { name: 'View All Programmes' })).toHaveAttribute(
+      'href',
+      '/what-we-do'
+    );
   });
 
   it('renders the featured story heading', () => {

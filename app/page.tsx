@@ -16,7 +16,6 @@
  */
 import type { Metadata } from 'next';
 import {
-  MissionStrip,
   ImpactStatsSection,
   ProgrammeGridSection,
   FeaturedStorySection,
@@ -54,9 +53,6 @@ export default function HomePage() {
     <>
       <HomeHeroCarousel />
 
-      {/* ══ Mission Statement Strip ══ */}
-      <MissionStrip text="To enable, equip and empower students with special needs and children at risk to develop to their maximum potential in their school, families and the community." />
-
       {/* ══ Impact Statistics
           Confirmed figures only: Architecture v1.2 Section 13, Phase 5.
           Source list: 375 students, founded 2018, 1,738 people reached, ~100 women.
@@ -67,11 +63,11 @@ export default function HomePage() {
         stats={[
           {
             figure: '375',
-            label: 'Students Served',
+            label: 'Children Supported',
           },
           {
             figure: '1,738',
-            label: 'People Reached',
+            label: 'People Reached Through Teacher Development',
           },
           {
             figure: '~100',
@@ -87,46 +83,46 @@ export default function HomePage() {
       {/* ══ What We Do — Programme Grid (6 programmes) ══ */}
       <ProgrammeGridSection
         heading="What We Do"
-        subheading="Sustainable community development through education, empowerment, and care"
+        subheading="Creating opportunities and lasting change through education, empowerment and community care."
         programmes={[
           {
             title: 'Education Centers',
             description:
-              'The Oyugis campus supports 220 children and the Grinnell Family campus 155, for 375 children across both campuses, including children with special needs.',
-            stats: [{ label: '375 students' }],
+              'Inclusive learning and educational support for children, including those with special needs, across our Oyugis and Grinnell Family campuses.',
+            impactDetail: '375 students supported',
             href: '/what-we-do/education',
           },
           {
             title: "Women's Empowerment",
             description:
-              'Skills training in sewing, basket making, and entrepreneurship for nearly 100 women, building household stability and self-reliance.',
-            stats: [{ label: '~100 women trained' }],
+              'Practical skills training in sewing, basket making and entrepreneurship, helping women build confidence, household stability and self-reliance.',
+            impactDetail: 'Nearly 100 women trained',
             href: '/what-we-do/womens-empowerment',
           },
           {
             title: 'Teacher Training',
             description:
-              'Teacher development initiatives have reached 1,738 people—including special needs and ECDE teachers, social workers, parents of children with special needs, community leaders and community-based organisations—across 47 counties.',
-            stats: [{ label: '1,738 reached' }, { label: '47 counties' }],
+              'Teacher development and community training initiatives that strengthen inclusive education and support children with special needs.',
+            impactDetail: '1,738 people reached across 47 counties',
             href: '/what-we-do/teacher-training',
           },
           {
             title: 'Water & Sanitation',
             description:
-              'Clean water access, sanitation facilities, and hygiene education for students and community members at both campuses.',
+              'Improving access to clean water, sanitation facilities and hygiene education for students and surrounding communities.',
             href: '/what-we-do/wash',
           },
           {
             title: 'Sustainable Food Project',
             description:
-              'Poultry, aquaponics, regenerative gardening, and dairy farming to provide nutrition and agricultural skills training. Currently in development.',
-            stats: [{ label: 'In development' }],
+              'Developing practical agricultural initiatives through poultry, aquaponics, regenerative gardening and dairy farming to strengthen nutrition and agricultural skills.',
+            status: 'In Development',
             href: '/what-we-do/food-project',
           },
           {
             title: 'Community Outreach',
             description:
-              'Relief food distribution, hygiene supplies for teenagers, substance abuse prevention, and child rights advocacy across the community.',
+              'Supporting vulnerable communities through relief food distribution, hygiene supplies, substance abuse prevention and child rights advocacy.',
             href: '/what-we-do/community-outreach',
           },
         ]}

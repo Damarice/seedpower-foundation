@@ -26,21 +26,21 @@ export function ProgrammeGridSection({
   viewAllHref,
 }: ProgrammeGridSectionProps) {
   return (
-    <section aria-labelledby="programmes-heading" className="bg-[var(--color-bg-page)] py-12 tablet:py-16">
+    <section
+      aria-labelledby="programmes-heading"
+      className="bg-[var(--color-bg-page)] py-12 tablet:py-16"
+    >
       <Container>
-        {/* Heading and subheading */}
-        <div className="text-center mb-8 tablet:mb-12">
+        <div className="mb-8 max-w-[680px] tablet:mb-10">
           <h2
             id="programmes-heading"
-            className="font-[var(--font-heading)] text-[length:var(--text-h2)] 
-                       font-bold text-[var(--color-text-primary)] mb-2"
+            className="mb-3 font-[var(--font-heading)] text-[length:var(--text-h2)] font-bold text-[var(--color-text-primary)]"
           >
             {heading}
           </h2>
           {subheading && (
             <p
-              className="font-[var(--font-body)] text-[18px] 
-                         text-[var(--color-text-secondary)] max-w-[600px] mx-auto"
+              className="max-w-[600px] font-[var(--font-body)] text-[length:var(--text-body-lg)] leading-relaxed text-[var(--color-text-secondary)]"
             >
               {subheading}
             </p>
@@ -49,17 +49,16 @@ export function ProgrammeGridSection({
 
         {/* Programme grid */}
         <div
-          className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 
-                     gap-6 tablet:gap-8"
+          className="grid auto-rows-fr grid-cols-1 items-stretch gap-5 tablet:grid-cols-2 tablet:gap-6 desktop:grid-cols-3 desktop:gap-7"
         >
-          {programmes.map((programme, index) => (
-            <ProgrammeCard key={index} {...programme} />
+          {programmes.map((programme) => (
+            <ProgrammeCard key={programme.href} {...programme} />
           ))}
         </div>
 
         {/* Optional "View all" button */}
         {viewAllHref && (
-          <div className="text-center mt-8 tablet:mt-12">
+          <div className="mt-8 tablet:mt-10">
             <ButtonLink href={viewAllHref} variant="ghost" size="default">
               View All Programmes
             </ButtonLink>

@@ -3,7 +3,7 @@
  *
  * The root layout (app/layout.tsx) already provides:
  *   - <html> + <body> with font variables
- *   - <Header> (sticky navigation)
+ *   - <Header> (normal-flow navigation)
  *   - <main> wrapper
  *   - <Footer>
  *

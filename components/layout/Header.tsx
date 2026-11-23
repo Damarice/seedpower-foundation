@@ -1,13 +1,13 @@
 'use client';
 
 /**
- * Header — sticky navigation bar.
+ * Header — normal-flow site navigation.
  *
  * Heights: 56px mobile (h-[var(--nav-height-mobile)]),
  *          64px desktop (desktop:h-[var(--nav-height-desktop)]).
  * Background: var(--color-bg-page) (#ffffff).
  * Bottom border: 1px solid var(--color-border).
- * Z-index: z-40 (above page content, below modals at z-50).
+ * The header remains in normal document flow and scrolls with the page.
  *
  * Logo: text fallback "SeedPower Foundation" until image asset is available.
  * Donate button: ButtonLink variant primary → /give/donate.
@@ -54,7 +54,6 @@ export function Header() {
     <>
       <header
         className={[
-          'sticky top-0 z-40',
           'bg-[var(--color-bg-page)]',
           'border-b border-[var(--color-border)]',
           'h-[var(--nav-height-mobile)] desktop:h-[var(--nav-height-desktop)]',
