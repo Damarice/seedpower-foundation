@@ -208,32 +208,33 @@ export function MobileNav({ id, onClose }: MobileNavProps) {
                     </svg>
                   </button>
 
-                  {expanded.has(item.label) && (
-                    <ul
-                      id={`mobile-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="pl-4 space-y-1 py-1"
-                    >
-                      {item.children.map((child) => (
-                        <li key={child.href}>
-                          <Link
-                            href={child.href}
-                            onClick={onClose}
-                            className={cn(
-                              'block px-4 py-2 no-underline',
-                              'text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)]',
-                              'hover:text-[var(--color-brand)]',
-                              'rounded-[var(--radius-sm)]',
-                              'min-h-[var(--touch-target-min)] flex items-center',
-                              'transition-colors duration-[var(--transition-fast)]',
-                              focusRing
-                            )}
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  {/* Always render the sub-list so aria-controls always finds its target.
+                      Use the `hidden` attribute to show/hide rather than conditional rendering. */}
+                  <ul
+                    id={`mobile-nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    hidden={!expanded.has(item.label)}
+                    className="pl-4 space-y-1 py-1"
+                  >
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          onClick={onClose}
+                          className={cn(
+                            'block px-4 py-2 no-underline',
+                            'text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)]',
+                            'hover:text-[var(--color-brand)]',
+                            'rounded-[var(--radius-sm)]',
+                            'min-h-[var(--touch-target-min)] flex items-center',
+                            'transition-colors duration-[var(--transition-fast)]',
+                            focusRing
+                          )}
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </>
               ) : (
                 <Link

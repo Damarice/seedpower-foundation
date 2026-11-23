@@ -14,7 +14,7 @@
  *   - axe accessibility check.
  */
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { act } from 'react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { MobileNav } from '@/components/layout/MobileNav';
@@ -135,22 +135,24 @@ describe('MobileNav', () => {
     expect(firstExpandBtn).toHaveAttribute('aria-expanded', 'true');
   });
 
-  it('child links become visible after expanding the accordion', async () => {
+  it('sub-list changes from hidden to visible after expanding the accordion', async () => {
     await act(async () => {
       render(<MobileNav {...defaultProps} />);
     });
     const expandButtons = screen
       .getAllByRole('button')
       .filter((btn) => btn.hasAttribute('aria-expanded'));
+    const firstBtn = expandButtons[0]!;
+    const controlsId = firstBtn.getAttribute('aria-controls')!;
+    const subList = document.getElementById(controlsId)!;
+    // Before expansion: sub-list is in DOM but hidden
+    expect(subList).not.toBeNull();
+    expect(subList).toHaveAttribute('hidden');
     await act(async () => {
-      fireEvent.click(expandButtons[0]!);
+      fireEvent.click(firstBtn);
     });
-    // After expansion, child links should be in the DOM
-    await waitFor(() => {
-      const links = screen.getAllByRole('link');
-      // More links now visible than before
-      expect(links.length).toBeGreaterThan(2);
-    });
+    // After expansion: hidden attribute removed
+    expect(subList).not.toHaveAttribute('hidden');
   });
 
   it('toggling an open accordion item collapses it again', async () => {
@@ -167,7 +169,7 @@ describe('MobileNav', () => {
     expect(btn).toHaveAttribute('aria-expanded', 'false');
   });
 
-  it('accordion buttons expose aria-controls pointing to their sub-list', async () => {
+  it('accordion buttons expose aria-controls pointing to a persistently-rendered sub-list', async () => {
     await act(async () => {
       render(<MobileNav {...defaultProps} />);
     });
@@ -175,19 +177,16 @@ describe('MobileNav', () => {
       .getAllByRole('button')
       .filter((btn) => btn.hasAttribute('aria-expanded'));
     expect(expandButtons.length).toBeGreaterThan(0);
-    // a11y-shared #2: every accordion toggle associates with its sub-list.
+    // a11y-shared #2 / review finding #6: every accordion toggle must reference
+    // a sub-list that is always present in the DOM (using `hidden` attr to
+    // show/hide) so aria-controls is never a dangling reference.
     for (const btn of expandButtons) {
       const controlsId = btn.getAttribute('aria-controls');
       expect(controlsId).toBeTruthy();
       expect(controlsId).toMatch(/^mobile-nav-/);
+      // Sub-list must exist in the DOM even while collapsed.
+      expect(document.getElementById(controlsId!)).not.toBeNull();
     }
-    // The controlled sub-list renders with the matching id once expanded.
-    const firstBtn = expandButtons[0]!;
-    const firstControlsId = firstBtn.getAttribute('aria-controls')!;
-    await act(async () => {
-      fireEvent.click(firstBtn);
-    });
-    expect(document.getElementById(firstControlsId)).not.toBeNull();
   });
 
   it('passes axe accessibility check', async () => {

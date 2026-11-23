@@ -7,6 +7,7 @@
  * Each with icon, heading, description, and white ghost button.
  */
 import React from 'react';
+import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
@@ -29,10 +30,9 @@ interface GetInvolvedCTAProps {
 
 export function GetInvolvedCTA({ columns }: GetInvolvedCTAProps) {
   return (
-    <section
+    <Section
+      background="brand"
       aria-labelledby="get-involved-heading"
-      className="bg-[var(--color-brand)] py-12 tablet:py-16"
-      style={{ '--focus-ring-color': '#ffffff' } as React.CSSProperties}
     >
       <Container>
         {/* Visually hidden heading provides accessible section name */}
@@ -84,6 +84,6 @@ export function GetInvolvedCTA({ columns }: GetInvolvedCTAProps) {
           ))}
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

@@ -68,12 +68,12 @@ export function ProgrammeCard({
           <img
             src={imageSrc}
             alt={imageAlt ?? ''}
-            className="w-full h-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03]"
+            className="w-full h-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
           />
         ) : (
           /* Placeholder — shown until image assets are provided */
           <div
-            className="w-full h-full bg-[var(--color-bg-soft)] [transition:transform_var(--transition-slow)] group-hover:scale-[1.03]"
+            className="w-full h-full bg-[var(--color-bg-soft)] [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
             role="img"
             aria-label={imageAlt ?? `${title} programme`}
           />

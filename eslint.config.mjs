@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Agent workspace — tooling scripts, capture scripts and generated
+    // artifacts are not application source and must not be linted.
+    ".agents/**",
   ]),
 ]);
 

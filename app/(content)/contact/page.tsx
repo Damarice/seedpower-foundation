@@ -73,7 +73,7 @@ export default function ContactPage() {
 
       {/* Contact channels */}
       <Section background="white" aria-labelledby="contact-channels-heading">
-        <Container variant="narrow">
+        <Container>
           <Heading
             variant="h2"
             id="contact-channels-heading"
@@ -82,7 +82,7 @@ export default function ContactPage() {
             Get in Touch
           </Heading>
 
-          <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4 desktop:max-w-[800px]">
 
             {/* WhatsApp */}
             <div

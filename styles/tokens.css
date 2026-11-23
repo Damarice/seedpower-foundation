@@ -121,6 +121,16 @@
   --bp-desktop: 64rem;   /* 1024px — desktop and above       */
   --bp-wide:    90rem;   /* 1440px — large desktop           */
 
+  /*
+   * Tailwind v4 generates responsive prefixes from --breakpoint-* variables.
+   * The --bp-* variables above are kept for CSS var() references; these
+   * --breakpoint-* entries register the same values so that tablet:, desktop:,
+   * and wide: utility prefixes are recognised during the build.
+   */
+  --breakpoint-tablet:  48rem;   /* 768px  — matches --bp-tablet  */
+  --breakpoint-desktop: 64rem;   /* 1024px — matches --bp-desktop */
+  --breakpoint-wide:    90rem;   /* 1440px — matches --bp-wide    */
+
   /* ─── Border Radii ───────────────────────────────────────────── */
   --radius-sm:   0.25rem;    /* 4px     — buttons, inputs        */
   --radius-md:   0.375rem;   /* 6px     — cards, dropdowns       */
@@ -198,6 +208,6 @@
     animation-iteration-count: 1 !important;
   }
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
 }

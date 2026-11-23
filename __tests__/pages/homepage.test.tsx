@@ -124,11 +124,12 @@ describe('HomePage', () => {
     expect(screen.queryByRole('main')).not.toBeInTheDocument();
   });
 
-  it('overrides the focus ring colour to white on the brand-green Get Involved section', () => {
-    // F2 fix: white focus ring on the brand background so the ring stays visible.
+  it('applies the bg-brand class on the Get Involved section so the white focus-ring CSS rule fires', () => {
+    // F2 / review finding #4 fix: the section must carry bg-brand so that
+    // the global `.bg-brand *:focus-visible { outline-color: #ffffff }` rule matches.
     render(<HomePage />);
     const region = screen.getByRole('region', { name: /get involved/i });
-    expect(region.style.getPropertyValue('--focus-ring-color')).toBe('#ffffff');
+    expect(region.className).toContain('bg-brand');
   });
 
   it('renders the "More Stories" link with a descriptive accessible name', () => {

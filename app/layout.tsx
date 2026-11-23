@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   },
   description:
     'SeedPower Foundation works to exploit potential and eradicate poverty through education, community outreach, and empowerment programmes in Kenya.',
-  // Production domain pending client confirmation.
-  // Replace with the verified domain before deployment.
+  // Production domain: seedpowerfoundation.org (see .env.example).
+  // Set NEXT_PUBLIC_SITE_URL in the deployment environment before building.
   // See docs/architecture/phase-1-implementation-decisions.md — Decision 4.
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
@@ -46,8 +46,8 @@ export default function RootLayout({
             'absolute left-[-9999px] top-auto',
             'w-px h-px overflow-hidden',
             /* Snap into view on focus */
-            'focus:left-4 focus:top-4',
-            'focus:w-auto focus:h-auto focus:overflow-visible',
+            'focus-visible:left-4 focus-visible:top-4',
+            'focus-visible:w-auto focus-visible:h-auto focus-visible:overflow-visible',
             /* Visual treatment */
             'z-50',
             'inline-block',
@@ -58,11 +58,11 @@ export default function RootLayout({
             'rounded-[var(--radius-sm)]',
             'no-underline',
             /* Focus ring — same tokens as the rest of the site */
-            'focus:outline',
-            'focus:outline-[length:var(--focus-ring-width)]',
-            'focus:outline-[color:var(--focus-ring-color)]',
-            'focus:[outline-style:var(--focus-ring-style)]',
-            'focus:outline-offset-[var(--focus-ring-offset)]',
+            'focus-visible:outline',
+            'focus-visible:outline-[length:var(--focus-ring-width)]',
+            'focus-visible:outline-[color:var(--focus-ring-color)]',
+            'focus-visible:[outline-style:var(--focus-ring-style)]',
+            'focus-visible:outline-offset-[var(--focus-ring-offset)]',
           ].join(' ')}
         >
           Skip to main content

@@ -36,6 +36,7 @@
     "jest": "^30.5.2",
     "jest-axe": "^11.0.0",
     "jest-environment-jsdom": "^30.5.2",
+    "playwright": "^1.65.1",
     "postcss": "^8.5.33",
     "tailwindcss": "^4.3.5",
     "typescript": "^5"

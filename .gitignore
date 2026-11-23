@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Agent workspace — generated artifacts
+# Markdown reports and JSON files under .agents/ are tracked as project
+# audit documentation. Exclude binary and runtime-generated files only.
+.agents/**/*.png
+.agents/**/*.log
+.agents/**/*.pid
+.agents/**/*.mjs
+.agents/**/*.js
