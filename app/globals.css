@@ -53,6 +53,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
+/*
+ * Brand and dark section headings — restore inherited colour so that
+ * headings inside .bg-brand or .bg-[var(--color-bg-dark)] sections
+ * read as white rather than being overridden by the rule above.
+ * Architecture v1.2 Section 3.2; Visual Design Direction v2.0 Section 1.9.
+ */
+.bg-brand h1, .bg-brand h2, .bg-brand h3,
+.bg-brand h4, .bg-brand h5, .bg-brand h6 {
+  color: var(--color-text-on-brand);
+}
+
 p {
   margin-bottom: var(--space-4);
 }
