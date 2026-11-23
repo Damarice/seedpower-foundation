@@ -3,14 +3,9 @@
  * Architecture v1.2 — Section 13 (Phase 5 deliverables).
  * Visual Design Direction v2.0 — Section 3.2 (Homepage Section Sequence).
  *
- * HERO SECTION — AWAITING TWO CLIENT DECISIONS:
- *   1. Hero type: static editorial hero (recommended) OR manually-advanced carousel.
- *   2. Hero headline: approved H1 text.
- *   Reference: VDD v2.0 Section 6.1 and 6.2; Architecture v1.2 Section 14.
- *
  * STATISTICS — confirmed figures only (Architecture v1.2 Section 13, Phase 5):
  *   - 375 students served (confirmed across multiple source pages)
- *   - 1,738 individuals trained across 47 counties — teacher outreach, cumulative
+ *   - 1,738 individuals reached through teacher development across 47 counties
  *   - Nearly 100 women trained (scope unconfirmed: cumulative vs current)
  *   - Founded 2018, Registered 2019
  *
@@ -27,6 +22,7 @@ import {
   FeaturedStorySection,
   GetInvolvedCTA,
 } from '@/components/sections';
+import { HomeHeroCarousel } from '@/components/sections/HomeHeroCarousel';
 
 export const metadata: Metadata = {
   title: 'SeedPower Foundation | Empowering Communities Through Education',
@@ -56,57 +52,14 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* ════════════════════════════════════════════════════════════
-          HERO SECTION — AWAITING CLIENT DECISION (review placeholder)
-
-          Two decisions remain unresolved:
-
-          1. Hero type: Static editorial hero (recommended in VDD v2.0
-             Section 3.1) OR manually-advanced carousel?
-
-          2. Hero headline: What is the approved hero H1 text?
-             The full mission statement is accurate but long for an H1.
-
-          DECISION REFERENCE: VDD v2.0 Section 6.1 and 6.2;
-          Architecture v1.2 Section 14.
-
-          This placeholder preserves the specified dimensions and
-          heading hierarchy. It must be replaced with the approved
-          hero component before the page ships publicly.
-          ════════════════════════════════════════════════════════════ */}
-      <section
-        aria-label="Hero — awaiting client decision"
-        className="bg-[var(--color-bg-warm)] min-h-[320px] tablet:min-h-[420px]
-                   desktop:min-h-[520px] flex items-center justify-center"
-      >
-        <div className="text-center px-4 max-w-[720px] mx-auto">
-          <p
-            className="font-[var(--font-body)] text-sm font-medium uppercase
-                       tracking-[0.08em] text-[var(--color-text-secondary)] mb-3"
-          >
-            Kenya, East Africa
-          </p>
-          <h1
-            className="font-[var(--font-heading)] text-[28px] tablet:text-[36px]
-                       desktop:text-[48px] font-bold text-[var(--color-text-primary)]
-                       leading-[1.15] mb-4"
-          >
-            [Hero Headline — Awaiting Client Approval]
-          </h1>
-          <p className="font-[var(--font-body)] text-base tablet:text-lg
-                        text-[var(--color-text-secondary)] mb-6">
-            Hero decision pending: static editorial hero or manually-advanced
-            carousel. See Architecture v1.2 Section 14 decisions.
-          </p>
-        </div>
-      </section>
+      <HomeHeroCarousel />
 
       {/* ══ Mission Statement Strip ══ */}
       <MissionStrip text="To enable, equip and empower students with special needs and children at risk to develop to their maximum potential in their school, families and the community." />
 
       {/* ══ Impact Statistics
           Confirmed figures only: Architecture v1.2 Section 13, Phase 5.
-          Source list: 375 students, founded 2018, 1,738 educators, ~100 women.
+          Source list: 375 students, founded 2018, 1,738 people reached, ~100 women.
           "8 Active Programmes" excluded — not in confirmed list; campus count
           and in-development status make the figure inaccurate.
           ══ */}
@@ -118,7 +71,7 @@ export default function HomePage() {
           },
           {
             figure: '1,738',
-            label: 'Educators Trained',
+            label: 'People Reached',
           },
           {
             figure: '~100',
@@ -139,7 +92,7 @@ export default function HomePage() {
           {
             title: 'Education Centers',
             description:
-              'Two campuses serving 375 vulnerable children and those with special needs in Oyugis and Nyakach, Kenya.',
+              'The Oyugis campus supports 220 children and the Grinnell Family campus 155, for 375 children across both campuses, including children with special needs.',
             stats: [{ label: '375 students' }],
             href: '/what-we-do/education',
           },
@@ -153,8 +106,8 @@ export default function HomePage() {
           {
             title: 'Teacher Training',
             description:
-              'Partnership with Little Light House USA has trained 1,738 teachers, social workers, and community leaders across 47 counties in special needs education.',
-            stats: [{ label: '1,738 trained' }, { label: '47 counties' }],
+              'Teacher development initiatives have reached 1,738 people—including special needs and ECDE teachers, social workers, parents of children with special needs, community leaders and community-based organisations—across 47 counties.',
+            stats: [{ label: '1,738 reached' }, { label: '47 counties' }],
             href: '/what-we-do/teacher-training',
           },
           {

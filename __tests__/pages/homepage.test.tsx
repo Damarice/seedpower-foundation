@@ -3,7 +3,7 @@
  *
  * Covers:
  *   - Renders without error.
- *   - Single H1 (the hero section placeholder).
+ *   - Single H1 (the active hero carousel slide).
  *   - Mission strip text present.
  *   - Impact statistics section with all four confirmed figures.
  *   - Programme grid section heading and all six programme titles.
@@ -48,7 +48,8 @@ describe('HomePage', () => {
     expect(within(impact).getByText('375')).toBeInTheDocument();
     expect(within(impact).getByText('Students Served')).toBeInTheDocument();
     expect(within(impact).getByText('1,738')).toBeInTheDocument();
-    expect(within(impact).getByText('Educators Trained')).toBeInTheDocument();
+    expect(within(impact).getByText('People Reached')).toBeInTheDocument();
+    expect(within(impact).queryByText('Educators Trained')).not.toBeInTheDocument();
     expect(within(impact).getByText('~100')).toBeInTheDocument();
     expect(within(impact).getByText('Women Trained')).toBeInTheDocument();
     expect(within(impact).getByText('2018')).toBeInTheDocument();

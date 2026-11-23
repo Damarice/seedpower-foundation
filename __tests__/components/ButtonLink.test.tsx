@@ -72,6 +72,7 @@ describe('ButtonLink', () => {
     render(<ButtonLink href="/donate">Donate</ButtonLink>);
     const link = screen.getByRole('link');
     expect(link.className).toContain('bg-[var(--color-brand)]');
+    expect(link.className).toContain('text-[var(--color-text-on-brand)]');
   });
 
   it('applies ghost variant styles', () => {
