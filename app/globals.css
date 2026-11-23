@@ -13,8 +13,8 @@
 }
 
 .home-hero {
-  min-height: calc(100vh - var(--nav-height-mobile));
-  min-height: calc(100dvh - var(--nav-height-mobile));
+  min-height: calc(85vh - var(--nav-height-mobile));
+  min-height: calc(85dvh - var(--nav-height-mobile));
 }
 
 @media (min-width: 64rem) {
