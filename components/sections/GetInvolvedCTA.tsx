@@ -71,12 +71,12 @@ export function GetInvolvedCTA({ columns }: GetInvolvedCTAProps) {
                 {column.description}
               </p>
 
-              {/* Ghost button (white outline variant) */}
+              {/* Ghost button — white outline for brand background */}
               <ButtonLink
                 href={column.href}
                 variant="ghost"
                 size="default"
-                className="border-white text-white hover:bg-white/10"
+                className="!border-white !text-white hover:!bg-white/10 active:!bg-white/20"
               >
                 {column.buttonText}
               </ButtonLink>
