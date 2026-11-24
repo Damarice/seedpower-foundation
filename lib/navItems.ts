@@ -44,7 +44,6 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: 'Volunteer', href: '/get-involved/volunteer' },
       { label: 'Sponsor a Child', href: '/get-involved/sponsor-a-child' },
-      { label: 'Visit Your Child', href: '/get-involved/visit-your-child' },
     ],
   },
   {

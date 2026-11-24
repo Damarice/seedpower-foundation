@@ -5,7 +5,7 @@
  * Architecture v1.2 — Section 11.4.
  * Base URL: https://seedpowerfoundation.org (confirmed production domain).
  *
- * Includes the 17 canonical routes currently implemented.
+ * Includes the 16 canonical routes currently implemented.
  * Conditional/deferred routes are excluded per Architecture Section 11.4:
  *   - /what-we-do/turkana   — pending client decision
  *   - /give/events          — pending client decision
@@ -32,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/impact/success-stories`,          changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/get-involved/volunteer`,          changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/get-involved/sponsor-a-child`,    changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/get-involved/visit-your-child`,   changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/give`,                            changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/give/donate`,                     changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/contact`,                         changeFrequency: 'monthly', priority: 0.7 },
