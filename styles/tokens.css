@@ -155,8 +155,8 @@
   --focus-ring-style:  solid;
 
   /* ─── Component Dimensions ───────────────────────────────────── */
-  --nav-height-mobile:  3.5rem;  /* 56px */
-  --nav-height-desktop: 4rem;    /* 64px */
+  --nav-height-mobile:  5rem;    /* 80px */
+  --nav-height-desktop: 5.5rem; /* 88px */
   --touch-target-min:   2.75rem; /* 44px */
   --card-image-ratio:   4/3;
   --avatar-size:        4rem;    /* 64px */

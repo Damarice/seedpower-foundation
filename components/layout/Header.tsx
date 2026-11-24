@@ -3,8 +3,8 @@
 /**
  * Header — normal-flow site navigation.
  *
- * Heights: 56px mobile (h-[var(--nav-height-mobile)]),
- *          64px desktop (desktop:h-[var(--nav-height-desktop)]).
+ * Heights: 80px mobile (h-[var(--nav-height-mobile)]),
+ *          88px desktop (desktop:h-[var(--nav-height-desktop)]).
  * Background: var(--color-bg-page) (#ffffff).
  * Bottom border: 1px solid var(--color-border).
  * The header remains in normal document flow and scrolls with the page.
@@ -72,7 +72,7 @@ export function Header() {
           <Link
             href="/"
             aria-label="SeedPower Foundation — home"
-            className="flex h-full w-12 shrink-0 items-center no-underline desktop:w-14"
+            className="flex h-full w-18 shrink-0 items-center no-underline desktop:w-20"
           >
             <Image
               src="/images/branding/seedpower-foundation-logo.svg"
@@ -80,7 +80,7 @@ export function Header() {
               width={540}
               height={575}
               priority
-              className="h-12 w-12 object-contain desktop:h-14 desktop:w-14"
+              className="h-18 w-18 object-contain desktop:h-20 desktop:w-20"
             />
           </Link>
 

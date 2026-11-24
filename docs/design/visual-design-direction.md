@@ -263,8 +263,8 @@ Inside green sections (CTA block, hero overlay), where the page background behin
 
 | Token | Value | Use |
 |---|---|---|
-| `--nav-height-desktop` | 64px | Navigation bar height on desktop |
-| `--nav-height-mobile` | 56px | Navigation bar height on mobile |
+| `--nav-height-desktop` | 88px | Navigation bar height on desktop |
+| `--nav-height-mobile` | 80px | Navigation bar height on mobile |
 | `--touch-target-min` | 44px | Minimum height/width for all interactive elements |
 | `--card-image-ratio` | 4/3 | Standard programme card image aspect ratio |
 | `--avatar-size` | 64px | Circular avatar image diameter |
