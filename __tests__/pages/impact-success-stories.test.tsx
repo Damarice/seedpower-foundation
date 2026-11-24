@@ -22,20 +22,43 @@ describe('SuccessStoriesPage', () => {
     expect(h1s[0]).toHaveTextContent('Success Stories');
   });
 
-  it('renders both endpoints of the verified growth story', () => {
+  it('renders the programme hero with its photo placeholder', () => {
     render(<SuccessStoriesPage />);
-    expect(screen.getByText(/12 students/i)).toBeInTheDocument();
-    expect(screen.getByText(/January 2019/i)).toBeInTheDocument();
-    // "375 students" may appear more than once — confirm presence
-    const els = screen.getAllByText(/375 students/i);
-    expect(els.length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(/January 2026/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: 'Success stories photography placeholder' })
+    ).toBeInTheDocument();
   });
 
-  it('renders the confirmed campus enrolment breakdown', () => {
+  it('renders the verified first-month education milestone', () => {
     render(<SuccessStoriesPage />);
-    expect(screen.getByText(/220 students/i)).toBeInTheDocument();
-    expect(screen.getByText(/155 students/i)).toBeInTheDocument();
+    expect(screen.getByText('12')).toBeInTheDocument();
+    expect(
+      screen.getByText(/students enrolled in the first month/i)
+    ).toHaveTextContent(/January 2019/i);
+  });
+
+  it('omits the conflicting aggregate student total from the source', () => {
+    render(<SuccessStoriesPage />);
+    expect(screen.queryByText(/\b(?:350|375)\b/)).not.toBeInTheDocument();
+  });
+
+  it('renders water reach for each campus without combining different units', () => {
+    render(<SuccessStoriesPage />);
+    expect(screen.getByText('220 pupils')).toBeInTheDocument();
+    expect(screen.getByText('Over 360 community members')).toBeInTheDocument();
+    expect(screen.getByText('155 pupils')).toBeInTheDocument();
+    expect(screen.getByText('290 families')).toBeInTheDocument();
+  });
+
+  it('renders documented programme outcomes without unverified timeframes', () => {
+    render(<SuccessStoriesPage />);
+    expect(screen.getByText('1,738')).toBeInTheDocument();
+    expect(screen.getByText('500+')).toBeInTheDocument();
+    expect(screen.getByText('100')).toBeInTheDocument();
+    expect(screen.getByText('1,800')).toBeInTheDocument();
+    expect(screen.getByText('1,200')).toBeInTheDocument();
+    expect(screen.getByText('59')).toBeInTheDocument();
+    expect(screen.getByText(/July 2022/i)).toBeInTheDocument();
   });
 
   it('renders a gallery section heading', () => {

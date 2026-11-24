@@ -1,177 +1,313 @@
 /**
  * Success Stories — /impact/success-stories
- * 301 redirect from /contact/news/success-stories/ → /impact/success-stories
- * is already live in next.config.ts.
+ * The original URL redirects to /contact/news/success-stories/.
  *
- * Content sourced from:
- *   - docs/research/full-website-discovery-report.md (page 14)
- *   - docs/research/content-verification-and-sitemap.md (page 11)
- *   - docs/content/page-contact-news-success-stories.html
- *   - docs/content/page-success-stories.html
+ * The source lists programme milestones rather than named personal stories
+ * or testimonials. Conflicting overall student and Turkana totals are omitted.
  *
- * Growth metric: "12 students (first month 2019) → 375 students (January 2026)"
- * Both figures are confirmed in source; presented as a historical milestone.
- *
- * Photo gallery: 16 impact photographs are catalogued in the media inventory
- * but have NOT been downloaded to /public/images/. A gallery placeholder
- * is used. No image paths are referenced to avoid broken image references.
- *
- * Individual case studies and testimonials: NONE exist in discovery
- * documentation. The original source page states only "The following are
- * some of our success stories:" followed by a photo gallery. No individual
- * stories are invented.
- *
- * Architecture v1.2 — Sections 5.1, 11.1, 13 (Phase 6).
- * Visual Design Direction v2.0 — Sections 1–3.
+ * All photographs remain placeholders until image assets are approved.
  */
 import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
 import { ButtonLink } from '@/components/ui/ButtonLink';
+import {
+  ProgrammeImagePlaceholder,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
 
 export const metadata: Metadata = {
   title: 'Success Stories',
   description:
-    'SeedPower Foundation grew from 12 students in January 2019 to 375 students by January 2026 — read the story of seven years of impact in Kenya.',
+    'Documented milestones from SeedPower Foundation’s education, teacher development, water, and community programmes.',
   alternates: { canonical: '/impact/success-stories' },
   openGraph: {
     title: 'Success Stories | SeedPower Foundation',
     description:
-      'From 12 to 375 students in seven years — the documented growth story of SeedPower Foundation in Kenya.',
+      'Explore documented milestones from SeedPower Foundation programmes in Kenya.',
     url: '/impact/success-stories',
     type: 'website',
   },
 };
 
+const campusWaterProjects = [
+  {
+    campusName: 'Oyugis Campus',
+    pupilReach: '220 pupils',
+    communityReach: 'Over 360 community members',
+  },
+  {
+    campusName: 'Grinnell Family Campus · Nyakach',
+    pupilReach: '155 pupils',
+    communityReach: '290 families',
+  },
+] as const;
+
+const milestones = [
+  {
+    figure: '1,738',
+    label: 'individuals reached',
+    title: 'Teacher development',
+    description:
+      'Special needs education training reached teachers, ECDE teachers, social workers, parents, community leaders, and community-based organisations across Kenya’s 47 counties.',
+  },
+  {
+    figure: '500+',
+    label: 'teachers trained in 2023',
+    title: 'Teacher training in Rwanda',
+    description:
+      'SeedPower reports that its special needs education training extended to Rwanda in 2023.',
+  },
+  {
+    figure: '100',
+    label: 'people impacted',
+    title: 'Eye tests and reading glasses',
+    description:
+      'Students and other community members received eye tests, with glasses provided for reading.',
+  },
+  {
+    figure: '1,800',
+    label: 'families reached',
+    title: 'Relief food in Oyugis and Nyakach',
+    description:
+      'Disadvantaged families were reached with relief food during and after the COVID period.',
+  },
+  {
+    figure: '1,200',
+    label: 'teenage girls reached',
+    title: 'Sanitary and hygiene supplies',
+    description:
+      'Girls received supplies at schools and in the community.',
+  },
+  {
+    figure: '59',
+    label: 'people trained',
+    title: 'Leadership seminar',
+    description:
+      'Community church leaders and pastors attended leadership training in July 2022.',
+  },
+] as const;
+
+const galleryItems = [
+  {
+    label: 'SeedPower January 2019 success story photograph placeholder',
+    caption: 'SeedPower, January 2019',
+  },
+  {
+    label: 'SeedPower March 2023 success story photograph placeholder',
+    caption: 'SeedPower, March 2023',
+  },
+  {
+    label: 'School and classroom success story photograph placeholder',
+    caption: 'School and classroom',
+  },
+  {
+    label: 'Community water project photograph placeholder',
+    caption: 'Water projects',
+  },
+  {
+    label: 'Student assembly success story photograph placeholder',
+    caption: 'School assembly',
+  },
+  {
+    label: 'Community engagement success story photograph placeholder',
+    caption: 'Community engagement',
+  },
+] as const;
+
 export default function SuccessStoriesPage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="success-stories-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="success-stories-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Success Stories
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            The most powerful measure of SeedPower Foundation&apos;s impact is
-            the growth of the children it serves. The following documents the
-            organisation&apos;s recorded growth since it opened its first
-            campus in 2019.
-          </Text>
+      <ProgrammePageHero
+        headingId="success-stories-heading"
+        title="Success Stories"
+        description="Documented milestones from SeedPower’s education, teacher development, water, and community programmes."
+        imageLabel="Success stories photography placeholder"
+      />
+
+      <Section background="white" aria-labelledby="growth-story-heading">
+        <Container>
+          <div className="grid items-center gap-8 tablet:grid-cols-2 desktop:gap-16">
+            <div>
+              <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Education · Oyugis
+              </p>
+              <Heading
+                variant="h2"
+                id="growth-story-heading"
+                className="mb-4 text-[var(--color-text-primary)]"
+              >
+                An early education milestone
+              </Heading>
+              <p className="mb-2 font-[var(--font-heading)] text-5xl font-bold leading-none text-[var(--color-brand)] tablet:text-6xl">
+                12
+              </p>
+              <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
+                students enrolled in the first month of SeedPower’s Oyugis
+                education centre, in January 2019.
+              </Text>
+            </div>
+            <ProgrammeImagePlaceholder
+              label="SeedPower January 2019 success story photograph placeholder"
+              className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
+            />
+          </div>
         </Container>
       </Section>
 
-      {/* Growth narrative */}
-      <Section background="white" aria-labelledby="growth-story-heading">
-        <Container variant="narrow">
+      <Section background="warm" aria-labelledby="water-projects-heading">
+        <Container>
           <Heading
             variant="h2"
-            id="growth-story-heading"
-            className="text-[var(--color-text-primary)] mb-4"
+            id="water-projects-heading"
+            className="mb-3 text-[var(--color-text-primary)]"
           >
-            From 12 to 375 Students
+            Community water projects
           </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            In January 2019, SeedPower Foundation opened its first education
-            centre in Oyugis with 12 students enrolled in the first month.
+          <Text
+            variant="body-lg"
+            className="mb-8 max-w-[720px] text-[var(--color-text-secondary)]"
+          >
+            The source reports each campus project separately, preserving the
+            different units used for community reach.
           </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)] mb-4">
-            By January 2026 — seven years later — that number had grown to
-            375 students across two campuses: Oyugis (220 students,
-            established 2019) and the Grinnell Family Campus in Nyakach
-            (155 students, established 2021).
-          </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)]">
-            Every student in that growth represents a vulnerable child, a
-            child at risk, or a child with special needs who gained access
-            to quality education and the support to develop to their full
-            potential.
+
+          <ul className="m-0 list-none p-0">
+            {campusWaterProjects.map((project) => (
+              <li
+                key={project.campusName}
+                className="grid gap-5 border-t border-[var(--color-border)] py-6 tablet:grid-cols-[0.7fr_1.3fr] tablet:items-center tablet:gap-10 tablet:py-7"
+              >
+                <Heading variant="h3" className="text-[var(--color-brand)]">
+                  {project.campusName}
+                </Heading>
+                <dl className="m-0 grid grid-cols-2 gap-5">
+                  <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                    <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
+                      Students served
+                    </dt>
+                    <dd className="m-0 font-[var(--font-heading)] text-xl font-bold text-[var(--color-text-primary)]">
+                      {project.pupilReach}
+                    </dd>
+                  </div>
+                  <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                    <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
+                      Community reach
+                    </dt>
+                    <dd className="m-0 font-[var(--font-heading)] text-xl font-bold text-[var(--color-text-primary)]">
+                      {project.communityReach}
+                    </dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section background="white" aria-labelledby="milestones-heading">
+        <Container>
+          <div className="mb-8 max-w-[760px] tablet:mb-10">
+            <Heading
+              variant="h2"
+              id="milestones-heading"
+              className="mb-3 text-[var(--color-text-primary)]"
+            >
+              Documented programme milestones
+            </Heading>
+            <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
+              Selected outcomes reported by SeedPower across education and
+              community programmes.
+            </Text>
+          </div>
+
+          <ul className="m-0 list-none p-0">
+            {milestones.map((milestone) => (
+              <li
+                key={milestone.title}
+                className="grid gap-3 border-t border-[var(--color-border)] py-6 tablet:grid-cols-[0.65fr_0.8fr_1.55fr] tablet:items-start tablet:gap-8 tablet:py-7"
+              >
+                <p className="m-0 font-[var(--font-heading)] text-2xl font-bold leading-tight text-[var(--color-brand)]">
+                  {milestone.figure}
+                  <span className="mt-1 block font-[var(--font-body)] text-sm font-medium text-[var(--color-text-secondary)]">
+                    {milestone.label}
+                  </span>
+                </p>
+                <Heading variant="h3" className="text-[var(--color-text-primary)]">
+                  {milestone.title}
+                </Heading>
+                <Text variant="body" className="text-[var(--color-text-secondary)]">
+                  {milestone.description}
+                </Text>
+              </li>
+            ))}
+          </ul>
+          <Text variant="body" className="mt-6 max-w-[900px] text-[var(--color-text-secondary)]">
+            SeedPower also reports hosting mission groups from the USA and
+            other countries. The groups helped with school construction,
+            student music, art and sports activities, and community outreach.
           </Text>
         </Container>
       </Section>
 
-      {/* Gallery placeholder */}
       <Section background="soft" aria-labelledby="gallery-heading">
         <Container>
           <Heading
             variant="h2"
             id="gallery-heading"
-            className="text-[var(--color-text-primary)] mb-4"
+            className="mb-3 text-[var(--color-text-primary)]"
           >
             Impact in Pictures
           </Heading>
           <Text
             variant="body"
-            className="text-[var(--color-text-secondary)] mb-8 max-w-[600px]"
+            className="mb-8 max-w-[720px] text-[var(--color-text-secondary)]"
           >
-            SeedPower Foundation&apos;s media library contains photographs
-            documenting the growth of the campuses, students, community
-            programmes, and outreach work since 2019.
+            The original page references photographs from January 2019 and
+            March 2023, alongside school, water-project, and community images.
+            These areas remain placeholders until photographs are approved.
           </Text>
-          {/* Gallery placeholder — 16 impact photos are catalogued in the media
-              inventory but have not been downloaded to /public/images/.
-              This placeholder will be replaced when image assets are provided. */}
           <div
-            className="grid grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 gap-4"
+            className="grid grid-cols-2 gap-x-4 gap-y-6 tablet:grid-cols-3 desktop:grid-cols-4"
             aria-label="Photo gallery — images pending"
           >
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] bg-[var(--color-bg-warm)]
-                           rounded-[var(--radius-md)] flex items-center
-                           justify-center"
-                role="img"
-                aria-label="Impact photograph — image pending"
-              >
-                <svg
-                  className="w-8 h-8 text-[var(--color-border)]"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
-                </svg>
-              </div>
+            {galleryItems.map((item) => (
+              <figure key={item.label} className="m-0">
+                <ProgrammeImagePlaceholder
+                  label={item.label}
+                  className="aspect-[4/3] w-full rounded-[var(--radius-md)]"
+                />
+                <figcaption className="mt-2 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
+                  {item.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
-          <Text
-            variant="body-sm"
-            className="text-[var(--color-text-secondary)] mt-4"
-          >
-            Photography from SeedPower Foundation programmes will be added
-            here when image assets are provided.
-          </Text>
         </Container>
       </Section>
 
-      {/* CTA */}
       <Section background="brand" aria-labelledby="stories-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
-            <Heading
-              variant="h2"
-              id="stories-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
-            >
-              Help Write the Next Chapter
-            </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Every donation, every volunteer, and every sponsor helps
-              SeedPower Foundation reach more children and communities in
-              Kenya.
-            </Text>
-            <div className="flex flex-col tablet:flex-row gap-3 justify-center">
+        <Container>
+          <div className="flex flex-col items-start gap-6 tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-10">
+            <div className="max-w-[680px]">
+              <Heading
+                variant="h2"
+                id="stories-cta-heading"
+                className="mb-3 text-white"
+              >
+                Together We Can Change the World
+              </Heading>
+              <Text variant="body-lg" className="text-white/90">
+                Support SeedPower’s education and community programmes.
+              </Text>
+            </div>
+            <div className="flex flex-col gap-3 tablet:flex-row">
               <ButtonLink
                 href="/give/donate"
                 variant="ghost"
                 size="default"
-                className="border-white text-white hover:bg-white/10"
+                className="shrink-0 border-white text-white hover:bg-white/10 hover:text-white"
               >
                 Donate Now
               </ButtonLink>
@@ -179,7 +315,7 @@ export default function SuccessStoriesPage() {
                 href="/get-involved/volunteer"
                 variant="ghost"
                 size="default"
-                className="border-white text-white hover:bg-white/10"
+                className="shrink-0 border-white text-white hover:bg-white/10 hover:text-white"
               >
                 Volunteer
               </ButtonLink>
