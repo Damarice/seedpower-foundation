@@ -19,6 +19,18 @@ describe('EducationPage', () => {
     expect(h1s[0]).toHaveTextContent('Education Centers');
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<EducationPage />);
+    expect(
+      screen.getByText(/campuses in Oyugis and Nyakach offer education/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'SeedPower education campuses photography placeholder',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('renders both campus H3 headings', () => {
     render(<EducationPage />);
     expect(screen.getByRole('heading', { level: 3, name: 'Oyugis Campus' })).toBeInTheDocument();
@@ -40,7 +52,18 @@ describe('EducationPage', () => {
 
   it('mentions 375 students as combined total', () => {
     render(<EducationPage />);
-    expect(screen.getByText(/375 students/i)).toBeInTheDocument();
+    const total = screen.getByText('375');
+    expect(total.closest('p')).toHaveTextContent('375 pupils across both campuses');
+  });
+
+  it('provides separate photo placeholders for both campuses', () => {
+    render(<EducationPage />);
+    expect(
+      screen.getByRole('img', { name: /Oyugis education campus photography placeholder/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: /Nyakach education campus photography placeholder/i })
+    ).toBeInTheDocument();
   });
 
   it('renders donate CTA linking to /give/donate', () => {
