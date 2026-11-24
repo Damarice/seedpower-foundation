@@ -19,7 +19,24 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
-import { ButtonLink } from '@/components/ui/ButtonLink';
+import {
+  ProgrammeImagePlaceholder,
+  ProgrammePageCta,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
+
+const knowledgeAreas = [
+  'Childcare',
+  'Nutrition',
+  'Basic health care',
+  'Family planning',
+  'Sexual health education',
+  'Gender-based violence',
+  'Self-esteem',
+  'Healthy communication',
+] as const;
+
+const livelihoodSkills = ['Sewing', 'Basket Making', 'Entrepreneurship'] as const;
 
 export const metadata: Metadata = {
   title: "Women's Empowerment",
@@ -38,146 +55,150 @@ export const metadata: Metadata = {
 export default function WomensEmpowermentPage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="womens-empowerment-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="womens-empowerment-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Women&apos;s Empowerment
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            SeedPower Foundation recognises that strong households begin with
-            empowered women. Our programme provides skills training and
-            community support to help women in Kenya provide for themselves
-            and their families, and to build lasting stability.
-          </Text>
-        </Container>
-      </Section>
+      <ProgrammePageHero
+        headingId="womens-empowerment-heading"
+        title="Women's Empowerment"
+        description="Practical skills and community support that help women provide for their families and strengthen household stability."
+        imageLabel="Women's empowerment programme photography placeholder"
+      />
 
-      {/* The challenge */}
-      <Section background="white" aria-labelledby="challenge-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="challenge-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            The Challenge
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            So many women in our communities are left to care and provide for
-            their children alone. It is not unusual for a mother to lack
-            access to basic birth control or the education and resources to
-            keep them healthy. She often has several children with little to
-            no ability to care for them financially on her own.
-          </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)]">
-            It is SeedPower&apos;s goal to teach women skills that can be used to
-            provide for themselves and their children, and to add stability to
-            the household.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* The programme */}
-      <Section background="warm" aria-labelledby="programme-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="programme-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            The Programme
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            Ruth Odero is instrumental in her hands-on approach to education
-            and empowerment. Through the programme, SeedPower reaches out to
-            empower local women with skills and knowledge covering childcare,
-            nutrition, basic health care, family planning, sexual health
-            education, gender-based violence, self-esteem, and healthy
-            communication.
-          </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)] mb-6">
-            Since the launch of the programme, SeedPower has begun teaching
-            sewing skills, basket making, and other entrepreneurial endeavors
-            to nearly 100 women.
-          </Text>
-
-          {/* Skills list */}
-          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
-            {(['Sewing', 'Basket Making', 'Entrepreneurship'] as const).map((skill) => (
-              <div
-                key={skill}
-                className="p-4 bg-[var(--color-bg-page)] rounded-[var(--radius-md)]
-                           border border-[var(--color-border)]"
+      <Section background="white" aria-labelledby="approach-heading">
+        <Container>
+          <div className="grid items-start gap-6 desktop:grid-cols-[0.8fr_1.2fr] desktop:gap-16">
+            <div>
+              <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Our approach
+              </p>
+              <Heading
+                variant="h2"
+                id="approach-heading"
+                className="text-[var(--color-text-primary)]"
               >
-                <Text
-                  variant="body"
-                  className="font-semibold text-[var(--color-brand)] text-center"
-                >
-                  {skill}
-                </Text>
-              </div>
-            ))}
+                Supporting women and their households
+              </Heading>
+            </div>
+            <div className="max-w-[760px]">
+              <Text
+                variant="body-lg"
+                className="mb-4 text-[var(--color-text-secondary)]"
+              >
+                Many women in the communities care for and provide for their
+                children alone, with limited access to basic birth control,
+                health education, and resources. SeedPower aims to teach
+                practical skills that women can use to support themselves
+                and their children, and to add stability to the household.
+              </Text>
+              <Text
+                variant="body"
+                className="text-[var(--color-text-secondary)]"
+              >
+                Ruth Odero takes a hands-on approach to education and
+                empowerment through the programme.
+              </Text>
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* Community impact story */}
-      <Section background="white" aria-labelledby="impact-story-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="impact-story-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Community in Action
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            One of the greatest advantages of having our women come together
-            is generating a support system within the community. We had an
-            elderly woman who was in need of a house, and the women of the
-            group worked together — with the help of a handful of men — to
-            build one from the ground up.
-          </Text>
-          <Text
-            variant="body-lg"
-            className="font-semibold text-[var(--color-brand)]"
-          >
-            Together we are so much stronger.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* CTA */}
-      <Section background="brand" aria-labelledby="womens-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
+      <Section background="warm" aria-labelledby="learning-heading">
+        <Container>
+          <div className="mb-8 max-w-[740px] tablet:mb-10">
             <Heading
               variant="h2"
-              id="womens-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
+              id="learning-heading"
+              className="mb-3 text-[var(--color-text-primary)]"
             >
-              Support Women&apos;s Empowerment
+              Knowledge and livelihood skills
             </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Your support helps women in Kenya gain skills, build stability,
-              and create a stronger future for their families.
+            <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
+              The programme shares knowledge across areas including:
             </Text>
-            <ButtonLink
-              href="/give/donate"
-              variant="ghost"
-              size="default"
-              className="border-white text-white hover:bg-white/10"
+          </div>
+
+          <ul
+            className="m-0 grid list-none grid-cols-1 gap-x-10 p-0 tablet:grid-cols-2 desktop:grid-cols-4"
+            aria-label="Women’s empowerment programme learning areas"
+          >
+            {knowledgeAreas.map((area) => (
+              <li
+                key={area}
+                className="flex items-start gap-3 border-t border-[var(--color-border)] py-4"
+              >
+                <span
+                  aria-hidden="true"
+                  className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]"
+                />
+                <Text variant="body-sm" className="text-[var(--color-text-primary)]">
+                  {area}
+                </Text>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 grid gap-5 border-t border-[var(--color-border)] pt-7 tablet:mt-10 tablet:grid-cols-[0.8fr_1.2fr] tablet:items-center tablet:gap-10">
+            <Text variant="body-lg" className="font-semibold text-[var(--color-brand)]">
+              SeedPower has begun teaching nearly 100 women practical
+              livelihood skills, including:
+            </Text>
+            <ul
+              className="m-0 grid list-none grid-cols-2 gap-x-6 gap-y-3 p-0 tablet:grid-cols-3"
+              aria-label="Livelihood skills"
             >
-              Donate Now
-            </ButtonLink>
+              {livelihoodSkills.map((skill) => (
+                <li
+                  key={skill}
+                  className="font-[var(--font-heading)] text-base font-semibold text-[var(--color-text-primary)]"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
+
+      <Section background="white" aria-labelledby="impact-story-heading">
+        <Container>
+          <div className="grid items-center gap-8 tablet:grid-cols-2 desktop:gap-16">
+            <ProgrammeImagePlaceholder
+              label="Community home-building project photography placeholder"
+              className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
+            />
+            <div>
+              <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Community in action
+              </p>
+              <Heading
+                variant="h2"
+                id="impact-story-heading"
+                className="mb-4 text-[var(--color-text-primary)]"
+              >
+                Women supporting one another
+              </Heading>
+              <Text
+                variant="body-lg"
+                className="mb-4 text-[var(--color-text-secondary)]"
+              >
+                When an elderly woman needed a house, women in the group worked
+                together with a handful of men to build one from the ground up.
+                Their shared effort also created a support system within the
+                community.
+              </Text>
+              <Text variant="body-lg" className="font-semibold text-[var(--color-brand)]">
+                Together we are so much stronger.
+              </Text>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <ProgrammePageCta
+        headingId="womens-cta-heading"
+        heading="Support Women’s Empowerment"
+        description="Your support helps women in Kenya gain skills, build stability, and create a stronger future for their families."
+        buttonLabel="Donate Now"
+        buttonHref="/give/donate"
+      />
     </>
   );
 }

@@ -19,6 +19,18 @@ describe('WomensEmpowermentPage', () => {
     expect(h1s[0]).toHaveTextContent("Women's Empowerment");
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<WomensEmpowermentPage />);
+    expect(
+      screen.getByText(/Practical skills and community support/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: "Women's empowerment programme photography placeholder",
+      })
+    ).toBeInTheDocument();
+  });
+
   it('renders verified skills: Sewing, Basket Making, Entrepreneurship', () => {
     render(<WomensEmpowermentPage />);
     expect(screen.getByText('Sewing')).toBeInTheDocument();
