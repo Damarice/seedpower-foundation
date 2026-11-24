@@ -129,19 +129,28 @@ export function Footer() {
                   seedpowerfoundation@gmail.com
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/seedpoweredfoundation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Follow SeedPower Foundation on Facebook (opens in a new tab)"
-                  className={`${footerLinkClass} gap-2`}
-                >
-                  <FacebookIcon />
-                  Facebook
-                </a>
-              </li>
             </ul>
+            <div className="mt-4">
+              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-on-dark)]">
+                Follow Us
+              </p>
+              <a
+                href="https://www.facebook.com/seedpoweredfoundation"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow SeedPower Foundation on Facebook (opens in a new tab)"
+                className={[
+                  'inline-flex h-11 w-11 items-center justify-center rounded-full',
+                  'border border-white/30 text-white',
+                  'transition-colors duration-[var(--transition-fast)]',
+                  'hover:border-white hover:bg-white hover:text-[var(--color-brand)]',
+                  'focus-visible:outline focus-visible:outline-[length:var(--focus-ring-width)]',
+                  'focus-visible:outline-white focus-visible:outline-offset-[var(--focus-ring-offset)]',
+                ].join(' ')}
+              >
+                <FacebookIcon />
+              </a>
+            </div>
           </address>
         </div>
       </div>

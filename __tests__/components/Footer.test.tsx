@@ -89,6 +89,8 @@ describe('Footer', () => {
     );
     expect(facebook).toHaveAttribute('target', '_blank');
     expect(facebook).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(facebook.querySelector('svg')).toBeInTheDocument();
+    expect(facebook.className).toContain('hover:bg-white');
   });
 
   it('displays the exact copyright text with the current year', () => {
