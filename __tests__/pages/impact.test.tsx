@@ -22,42 +22,52 @@ describe('ImpactPage', () => {
     expect(h1s[0]).toHaveTextContent('Our Impact');
   });
 
-  it('renders all four confirmed impact statistics', () => {
+  it('renders the full-width hero with an image placeholder', () => {
     render(<ImpactPage />);
-    expect(screen.getByText('375')).toBeInTheDocument();
-    expect(screen.getByText('1,738')).toBeInTheDocument();
-    expect(screen.getByText('~100')).toBeInTheDocument();
-    expect(screen.getByText('2018')).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: 'Impact photography placeholder' })
+    ).toBeInTheDocument();
   });
 
-  it('renders "Students Served" label (not "enrolled")', () => {
+  it('renders the verified impact statistics without adding programme totals', () => {
     render(<ImpactPage />);
-    expect(screen.getByText('Students Served')).toBeInTheDocument();
-    // The stat label must not say "enrolled"; the word may appear in body copy
-    // but the ImpactCard label specifically must say "Students Served"
-    expect(screen.queryByText(/^students enrolled$/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId('impact-counter-375')).toHaveTextContent('375');
+    expect(screen.getByTestId('impact-counter-1738')).toHaveTextContent('1,738');
+    expect(screen.getByTestId('impact-counter-100')).toHaveTextContent('~100');
+    expect(screen.getByTestId('impact-counter-2018')).toHaveTextContent('2018');
+    expect(
+      screen.getByText('Children supported across two campuses')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('People reached through teacher development')
+    ).toBeInTheDocument();
   });
 
-  it('renders "Individuals Trained" label (not "Educators Trained")', () => {
+  it('does not present the old growth narrative as a dated or current enrolment total', () => {
     render(<ImpactPage />);
-    expect(screen.getByText('Individuals Trained')).toBeInTheDocument();
-    // Regression guard: narrower label must not reappear
-    expect(screen.queryByText('Educators Trained')).not.toBeInTheDocument();
+    expect(screen.queryByText(/January 2026|from 12 to 375/i)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/currently enrolled|are enrolled today|live enrolment/i)
+    ).not.toBeInTheDocument();
   });
 
-  it('renders the growth story with both confirmed historical dates', () => {
+  it('links programme areas to their existing routes', () => {
     render(<ImpactPage />);
-    // Both endpoints of the growth story must be present
-    expect(screen.getByText(/12 students/i)).toBeInTheDocument();
-    expect(screen.getByText(/January 2019/i)).toBeInTheDocument();
-    expect(screen.getByText(/375 students/i)).toBeInTheDocument();
-    expect(screen.getByText(/January 2026/i)).toBeInTheDocument();
-  });
-
-  it('does not present the 375 figure as current live enrolment', () => {
-    render(<ImpactPage />);
-    // Must not say "currently enrolled" or "are enrolled today"
-    expect(screen.queryByText(/currently enrolled|are enrolled today|live enrolment/i)).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Explore Education' })
+    ).toHaveAttribute('href', '/what-we-do/education');
+    expect(
+      screen.getByRole('link', { name: 'Explore Teacher Training' })
+    ).toHaveAttribute('href', '/what-we-do/teacher-training');
+    expect(
+      screen.getByRole('link', { name: 'Explore Women’s Empowerment' })
+    ).toHaveAttribute('href', '/what-we-do/womens-empowerment');
+    expect(
+      screen.getByRole('link', { name: 'Explore Water & Sanitation' })
+    ).toHaveAttribute('href', '/what-we-do/wash');
+    expect(
+      screen.getByRole('link', { name: 'Explore Community Outreach' })
+    ).toHaveAttribute('href', '/what-we-do/community-outreach');
   });
 
   it('links to /impact/success-stories', () => {

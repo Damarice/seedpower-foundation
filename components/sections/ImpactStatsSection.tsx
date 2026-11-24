@@ -11,6 +11,8 @@ import type { ImpactCardProps } from '@/components/composite/ImpactCard';
 interface ImpactStatsSectionProps {
   /** Array of confirmed statistics to display */
   stats: ImpactCardProps[];
+  /** Accessible name for this statistics region */
+  ariaLabel?: string;
 }
 
 function getTargetValue(figure: string): number {
@@ -24,7 +26,10 @@ function getTargetValue(figure: string): number {
   return value;
 }
 
-export function ImpactStatsSection({ stats }: ImpactStatsSectionProps) {
+export function ImpactStatsSection({
+  stats,
+  ariaLabel = 'Our impact',
+}: ImpactStatsSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasEnteredViewport, setHasEnteredViewport] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(
@@ -99,7 +104,7 @@ export function ImpactStatsSection({ stats }: ImpactStatsSectionProps) {
   return (
     <section
       ref={sectionRef}
-      aria-label="Our impact"
+      aria-label={ariaLabel}
       className="bg-[var(--color-bg-warm)] py-8 tablet:py-10 desktop:py-12"
     >
       <Container>

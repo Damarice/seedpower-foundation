@@ -1,146 +1,163 @@
 /**
  * Impact Overview — /impact
- * 301 redirect from /contact/news/ → /impact is already live in next.config.ts.
- *
- * Content sourced from:
- *   - docs/research/full-website-discovery-report.md (pages 2, 4, 14)
- *   - docs/research/content-verification-and-sitemap.md (pages 2, 11)
- *   - docs/content/page-contact-news-success-stories.html
- *
- * Statistics: same four confirmed figures as the homepage.
- * Growth story: "12 students (first month 2019) → 375 students (January 2026)"
- *   — presented as a documented historical milestone, not a live enrolment claim.
- *
- * Excluded (Architecture v1.2 Section 5.3 / Phase 6D scope):
- *   - Turkana family figures (all three conflicting numbers)
- *   - 3,600 community outreach figure (timeframe unconfirmed)
- *   - 1,738 figure date range (period not stated in source)
- *   - Any individual case studies (none exist in discovery documentation)
- *
- * Architecture v1.2 — Sections 5.1, 11.1, 13 (Phase 6).
- * Visual Design Direction v2.0 — Sections 1–3.
+ * The original URL is unavailable; content is grounded in published programme
+ * information from SeedPower's homepage, About Us, and What We Do pages.
  */
 import type { Metadata } from 'next';
-import { Section } from '@/components/layout/Section';
+import Link from 'next/link';
+import { ImpactStatsSection } from '@/components/sections/ImpactStatsSection';
+import {
+  ProgrammePageCta,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
 import { Container } from '@/components/layout/Container';
+import { Section } from '@/components/layout/Section';
 import { Heading, Text } from '@/components/ui/Typography';
-import { ImpactCard } from '@/components/composite/ImpactCard';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
 export const metadata: Metadata = {
   title: 'Our Impact',
   description:
-    'SeedPower Foundation has grown from 12 students in 2019 to serving 375 students across two campuses, reaching 1,738 individuals — including teachers, social workers, parents, and community leaders — across 47 counties, and empowering nearly 100 women in Kenya.',
+    'Explore SeedPower Foundation’s published reach through education, teacher development, women’s empowerment, and community programmes.',
   alternates: { canonical: '/impact' },
   openGraph: {
     title: 'Our Impact | SeedPower Foundation',
     description:
-      'From 12 students in 2019 to 375 by January 2026 — discover the documented impact of SeedPower Foundation in Kenya.',
+      'Explore SeedPower Foundation’s published reach through education and community programmes.',
     url: '/impact',
     type: 'website',
   },
 };
 
-/**
- * Four confirmed impact statistics.
- * Source: Architecture v1.2 Section 13 (Phase 5) confirmed figures list.
- * Same figures used on the homepage ImpactStatsSection.
- */
-const stats = [
-  { figure: '375', label: 'Students Served' },
-  { figure: '1,738', label: 'Individuals Trained' },
-  { figure: '~100', label: 'Women Trained' },
-  { figure: '2018', label: 'Year Founded' },
-];
+const impactAreas = [
+  {
+    title: 'Inclusive education',
+    description:
+      'Education centres in Oyugis and Nyakach serve vulnerable children, children at risk, and children with special needs.',
+    links: [{ label: 'Explore Education', href: '/what-we-do/education' }],
+  },
+  {
+    title: 'Teacher development',
+    description:
+      'With Little Light House USA, SeedPower reaches special needs and ECDE teachers, social workers, parents, community leaders, and community organisations across Kenya’s 47 counties.',
+    links: [{ label: 'Explore Teacher Training', href: '/what-we-do/teacher-training' }],
+  },
+  {
+    title: 'Women’s empowerment',
+    description:
+      'Training in sewing, basket making, and entrepreneurial skills is intended to support women’s self-reliance and household stability.',
+    links: [
+      {
+        label: 'Explore Women’s Empowerment',
+        href: '/what-we-do/womens-empowerment',
+      },
+    ],
+  },
+  {
+    title: 'Community wellbeing',
+    description:
+      'Community initiatives include school and community water, relief food, hygiene supplies, child-rights advocacy, and substance-abuse prevention.',
+    links: [
+      { label: 'Explore Water & Sanitation', href: '/what-we-do/wash' },
+      {
+        label: 'Explore Community Outreach',
+        href: '/what-we-do/community-outreach',
+      },
+    ],
+  },
+] as const;
 
 export default function ImpactPage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="impact-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="impact-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Our Impact
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            Since SeedPower Foundation was established in 2018, its programmes
-            have reached hundreds of children, educators, and women across
-            Kenya. The figures below reflect confirmed data from programme
-            documentation.
-          </Text>
-        </Container>
-      </Section>
+      <ProgrammePageHero
+        headingId="impact-heading"
+        title="Our Impact"
+        description="SeedPower seeks to empower vulnerable communities to develop their potential and shape solutions for their communities."
+        imageLabel="Impact photography placeholder"
+      />
 
-      {/* Confirmed impact statistics */}
-      <Section background="warm" aria-label="Impact statistics">
+      <ImpactStatsSection
+        ariaLabel="Impact statistics"
+        stats={[
+          { figure: '375', label: 'Children supported across two campuses' },
+          {
+            figure: '1,738',
+            label: 'People reached through teacher development',
+          },
+          { figure: '~100', label: 'Women trained' },
+          { figure: '2018', label: 'Year established' },
+        ]}
+      />
+
+      <Section background="white" aria-labelledby="impact-areas-heading">
         <Container>
-          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-6 tablet:gap-8">
-            {stats.map((stat) => (
-              <ImpactCard key={stat.label} figure={stat.figure} label={stat.label} />
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Growth story */}
-      <Section background="white" aria-labelledby="growth-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="growth-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Seven Years of Growth
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            When SeedPower Foundation opened its first education centre in
-            Oyugis in January 2019, 12 students enrolled in that first month.
-            By January 2026, that number had grown to 375 students across two
-            campuses — a documented growth of more than thirty-fold over seven
-            years.
-          </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)] mb-6">
-            Each student represents a child who was vulnerable, at risk, or had
-            special needs — and who received quality education, equipping
-            them to reach their full potential and become agents of community
-            transformation.
-          </Text>
-          <ButtonLink href="/impact/success-stories" variant="ghost" size="default">
-            Read the Stories
-          </ButtonLink>
-        </Container>
-      </Section>
-
-      {/* CTA */}
-      <Section background="brand" aria-labelledby="impact-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
-            <Heading
-              variant="h2"
-              id="impact-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
-            >
-              Be Part of the Story
-            </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Your support helps SeedPower Foundation continue to grow its
-              reach and deepen its impact for vulnerable communities in Kenya.
-            </Text>
+          <div className="mb-10 flex flex-col gap-6 tablet:flex-row tablet:items-end tablet:justify-between">
+            <div className="max-w-[760px]">
+              <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Our work
+              </p>
+              <Heading
+                variant="h2"
+                id="impact-areas-heading"
+                className="mb-3 text-[var(--color-text-primary)]"
+              >
+                Where change takes shape
+              </Heading>
+              <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
+                These programme areas reflect SeedPower’s published work with
+                children, women, and communities.
+              </Text>
+            </div>
             <ButtonLink
-              href="/give/donate"
+              href="/impact/success-stories"
               variant="ghost"
               size="default"
-              className="border-white text-white hover:bg-white/10"
+              className="shrink-0"
             >
-              Donate Now
+              Read the Stories
             </ButtonLink>
           </div>
+
+          <ul className="m-0 grid list-none grid-cols-1 gap-x-8 gap-y-10 p-0 tablet:grid-cols-2 desktop:grid-cols-4">
+            {impactAreas.map((area) => (
+              <li
+                key={area.title}
+                className="border-t border-[var(--color-border)] pt-5"
+              >
+                <Heading
+                  variant="h3"
+                  className="mb-3 text-[var(--color-text-primary)]"
+                >
+                  {area.title}
+                </Heading>
+                <Text variant="body" className="text-[var(--color-text-secondary)]">
+                  {area.description}
+                </Text>
+                <div className="mt-4 flex flex-col items-start gap-1">
+                  {area.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--color-brand)] underline decoration-[var(--color-brand)] underline-offset-4 transition-colors hover:text-[var(--color-brand-hover)] focus-visible:outline focus-visible:outline-[length:var(--focus-ring-width)] focus-visible:outline-[color:var(--focus-ring-color)] focus-visible:[outline-style:var(--focus-ring-style)] focus-visible:outline-offset-[var(--focus-ring-offset)]"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
         </Container>
       </Section>
+
+      <ProgrammePageCta
+        headingId="impact-cta-heading"
+        heading="Support SeedPower’s work"
+        description="Your support helps SeedPower continue its education and community programmes."
+        buttonLabel="Donate Now"
+        buttonHref="/give/donate"
+      />
     </>
   );
 }
