@@ -16,7 +16,7 @@ The 48 photographs below are each used once: 21 from Downloads/new and 27 from t
 | `inclusive-classroom-support.jpg` | Downloads/new — `WhatsApp Image 2026-11-19 at 3.04.12 PM (1).jpeg` | A teacher supporting pupils with classroom learning materials | Home — Stories of Change, education card |
 | `school-handwashing.jpg` | Downloads/new — `WhatsApp Image 2026-11-19 at 3.03.47 PM.jpeg` | Pupils washing their hands at an outdoor station | Home — Stories of Change, water card |
 | `programme-education-card.jpg` | Downloads/new — `WhatsApp Image 2026-11-19 at 3.04.00 PM (1).jpeg` | Two pupils reading together in class | What We Do — Education Centers card |
-| `community-homebuilding.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2024/05/9336d96b-c132-4946-80f5-4b5ce9e4f865.jpg) | Community members helping construct a home | What We Do — Women’s Empowerment programme card |
+| `community-homebuilding.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2024/05/9336d96b-c132-4946-80f5-4b5ce9e4f865.jpg) | Community members helping construct a home | What We Do — Women’s Empowerment, “Women supporting one another” story |
 | `teacher-development-workshop.jpg` | [Original SeedPower website — Teacher Outreach and Training](https://seedpowerfoundation.org/teacher-outreach-and-training/) — `Kisumu-Conference14` | Two participants demonstrate a visual-skills activity during a teacher conference | What We Do — Teacher Training card |
 | `school-water-point.jpg` | [Original SeedPower website — Success Stories](https://seedpowerfoundation.org/contact/news/success-stories/) — `waterp1` | Pupils collecting water at a school water point | What We Do — Water & Sanitation card |
 | `regenerative-garden-field.jpg` | Downloads/new — `WhatsApp Image 2026-11-19 at 3.18.40 PM (1).jpeg` | Leafy vegetables growing in prepared garden beds | What We Do — Sustainable Food Project card |
@@ -55,6 +55,6 @@ The 48 photographs below are each used once: 21 from Downloads/new and 27 from t
 
 ## Retained placeholders
 
-- What We Do — Women’s Empowerment, the community home-building story. The authentic home photo is assigned once to the homepage Stories of Change card to avoid reuse.
+- What We Do — Women’s Empowerment programme card. Its only additional verified women’s image is assigned to the programme page story instead, avoiding photo reuse.
 
 No photograph is reused across the website.

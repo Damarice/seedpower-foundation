@@ -166,6 +166,8 @@ export default function WomensEmpowermentPage() {
           <div className="grid items-center gap-8 tablet:grid-cols-2 desktop:gap-16">
             <ProgrammeImagePlaceholder
               label="Community home-building project photograph"
+              imageSrc="/images/programmes/community-homebuilding.jpg"
+              imageAlt="Community members work together while constructing a home."
               imageSizes="(max-width: 767px) 100vw, 50vw"
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />

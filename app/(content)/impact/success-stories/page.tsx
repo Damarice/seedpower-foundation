@@ -295,7 +295,7 @@ export default function SuccessStoriesPage() {
                   imageSrc={item.imageSrc}
                   imageAlt={item.imageAlt}
                   imageSizes="(max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
-                  className="aspect-[4/3] w-full rounded-[var(--radius-md)]"
+                  className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
                 />
                 <figcaption className="mt-2 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
                   {item.caption}

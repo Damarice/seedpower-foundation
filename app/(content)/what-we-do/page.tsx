@@ -46,8 +46,6 @@ const programmes = [
       'Skills training in sewing, basket making, and entrepreneurship for nearly 100 women, strengthening households and building self-reliance.',
     stats: [{ label: '~100 women trained' }],
     href: '/what-we-do/womens-empowerment',
-    imageSrc: '/images/programmes/community-homebuilding.jpg',
-    imageAlt: 'Community members work together while constructing a home.',
   },
   {
     title: 'Teacher Training',

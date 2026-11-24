@@ -210,6 +210,13 @@ describe('WhoWeArePage', () => {
     expect(
       screen.getByRole('img', { name: /peter opinya.*co-executive director/i })
     ).toBeInTheDocument();
+    const founderAlts = [
+      /beldon okeyo.*co-executive director/i,
+      /peter opinya.*co-executive director/i,
+    ];
+    for (const pattern of founderAlts) {
+      expect(screen.getByRole('img', { name: pattern }).parentElement).toHaveClass('relative');
+    }
   });
 
   it('renders identified portraits for all five board members', () => {
@@ -222,7 +229,7 @@ describe('WhoWeArePage', () => {
       /keith winfrey/i,
     ];
     for (const pattern of boardAlts) {
-      expect(screen.getByRole('img', { name: pattern })).toBeInTheDocument();
+      expect(screen.getByRole('img', { name: pattern }).parentElement).toHaveClass('relative');
     }
   });
 

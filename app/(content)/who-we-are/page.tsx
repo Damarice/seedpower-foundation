@@ -18,8 +18,8 @@
  *     Requires client confirmation before either is displayed here.
  *   - "Sixth year" statement NOT carried over: would be inaccurate in 2026.
  *     The founding date is used instead.
- *   - The community hero uses an approved photograph; founder and board
- *     portraits remain placeholders because verified portraits were unavailable.
+ *   - The community hero and identified founder and board portraits use
+ *     photographs verified against the original Who We Are page.
  *
  * Architecture v1.2 — Sections 2, 5.1, 7, 11.1, 13 (Phase 6).
  * Visual Design Direction v2.0 — Sections 1–4.
@@ -291,7 +291,7 @@ export default function WhoWeArePage() {
               >
                 <PhotoPlaceholder
                   label={founder.imageAlt}
-                  className="aspect-[4/3] w-full"
+                  className="relative aspect-[4/3] w-full"
                   imageSrc={founder.imageSrc}
                   imageAlt={founder.imageAlt}
                   imageSizes="(max-width: 767px) 100vw, 50vw"
@@ -498,7 +498,7 @@ export default function WhoWeArePage() {
               >
                 <PhotoPlaceholder
                   label={member.imageAlt}
-                  className="aspect-[4/5] w-full"
+                  className="relative aspect-[4/5] w-full"
                   imageSrc={member.imageSrc}
                   imageAlt={member.imageAlt}
                   imageSizes="(max-width: 767px) 50vw, (max-width: 1279px) 20vw, 16vw"

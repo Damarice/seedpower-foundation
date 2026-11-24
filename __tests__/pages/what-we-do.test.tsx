@@ -41,13 +41,8 @@ describe('WhatWeDoPage', () => {
     }
   });
 
-  it('uses distinct photographs for women’s empowerment, teacher training, and water access', () => {
+  it('uses distinct photographs for teacher training and water access', () => {
     render(<WhatWeDoPage />);
-    expect(
-      screen.getByRole('img', {
-        name: 'Community members work together while constructing a home.',
-      })
-    ).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
         name: 'Participants demonstrate a visual-skills activity during a teacher conference in Kisumu.',

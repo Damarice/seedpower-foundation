@@ -76,6 +76,7 @@ describe('SuccessStoriesPage', () => {
     imageElements.forEach((img) => {
       expect(img.getAttribute('src')).not.toBe('');
       expect(img.getAttribute('src')).not.toBeNull();
+      expect(img.parentElement).toHaveClass('relative');
     });
     expect(
       within(galleryContainer).getByRole('img', {
