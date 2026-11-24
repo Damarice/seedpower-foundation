@@ -18,7 +18,10 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
-import { ButtonLink } from '@/components/ui/ButtonLink';
+import {
+  ProgrammePageCta,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
 
 export const metadata: Metadata = {
   title: 'Water, Sanitation & Hygiene',
@@ -37,164 +40,118 @@ export const metadata: Metadata = {
 export default function WashPage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="wash-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="wash-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Water, Sanitation &amp; Hygiene
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            SeedPower Foundation provides water access, sanitation facilities,
-            and hygiene education at both campuses. Clean water is essential
-            to the health, attendance, and wellbeing of students and
-            surrounding community members.
-          </Text>
-        </Container>
-      </Section>
+      <ProgrammePageHero
+        headingId="wash-heading"
+        title="Water, Sanitation & Hygiene"
+        description="Water access, sanitation facilities, and hygiene education at SeedPower’s Oyugis and Nyakach campuses."
+        imageLabel="Water, sanitation, and hygiene programme photography placeholder"
+      />
 
-      {/* Campus water programmes — presented separately, units preserved */}
       <Section background="white" aria-labelledby="campus-water-heading">
         <Container>
           <Heading
             variant="h2"
             id="campus-water-heading"
-            className="text-[var(--color-text-primary)] mb-2"
+            className="mb-3 text-[var(--color-text-primary)]"
           >
-            School and Community Water Programme
+            School and community water programme
           </Heading>
           <Text
             variant="body-lg"
-            className="text-[var(--color-text-secondary)] mb-10 tablet:mb-12 max-w-[600px]"
+            className="mb-8 max-w-[720px] text-[var(--color-text-secondary)] tablet:mb-10"
           >
             SeedPower provides water to both campuses and to their surrounding
             communities.
           </Text>
 
-          <div className="grid grid-cols-1 tablet:grid-cols-2 gap-8 tablet:gap-12">
-
-            {/* Oyugis */}
-            <div
-              className="p-6 bg-[var(--color-bg-soft)] rounded-[var(--radius-md)]"
-            >
-              <Heading
-                variant="h3"
-                className="text-[var(--color-brand)] mb-4"
-              >
-                Oyugis Campus
-              </Heading>
-              <Text variant="body" className="text-[var(--color-text-primary)] mb-4">
-                The water project at Oyugis serves students at the campus and
-                members of the surrounding community.
-              </Text>
-              {/* Figures presented separately — Oyugis count is in individuals */}
-              <dl className="space-y-2">
-                <div className="flex gap-2">
-                  <dt className="font-semibold font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)] min-w-[160px]">
+          <ul className="m-0 list-none p-0">
+            <li className="grid gap-6 border-t border-[var(--color-border)] py-7 tablet:grid-cols-[0.8fr_1.2fr] tablet:items-center tablet:gap-10 tablet:py-9">
+              <div>
+                <Heading variant="h3" className="mb-2 text-[var(--color-brand)]">
+                  Oyugis Campus
+                </Heading>
+                <Text variant="body" className="text-[var(--color-text-secondary)]">
+                  The project serves students at the campus and members of the
+                  surrounding community.
+                </Text>
+              </div>
+              <dl className="m-0 grid grid-cols-2 gap-5">
+                <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                  <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
                     Students served
                   </dt>
-                  <dd className="font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-primary)]">
+                  <dd className="m-0 font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text-primary)]">
                     220
                   </dd>
                 </div>
-                <div className="flex gap-2">
-                  <dt className="font-semibold font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)] min-w-[160px]">
+                <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                  <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
                     Community members
                   </dt>
-                  <dd className="font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-primary)]">
+                  <dd className="m-0 font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text-primary)]">
                     360
                   </dd>
                 </div>
               </dl>
-            </div>
-
-            {/* Nyakach */}
-            <div
-              className="p-6 bg-[var(--color-bg-soft)] rounded-[var(--radius-md)]"
-            >
-              <Heading
-                variant="h3"
-                className="text-[var(--color-brand)] mb-4"
-              >
-                Nyakach Campus
-              </Heading>
-              <Text variant="body" className="text-[var(--color-text-primary)] mb-4">
-                The water project at Nyakach serves students at the campus and
-                families in the surrounding community.
-              </Text>
-              {/* Figures presented separately — Nyakach community count is in families, not individuals */}
-              <dl className="space-y-2">
-                <div className="flex gap-2">
-                  <dt className="font-semibold font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)] min-w-[160px]">
+            </li>
+            <li className="grid gap-6 border-t border-[var(--color-border)] py-7 tablet:grid-cols-[0.8fr_1.2fr] tablet:items-center tablet:gap-10 tablet:py-9">
+              <div>
+                <Heading variant="h3" className="mb-2 text-[var(--color-brand)]">
+                  Nyakach Campus
+                </Heading>
+                <Text variant="body" className="text-[var(--color-text-secondary)]">
+                  The project serves students at the campus and families in
+                  the surrounding community.
+                </Text>
+              </div>
+              <dl className="m-0 grid grid-cols-2 gap-5">
+                <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                  <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
                     Students served
                   </dt>
-                  <dd className="font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-primary)]">
+                  <dd className="m-0 font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text-primary)]">
                     155
                   </dd>
                 </div>
-                <div className="flex gap-2">
-                  <dt className="font-semibold font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-secondary)] min-w-[160px]">
+                <div className="border-l-2 border-[var(--color-brand)] pl-4">
+                  <dt className="mb-1 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">
                     Community families
                   </dt>
-                  <dd className="font-[var(--font-body)] text-[length:var(--text-body-sm)] text-[var(--color-text-primary)]">
+                  <dd className="m-0 font-[var(--font-heading)] text-3xl font-bold text-[var(--color-text-primary)]">
                     290
                   </dd>
                 </div>
               </dl>
-            </div>
-
-          </div>
+            </li>
+          </ul>
         </Container>
       </Section>
 
-      {/* Hygiene education */}
       <Section background="warm" aria-labelledby="hygiene-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="hygiene-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Hygiene Education
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            Alongside water access and sanitation facilities, SeedPower
-            provides hygiene education at both campuses. Improving hygiene
-            practices supports student health, reduces absenteeism, and
-            strengthens the wellbeing of the broader community.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* CTA */}
-      <Section background="brand" aria-labelledby="wash-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
+        <Container>
+          <div className="grid gap-4 tablet:grid-cols-[0.8fr_1.2fr] tablet:gap-10">
             <Heading
               variant="h2"
-              id="wash-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
+              id="hygiene-heading"
+              className="text-[var(--color-text-primary)]"
             >
-              Support Clean Water Access
+              Hygiene education
             </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Your support helps maintain and expand clean water and sanitation
-              for students and communities in Kenya.
+            <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
+              Alongside water access and sanitation facilities, SeedPower
+              provides hygiene education at both campuses.
             </Text>
-            <ButtonLink
-              href="/give/donate"
-              variant="ghost"
-              size="default"
-              className="border-white text-white hover:bg-white/10"
-            >
-              Donate Now
-            </ButtonLink>
           </div>
         </Container>
       </Section>
+
+      <ProgrammePageCta
+        headingId="wash-cta-heading"
+        heading="Support Clean Water Access"
+        description="Your support helps sustain water access, sanitation, and hygiene education for students and surrounding communities."
+        buttonLabel="Donate Now"
+        buttonHref="/give/donate"
+      />
     </>
   );
 }

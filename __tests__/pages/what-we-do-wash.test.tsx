@@ -19,6 +19,15 @@ describe('WashPage', () => {
     expect(h1s[0]).toHaveTextContent('Water, Sanitation & Hygiene');
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<WashPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Water, sanitation, and hygiene programme photography placeholder',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('renders both campus H3 headings', () => {
     render(<WashPage />);
     expect(screen.getByRole('heading', { level: 3, name: 'Oyugis Campus' })).toBeInTheDocument();

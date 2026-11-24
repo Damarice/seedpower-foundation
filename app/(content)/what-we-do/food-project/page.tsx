@@ -18,7 +18,10 @@ import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
 import { Badge } from '@/components/ui/Badge';
-import { ButtonLink } from '@/components/ui/ButtonLink';
+import {
+  ProgrammePageCta,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
 
 export const metadata: Metadata = {
   title: 'Sustainable Food Project',
@@ -44,114 +47,90 @@ const components = [
 export default function FoodProjectPage() {
   return (
     <>
-      {/* Page header — in-development badge is prominent */}
-      <Section background="soft" aria-labelledby="food-project-heading">
-        <Container variant="narrow">
-          <div className="mb-4">
-            <Badge variant="neutral">In Development</Badge>
-          </div>
-          <Heading
-            variant="h1"
-            id="food-project-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Sustainable Food Project
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            SeedPower Foundation is developing a sustainable food project to
-            provide learners and the wider SeedPower community with the correct
-            nutrition, and to equip them with hands-on agricultural skills.
-            This project is currently being put in place.
-          </Text>
-        </Container>
-      </Section>
+      <ProgrammePageHero
+        headingId="food-project-heading"
+        title="Sustainable Food Project"
+        description="An agricultural initiative in development to provide nutrition and hands-on farming skills for learners and the wider SeedPower community."
+        imageLabel="Sustainable food project photography placeholder"
+      />
 
-      {/* Project vision */}
       <Section background="white" aria-labelledby="vision-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="vision-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Our Vision
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            Through this project, SeedPower is determined to expand the status
-            of farming in its communities beyond the current level of
-            subsistence farming — building sustainable livelihoods and food
-            security for the long term.
-          </Text>
-          <Text variant="body" className="text-[var(--color-text-primary)]">
-            Once operational, the project will provide nutritious food for
-            students at both campuses and create opportunities for community
-            members to develop practical agricultural skills.
-          </Text>
+        <Container>
+          <div className="grid items-start gap-6 desktop:grid-cols-[0.8fr_1.2fr] desktop:gap-16">
+            <div>
+              <div className="mb-4">
+                <Badge variant="neutral">In Development</Badge>
+              </div>
+              <Heading
+                variant="h2"
+                id="vision-heading"
+                className="text-[var(--color-text-primary)]"
+              >
+                Our Vision
+              </Heading>
+            </div>
+            <div className="max-w-[760px]">
+              <Text
+                variant="body-lg"
+                className="mb-4 text-[var(--color-text-secondary)]"
+              >
+                SeedPower is putting the project in place to provide learners
+                and the wider community with nutrition and hands-on
+                agricultural skills. It aims to help farming in the
+                communities move beyond subsistence.
+              </Text>
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                Once operational, the project is planned to provide nutritious
+                food for students at both campuses and create opportunities
+                for community members to develop practical agricultural
+                skills.
+              </Text>
+            </div>
+          </div>
         </Container>
       </Section>
 
-      {/* Project components */}
       <Section background="warm" aria-labelledby="components-heading">
         <Container>
           <Heading
             variant="h2"
             id="components-heading"
-            className="text-[var(--color-text-primary)] mb-2"
+            className="mb-3 text-[var(--color-text-primary)]"
           >
-            Project Components
+            Planned project components
           </Heading>
           <Text
             variant="body-lg"
-            className="text-[var(--color-text-secondary)] mb-8 max-w-[600px]"
+            className="mb-8 max-w-[720px] text-[var(--color-text-secondary)]"
           >
-            The Sustainable Food Project is planned to include the following
-            agricultural activities.
+            The project is set to include the following agricultural
+            activities.
           </Text>
-          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-4 tablet:gap-6">
+          <ul
+            className="m-0 grid list-none grid-cols-1 gap-x-8 p-0 tablet:grid-cols-2 desktop:grid-cols-4"
+            aria-label="Planned agricultural activities"
+          >
             {components.map((component) => (
-              <div
+              <li
                 key={component.name}
-                className="p-5 bg-[var(--color-bg-page)] rounded-[var(--radius-md)]
-                           border border-[var(--color-border)] text-center"
+                className="border-t border-[var(--color-border)] py-5 tablet:py-6"
               >
-                <Text
-                  variant="body"
-                  className="font-semibold text-[var(--color-brand)]"
-                >
+                <Text variant="body-lg" className="font-semibold text-[var(--color-brand)]">
                   {component.name}
                 </Text>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
 
-      {/* CTA */}
-      <Section background="brand" aria-labelledby="food-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
-            <Heading
-              variant="h2"
-              id="food-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
-            >
-              Support the Food Project
-            </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Help SeedPower develop sustainable food security and
-              agricultural skills for communities in Kenya.
-            </Text>
-            <ButtonLink
-              href="/give/donate"
-              variant="ghost"
-              size="default"
-              className="border-white text-white hover:bg-white/10"
-            >
-              Donate Now
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
+      <ProgrammePageCta
+        headingId="food-cta-heading"
+        heading="Support the Food Project"
+        description="Your support can help SeedPower develop sustainable food and agricultural skills for its learners and communities."
+        buttonLabel="Donate Now"
+        buttonHref="/give/donate"
+      />
     </>
   );
 }

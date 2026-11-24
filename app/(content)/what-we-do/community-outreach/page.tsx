@@ -18,7 +18,10 @@ import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
-import { ButtonLink } from '@/components/ui/ButtonLink';
+import {
+  ProgrammePageCta,
+  ProgrammePageHero,
+} from '@/components/sections/ProgrammePageSections';
 
 export const metadata: Metadata = {
   title: 'Community Outreach',
@@ -45,7 +48,7 @@ const activities = [
     id: 'hygiene',
     title: 'Hygiene Supplies for Teenage Girls',
     description:
-      'SeedPower reaches out to teenage girls in the community with hygiene supplies, supporting their health and dignity.',
+      'SeedPower reaches out to teenage girls in the community with hygiene supplies.',
   },
   {
     id: 'rights',
@@ -64,97 +67,76 @@ const activities = [
 export default function CommunityOutreachPage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="community-outreach-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="community-outreach-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Community Outreach
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-            SeedPower Foundation offers community and family outreach
-            programmes that reach beyond the school campuses — addressing
-            food insecurity, hygiene, child rights, and youth wellbeing in
-            the Nyakach and Oyugis communities.
-          </Text>
-        </Container>
-      </Section>
+      <ProgrammePageHero
+        headingId="community-outreach-heading"
+        title="Community Outreach"
+        description="Food assistance, hygiene supplies, child rights advocacy, and substance-abuse prevention in Nyakach and Oyugis."
+        imageLabel="Community outreach programme photography placeholder"
+      />
 
-      {/* Activities */}
       <Section background="white" aria-labelledby="activities-heading">
         <Container>
-          <Heading
-            variant="h2"
-            id="activities-heading"
-            className="text-[var(--color-text-primary)] mb-2"
-          >
-            Our Activities
-          </Heading>
-          <Text
-            variant="body-lg"
-            className="text-[var(--color-text-secondary)] mb-10 tablet:mb-12 max-w-[600px]"
-          >
-            Through this programme, a total of 3,600 people have been reached.
-          </Text>
+          <div className="grid items-start gap-8 desktop:grid-cols-[0.8fr_1.2fr] desktop:gap-16">
+            <div>
+              <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Programme reach
+              </p>
+              <p className="font-[var(--font-heading)] text-3xl font-bold leading-tight text-[var(--color-brand)] tablet:text-4xl">
+                3,600 people have been reached
+              </p>
+            </div>
+            <div>
+              <Heading
+                variant="h2"
+                id="activities-heading"
+                className="mb-3 text-[var(--color-text-primary)]"
+              >
+                Community and family outreach
+              </Heading>
+              <Text
+                variant="body-lg"
+                className="mb-6 text-[var(--color-text-secondary)]"
+              >
+                SeedPower works with disadvantaged families, teenage girls,
+                children at risk, and children with special needs through:
+              </Text>
+            </div>
+          </div>
+
           <ol
-            className="space-y-6 tablet:space-y-8 list-none p-0 m-0"
+            className="m-0 list-none p-0"
             aria-label="Community outreach activities"
           >
             {activities.map((activity, index) => (
-              <li key={activity.id} className="flex gap-4 tablet:gap-6">
-                {/* Number badge */}
-                <div
-                  className="flex-shrink-0 flex items-center justify-center
-                             w-10 h-10 rounded-full
-                             bg-[var(--color-brand)] text-[var(--color-text-on-brand)]
-                             font-[var(--font-heading)] font-bold text-base mt-0.5"
+              <li
+                key={activity.id}
+                className="grid gap-3 border-t border-[var(--color-border)] py-6 tablet:grid-cols-[60px_0.8fr_1.2fr] tablet:items-start tablet:gap-6 tablet:py-7"
+              >
+                <span
                   aria-hidden="true"
+                  className="font-[var(--font-heading)] text-sm font-bold text-[var(--color-brand)]"
                 >
-                  {index + 1}
-                </div>
-                <div className="flex-1">
-                  <Heading variant="h3" className="text-[var(--color-brand)] mb-2">
-                    {activity.title}
-                  </Heading>
-                  <Text variant="body" className="text-[var(--color-text-primary)]">
-                    {activity.description}
-                  </Text>
-                </div>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <Heading variant="h3" className="text-[var(--color-text-primary)]">
+                  {activity.title}
+                </Heading>
+                <Text variant="body" className="text-[var(--color-text-secondary)]">
+                  {activity.description}
+                </Text>
               </li>
             ))}
           </ol>
         </Container>
       </Section>
 
-      {/* CTA */}
-      <Section background="brand" aria-labelledby="outreach-cta-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
-            <Heading
-              variant="h2"
-              id="outreach-cta-heading"
-              className="text-[var(--color-text-on-brand)]"
-            >
-              Support Community Outreach
-            </Heading>
-            <Text variant="body-lg" className="text-[var(--color-text-on-brand)] max-w-prose">
-              Your support helps SeedPower reach more families and young
-              people with food, hygiene, and advocacy across Kenya.
-            </Text>
-            <ButtonLink
-              href="/give/donate"
-              variant="ghost"
-              size="default"
-              className="border-white text-white hover:bg-white/10"
-            >
-              Donate Now
-            </ButtonLink>
-          </div>
-        </Container>
-      </Section>
+      <ProgrammePageCta
+        headingId="outreach-cta-heading"
+        heading="Support Community Outreach"
+        description="Your support helps SeedPower continue relief food programmes, hygiene support, and child rights advocacy in the community."
+        buttonLabel="Donate Now"
+        buttonHref="/give/donate"
+      />
     </>
   );
 }

@@ -19,6 +19,15 @@ describe('TeacherTrainingPage', () => {
     expect(h1s[0]).toHaveTextContent('Teacher Training');
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<TeacherTrainingPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Teacher training programme photography placeholder',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('mentions Little Light House USA partnership', () => {
     render(<TeacherTrainingPage />);
     const els = screen.getAllByText(/Little Light House/i);

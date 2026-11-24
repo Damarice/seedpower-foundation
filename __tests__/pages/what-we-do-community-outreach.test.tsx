@@ -19,6 +19,15 @@ describe('CommunityOutreachPage', () => {
     expect(h1s[0]).toHaveTextContent('Community Outreach');
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<CommunityOutreachPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Community outreach programme photography placeholder',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('renders all four verified activity headings', () => {
     render(<CommunityOutreachPage />);
     expect(screen.getByRole('heading', { level: 3, name: 'Relief Food Programmes' })).toBeInTheDocument();

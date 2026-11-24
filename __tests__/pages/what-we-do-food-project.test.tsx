@@ -19,9 +19,18 @@ describe('FoodProjectPage', () => {
     expect(h1s[0]).toHaveTextContent('Sustainable Food Project');
   });
 
+  it('renders the programme hero with its photo placeholder', () => {
+    render(<FoodProjectPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Sustainable food project photography placeholder',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('prominently shows "In Development" status', () => {
     render(<FoodProjectPage />);
-    expect(screen.getByText(/in development/i)).toBeInTheDocument();
+    expect(screen.getByText('In Development')).toBeInTheDocument();
   });
 
   it('renders all four verified project components', () => {
