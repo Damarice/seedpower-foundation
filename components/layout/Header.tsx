@@ -9,7 +9,7 @@
  * Bottom border: 1px solid var(--color-border).
  * The header remains in normal document flow and scrolls with the page.
  *
- * Logo: text fallback "SeedPower Foundation" until image asset is available.
+ * Logo: selected official SeedPower mark in its full-colour variant.
  * Donate button: ButtonLink variant primary → /give/donate.
  * Hamburger: visible below desktop (< 1024px); toggles MobileNav drawer.
  *
@@ -17,6 +17,7 @@
  * Visual Design Direction v2.0 — Section 2.1.
  */
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Navigation } from '@/components/layout/Navigation';
@@ -68,13 +69,19 @@ export function Header() {
             'flex items-center justify-between',
           ].join(' ')}
         >
-          {/* Logo — text fallback until /public/images/logo-green.png is available */}
           <Link
             href="/"
             aria-label="SeedPower Foundation — home"
-            className="flex-shrink-0 no-underline text-[var(--color-brand)] font-semibold text-base"
+            className="flex h-full w-12 shrink-0 items-center no-underline desktop:w-14"
           >
-            SeedPower Foundation
+            <Image
+              src="/images/branding/seedpower-foundation-logo.svg"
+              alt="SeedPower Foundation"
+              width={540}
+              height={575}
+              priority
+              className="h-12 w-12 object-contain desktop:h-14 desktop:w-14"
+            />
           </Link>
 
           {/* Desktop navigation — hidden below 1024px */}

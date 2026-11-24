@@ -33,6 +33,10 @@ describe('Header', () => {
     });
     const logoLink = screen.getByRole('link', { name: /seedpower foundation.*home/i });
     expect(logoLink).toHaveAttribute('href', '/');
+    expect(
+      screen.getByRole('img', { name: 'SeedPower Foundation' })
+    ).toHaveAttribute('src', '/images/branding/seedpower-foundation-logo.svg');
+    expect(logoLink).not.toHaveTextContent('SeedPower Foundation');
   });
 
   it('desktop nav links are present with correct hrefs', async () => {

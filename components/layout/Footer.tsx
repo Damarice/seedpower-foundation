@@ -2,6 +2,7 @@
  * Footer — shared site footer.
  */
 import Link from 'next/link';
+import Image from 'next/image';
 import { CopyrightYear } from '@/components/layout/CopyrightYear';
 
 const QUICK_LINKS = [
@@ -68,9 +69,15 @@ export function Footer() {
             <Link
               href="/"
               aria-label="SeedPower Foundation — home"
-              className="mb-4 inline-flex min-h-11 items-center font-[var(--font-heading)] text-lg font-bold tracking-tight text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
+              className="mb-4 inline-flex min-h-11 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
             >
-              SeedPower Foundation
+              <Image
+                src="/images/branding/seedpower-foundation-logo-white.svg"
+                alt="SeedPower Foundation"
+                width={305}
+                height={338}
+                className="h-[92px] w-[84px] object-contain"
+              />
             </Link>
             <h2 className="mb-2 font-[var(--font-heading)] text-base font-semibold text-white">
               Exploring Potential

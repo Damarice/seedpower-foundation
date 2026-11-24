@@ -13,6 +13,10 @@ describe('Footer', () => {
       'href',
       '/'
     );
+    expect(screen.getByRole('img', { name: 'SeedPower Foundation' })).toHaveAttribute(
+      'src',
+      '/images/branding/seedpower-foundation-logo-white.svg'
+    );
     expect(
       screen.getByRole('heading', { level: 2, name: 'Exploring Potential' })
     ).toBeInTheDocument();

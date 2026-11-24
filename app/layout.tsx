@@ -21,6 +21,30 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: 'SeedPower Foundation',
   },
+  icons: {
+    icon: [
+      { url: '/favicons/favicon.svg', type: 'image/svg+xml', sizes: 'any' },
+      { url: '/favicons/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicons/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      {
+        url: '/favicons/android-chrome-192x192.png',
+        type: 'image/png',
+        sizes: '192x192',
+      },
+      {
+        url: '/favicons/android-chrome-512x512.png',
+        type: 'image/png',
+        sizes: '512x512',
+      },
+    ],
+    apple: [
+      {
+        url: '/favicons/apple-touch-icon.png',
+        type: 'image/png',
+        sizes: '180x180',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
