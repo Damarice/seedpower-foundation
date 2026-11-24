@@ -135,6 +135,15 @@ describe('HomePage', () => {
     expect(screen.getByRole('heading', { level: 3, name: 'Bringing Clean Water Closer' })).toBeInTheDocument();
   });
 
+  it('renders the Women’s Empowerment story with a community home photograph', () => {
+    render(<HomePage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'A woman stands outside the home built through community support.',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('uses the existing programme and success stories routes', () => {
     render(<HomePage />);
     expect(screen.getAllByRole('link', { name: 'Explore Story' })).toHaveLength(3);

@@ -48,11 +48,6 @@ describe('WomensEmpowermentPage', () => {
   it('renders the community impact story about the house', () => {
     render(<WomensEmpowermentPage />);
     expect(screen.getByText(/elderly woman.*house|house.*elderly woman/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', {
-        name: 'A woman stands outside a home built by community members.',
-      })
-    ).toBeInTheDocument();
   });
 
   it('renders Ruth Odero as programme lead', () => {

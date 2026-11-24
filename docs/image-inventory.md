@@ -25,7 +25,7 @@ The 48 photographs below are each used once: 21 from Downloads/new and 27 from t
 | `oyugis-campus-pupils.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-31-at-1.16.57-PM.jpeg) | Pupils gathered at the Oyugis Campus | What We Do — Education Centers, Oyugis Campus |
 | `nyakach-campus-pupils.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-31-at-1.16.58-PM-2.jpeg) | Pupils gathered at the Nyakach Campus | What We Do — Education Centers, Nyakach Campus |
 | `women-sewing-training.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2024/05/f803c5f8-d0f4-4737-aa0d-a5d5a4f9f44b.jpg) | A woman working at a sewing machine | What We Do — Women’s Empowerment hero |
-| `women-home-beneficiary.jpg` | [Original SeedPower website — What We Do](https://seedpowerfoundation.org/what-we-do/) — home-building story photograph | A woman standing outside a home built by community members | What We Do — Women’s Empowerment, “Women supporting one another” story |
+| `women-home-beneficiary.jpg` | [Original SeedPower website — What We Do](https://seedpowerfoundation.org/what-we-do/) — home-building story photograph | A woman standing outside a home built by community members | Home — Stories of Change, Women’s Empowerment card |
 | `teacher-training-conference.jpg` | [Original SeedPower website](https://seedpowerfoundation.org/wp-content/uploads/2023/11/IMG_9161-1.jpg) | Participants at a teacher-development conference in Kisumu | What We Do — Teacher Training hero |
 | `teacher-conference-activity.jpg` | [Original SeedPower website — Teacher Outreach and Training](https://seedpowerfoundation.org/teacher-outreach-and-training/) — `Kisumu-Conference12` | Participants work through a practical activity during the teacher-development conference | What We Do — Teacher Training, International Conference — January 2022 story |
 | `water-storage-tanks.jpg` | Downloads/new — `WhatsApp Image 2026-11-19 at 3.18.42 PM (1).jpeg` | Water storage tanks on school grounds | What We Do — Water, Sanitation & Hygiene hero |
@@ -55,6 +55,6 @@ The 48 photographs below are each used once: 21 from Downloads/new and 27 from t
 
 ## Retained placeholders
 
-- Home — Stories of Change, Women’s Empowerment card. No additional, unique photograph in the inspected collections could be confidently assigned without reusing a photograph already placed elsewhere.
+- What We Do — Women’s Empowerment, the community home-building story. The authentic home photo is assigned once to the homepage Stories of Change card to avoid reuse.
 
 No photograph is reused across the website.

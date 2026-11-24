@@ -30,8 +30,8 @@ const stories = [
     impact: 'Nearly 100 women trained',
     placeholder: "Women's empowerment and skills training photography placeholder",
     href: '/what-we-do/womens-empowerment',
-    imageSrc: undefined,
-    imageAlt: undefined,
+    imageSrc: '/images/programmes/women-home-beneficiary.jpg',
+    imageAlt: 'A woman stands outside the home built through community support.',
   },
   {
     id: 'water',
@@ -45,7 +45,7 @@ const stories = [
     imageSrc: '/images/programmes/school-handwashing.jpg',
     imageAlt: 'Pupils wash their hands at an outdoor handwashing station.',
   },
-] as const;
+] ;
 
 export function StoriesOfChangeSection() {
   const [activeStory, setActiveStory] = useState<string | null>(null);
