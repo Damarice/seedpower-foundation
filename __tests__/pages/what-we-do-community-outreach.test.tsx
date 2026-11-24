@@ -19,11 +19,11 @@ describe('CommunityOutreachPage', () => {
     expect(h1s[0]).toHaveTextContent('Community Outreach');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with a relief-food photograph', () => {
     render(<CommunityOutreachPage />);
     expect(
       screen.getByRole('img', {
-        name: 'Community outreach programme photography placeholder',
+        name: 'Community members receive food during an outreach in Turkana.',
       })
     ).toBeInTheDocument();
   });

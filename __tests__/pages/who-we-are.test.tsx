@@ -37,7 +37,7 @@ describe('WhoWeArePage', () => {
     expect(h1s[0]).toHaveTextContent('Who We Are');
   });
 
-  it('keeps the hero to its heading, short description and photo placeholder', () => {
+  it('keeps the hero to its heading, short description and community photograph', () => {
     render(<WhoWeArePage />);
     const hero = screen.getByRole('region', { name: 'Who We Are' });
 
@@ -46,7 +46,7 @@ describe('WhoWeArePage', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: 'SeedPower community activities photography placeholder',
+        name: 'SeedPower community members gather outside a school building.',
       })
     ).toBeInTheDocument();
     expect(hero.querySelectorAll('a')).toHaveLength(0);

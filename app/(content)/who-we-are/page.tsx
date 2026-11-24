@@ -18,13 +18,14 @@
  *     Requires client confirmation before either is displayed here.
  *   - "Sixth year" statement NOT carried over: would be inaccurate in 2026.
  *     The founding date is used instead.
- *   - All photo slots use accessible placeholders until genuine photographs
- *     are approved for this page.
+ *   - The community hero uses an approved photograph; founder and board
+ *     portraits remain placeholders because verified portraits were unavailable.
  *
  * Architecture v1.2 — Sections 2, 5.1, 7, 11.1, 13 (Phase 6).
  * Visual Design Direction v2.0 — Sections 1–4.
  */
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
@@ -88,7 +89,7 @@ const coreValues = [
 /**
  * Co-founders.
  * Source: page-who-we-are.html and docs/research/full-website-discovery-report.md (page 3).
- * Images: not yet copied to /public/images/ — placeholders used.
+ * No verified portraits were available in the selected image collection.
  */
 const founders = [
   {
@@ -108,7 +109,7 @@ const founders = [
 /**
  * Advisory board members.
  * Source: page-who-we-are.html and docs/research/full-website-discovery-report.md (page 3).
- * Portraits remain placeholders until genuine photographs are approved.
+ * Portraits remain placeholders because no verified member photographs were available.
  */
 const boardMembers = [
   {
@@ -146,44 +147,59 @@ const boardMembers = [
 /* ── Portrait placeholder ──────────────────────────────────────────── */
 
 /**
- * Accessible photo placeholder, designed to be replaced when approved photos arrive.
+ * Accessible photo slot with a placeholder fallback when no verified image exists.
  */
 function PhotoPlaceholder({
   label,
   className,
+  imageSrc,
+  imageAlt,
+  imageSizes = '100vw',
   position = 'center',
 }: {
   label: string;
   className: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageSizes?: string;
   position?: 'center' | 'bottom-right';
 }) {
   return (
     <div
       className={`flex items-center justify-center overflow-hidden rounded-[var(--radius-md)] bg-[radial-gradient(ellipse_at_72%_24%,rgba(255,255,255,0.78),transparent_38%),linear-gradient(145deg,var(--color-bg-warm),var(--color-bg-soft))] ${className}`}
-      role="img"
-      aria-label={label}
+      {...(!imageSrc ? { role: 'img', 'aria-label': label } : {})}
     >
-      <span
-        className={`flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)] ${
-          position === 'bottom-right' ? 'absolute bottom-5 right-5 scale-90' : ''
-        }`}
-      >
-        <svg
-          className="h-10 w-10 text-[var(--color-brand)]/70"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          aria-hidden="true"
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt={imageAlt ?? label}
+          fill
+          sizes={imageSizes}
+          className="object-cover object-center"
+        />
+      ) : (
+        <span
+          className={`flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)] ${
+            position === 'bottom-right' ? 'absolute bottom-5 right-5 scale-90' : ''
+          }`}
         >
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <circle cx="12" cy="12" r="3" />
-          <path d="M7 5l1-2h8l1 2" />
-        </svg>
-        <span className="text-xs font-semibold uppercase tracking-[0.12em]">
-          Photography placeholder
+          <svg
+            className="h-10 w-10 text-[var(--color-brand)]/70"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <circle cx="12" cy="12" r="3" />
+            <path d="M7 5l1-2h8l1 2" />
+          </svg>
+          <span className="text-xs font-semibold uppercase tracking-[0.12em]">
+            Photography placeholder
+          </span>
         </span>
-      </span>
+      )}
     </div>
   );
 }
@@ -204,6 +220,8 @@ export default function WhoWeArePage() {
         />
         <PhotoPlaceholder
           label="SeedPower community activities photography placeholder"
+          imageSrc="/images/programmes/school-community-gathering.jpg"
+          imageAlt="SeedPower community members gather outside a school building."
           className="absolute inset-0 z-0 h-full w-full rounded-none bg-cover bg-center"
           position="bottom-right"
         />

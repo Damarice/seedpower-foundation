@@ -19,14 +19,14 @@ describe('WomensEmpowermentPage', () => {
     expect(h1s[0]).toHaveTextContent("Women's Empowerment");
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with a sewing-training photograph', () => {
     render(<WomensEmpowermentPage />);
     expect(
       screen.getByText(/Practical skills and community support/i)
     ).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: "Women's empowerment programme photography placeholder",
+        name: 'A woman works at a sewing machine during a skills session.',
       })
     ).toBeInTheDocument();
   });
@@ -48,6 +48,11 @@ describe('WomensEmpowermentPage', () => {
   it('renders the community impact story about the house', () => {
     render(<WomensEmpowermentPage />);
     expect(screen.getByText(/elderly woman.*house|house.*elderly woman/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'Community members work together while constructing a home.',
+      })
+    ).toBeInTheDocument();
   });
 
   it('renders Ruth Odero as programme lead', () => {

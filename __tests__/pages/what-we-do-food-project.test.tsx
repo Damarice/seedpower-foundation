@@ -19,11 +19,11 @@ describe('FoodProjectPage', () => {
     expect(h1s[0]).toHaveTextContent('Sustainable Food Project');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with its project-site photograph', () => {
     render(<FoodProjectPage />);
     expect(
       screen.getByRole('img', {
-        name: 'Sustainable food project photography placeholder',
+        name: 'A field at the SeedPower sustainable food project site.',
       })
     ).toBeInTheDocument();
   });

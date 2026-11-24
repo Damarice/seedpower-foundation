@@ -5,13 +5,14 @@
  * Visual Design Direction v2.0 — Section 2.7 (Programme Card).
  * Architecture v1.2 — Section 4.1, Phase 4 deliverables.
  *
- * Images are not yet available; a placeholder div is used for the
- * image area until assets are provided.
+ * Uses responsive Next.js images when a verified asset is available and
+ * retains the existing placeholder for unmatched programme areas.
  *
  * Server Component — hover scale effect is handled via CSS group utility
  * rather than useState, eliminating the need for 'use client'.
  */
 import React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/cn';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
@@ -69,11 +70,12 @@ export function ProgrammeCard({
         className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-bg-soft)]"
       >
         {imageSrc ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
+          <Image
             src={imageSrc}
             alt={imageAlt ?? ''}
-            className="h-full w-full object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
+            fill
+            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+            className="object-cover [transition:transform_var(--transition-slow)] group-hover:scale-[1.03] group-focus-within:scale-[1.03]"
           />
         ) : (
           <div

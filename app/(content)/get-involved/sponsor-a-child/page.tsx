@@ -45,6 +45,8 @@ export default function SponsorAChildPage() {
         title="Sponsor a Child"
         description="Support a child’s access to education through SeedPower Foundation’s sponsorship programme."
         imageLabel="SeedPower education photography placeholder"
+        imageSrc="/images/programmes/sponsored-students-classroom.jpg"
+        imageAlt="Pupils present their learning materials in a classroom."
       />
 
       <Section background="white" aria-labelledby="sponsorship-message-heading">
@@ -64,6 +66,9 @@ export default function SponsorAChildPage() {
             </div>
             <ProgrammeImagePlaceholder
               label="Children’s education sponsorship photography placeholder"
+              imageSrc="/images/programmes/sponsored-student-learning.jpg"
+              imageAlt="A teacher guides pupils during a classroom activity."
+              imageSizes="(max-width: 767px) 100vw, 50vw"
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />
           </div>

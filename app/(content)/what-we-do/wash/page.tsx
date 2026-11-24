@@ -45,6 +45,8 @@ export default function WashPage() {
         title="Water, Sanitation & Hygiene"
         description="Water access, sanitation facilities, and hygiene education at SeedPower’s Oyugis and Nyakach campuses."
         imageLabel="Water, sanitation, and hygiene programme photography placeholder"
+        imageSrc="/images/programmes/water-storage-tanks.jpg"
+        imageAlt="Water storage tanks on school grounds."
       />
 
       <Section background="white" aria-labelledby="campus-water-heading">

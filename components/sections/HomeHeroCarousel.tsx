@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, type FocusEvent, type KeyboardEvent } from 'react';
+import Image from 'next/image';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
 interface HeroSlide {
@@ -8,8 +9,8 @@ interface HeroSlide {
   description: string;
   cta: string;
   href: string;
-  placeholderLabel: string;
-  backgroundImage: string;
+  imageAlt: string;
+  imageSrc: string;
 }
 
 const slides: HeroSlide[] = [
@@ -19,9 +20,8 @@ const slides: HeroSlide[] = [
       'We empower vulnerable children, families and communities through education, opportunity and care.',
     cta: 'Discover Our Mission',
     href: '/who-we-are',
-    placeholderLabel: 'Mission photography placeholder',
-    backgroundImage:
-      'radial-gradient(ellipse at 78% 48%, rgba(201, 178, 126, 0.9) 0%, rgba(147, 151, 105, 0.76) 25%, transparent 58%), linear-gradient(135deg, #7d8b63 8%, #c8b78f 55%, #9d825e 100%)',
+    imageAlt: 'Pupils and staff gather for an outdoor school assembly.',
+    imageSrc: '/images/programmes/school-gathering.jpg',
   },
   {
     headline: 'Opening doors to brighter futures.',
@@ -29,9 +29,8 @@ const slides: HeroSlide[] = [
       'We create inclusive learning opportunities that help children reach their full potential.',
     cta: 'Explore Our Schools',
     href: '/what-we-do/education',
-    placeholderLabel: 'Education photography placeholder',
-    backgroundImage:
-      'radial-gradient(ellipse at 80% 42%, rgba(210, 190, 145, 0.92) 0%, rgba(121, 151, 125, 0.78) 28%, transparent 60%), linear-gradient(135deg, #718b73 5%, #c0b38b 58%, #8c7658 100%)',
+    imageAlt: 'Children in school uniforms play outdoors at school.',
+    imageSrc: '/images/programmes/pupils-playing-at-school.jpg',
   },
   {
     headline: 'Empowered people. Stronger communities.',
@@ -39,9 +38,8 @@ const slides: HeroSlide[] = [
       'We equip individuals and communities with knowledge, opportunities and the support to create lasting change.',
     cta: 'Explore Our Programmes',
     href: '/what-we-do',
-    placeholderLabel: 'Community photography placeholder',
-    backgroundImage:
-      'radial-gradient(ellipse at 82% 50%, rgba(206, 166, 115, 0.9) 0%, rgba(128, 147, 105, 0.78) 27%, transparent 60%), linear-gradient(135deg, #607b59 5%, #b8a078 58%, #856c52 100%)',
+    imageAlt: 'Children and adults perform a cultural dance outdoors.',
+    imageSrc: '/images/programmes/community-cultural-dance.jpg',
   },
 ];
 
@@ -116,15 +114,23 @@ export function HomeHeroCarousel() {
         <div
           key={item.headline}
           aria-hidden="true"
-          className={`absolute inset-0 -z-20 bg-cover bg-center transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none ${
+          className={`absolute inset-0 -z-20 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none ${
             index === activeIndex ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ backgroundImage: item.backgroundImage }}
-        />
+        >
+          <Image
+            src={item.imageSrc}
+            alt=""
+            fill
+            sizes="100vw"
+            fetchPriority={index === activeIndex ? 'high' : undefined}
+            className="object-cover object-center"
+          />
+        </div>
       ))}
       <div
         role="img"
-        aria-label={slide.placeholderLabel}
+        aria-label={slide.imageAlt}
         className="sr-only"
       />
       <div

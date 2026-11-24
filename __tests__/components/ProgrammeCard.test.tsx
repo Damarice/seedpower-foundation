@@ -68,7 +68,9 @@ describe('ProgrammeCard', () => {
       );
     });
     const img = screen.getByRole('img', { name: 'Students in a classroom' });
-    expect(img).toHaveAttribute('src', '/images/programmes/education.jpg');
+    expect(img.getAttribute('src')).toContain(
+      encodeURIComponent('/images/programmes/education.jpg')
+    );
   });
 
   it('renders stats when provided', async () => {

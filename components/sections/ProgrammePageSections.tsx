@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
@@ -6,47 +7,62 @@ import { cn } from '@/lib/cn';
 
 interface ProgrammeImagePlaceholderProps {
   label: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageSizes?: string;
   className?: string;
   placement?: 'center' | 'bottom-right';
 }
 
 export function ProgrammeImagePlaceholder({
   label,
+  imageSrc,
+  imageAlt,
+  imageSizes = '100vw',
   className,
   placement = 'center',
 }: ProgrammeImagePlaceholderProps) {
   return (
     <div
-      role="img"
-      aria-label={label}
+      {...(!imageSrc ? { role: 'img', 'aria-label': label } : {})}
       className={cn(
         'flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_72%_24%,rgba(255,255,255,0.78),transparent_38%),linear-gradient(145deg,var(--color-bg-warm),var(--color-bg-soft))]',
         className
       )}
     >
-      <span
-        aria-hidden="true"
-        className={cn(
-          'flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)]',
-          placement === 'bottom-right' && 'absolute bottom-5 right-5 scale-90'
-        )}
-      >
-        <svg
-          className="h-10 w-10 text-[var(--color-brand)]/70"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt={imageAlt ?? label}
+          fill
+          sizes={imageSizes}
+          className="object-cover object-center"
+        />
+      ) : (
+        <span
           aria-hidden="true"
+          className={cn(
+            'flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)]',
+            placement === 'bottom-right' && 'absolute bottom-5 right-5 scale-90'
+          )}
         >
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <circle cx="12" cy="12" r="3" />
-          <path d="M7 5l1-2h8l1 2" />
-        </svg>
-        <span className="text-xs font-semibold uppercase tracking-[0.12em]">
-          Photography placeholder
+          <svg
+            className="h-10 w-10 text-[var(--color-brand)]/70"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <circle cx="12" cy="12" r="3" />
+            <path d="M7 5l1-2h8l1 2" />
+          </svg>
+          <span className="text-xs font-semibold uppercase tracking-[0.12em]">
+            Photography placeholder
+          </span>
         </span>
-      </span>
+      )}
     </div>
   );
 }
@@ -56,6 +72,9 @@ interface ProgrammePageHeroProps {
   title: string;
   description: string;
   imageLabel: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageSizes?: string;
 }
 
 export function ProgrammePageHero({
@@ -63,6 +82,9 @@ export function ProgrammePageHero({
   title,
   description,
   imageLabel,
+  imageSrc,
+  imageAlt,
+  imageSizes = '100vw',
 }: ProgrammePageHeroProps) {
   return (
     <Section
@@ -72,6 +94,9 @@ export function ProgrammePageHero({
     >
       <ProgrammeImagePlaceholder
         label={imageLabel}
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+        imageSizes={imageSizes}
         placement="bottom-right"
         className="absolute inset-0 z-0 rounded-none"
       />

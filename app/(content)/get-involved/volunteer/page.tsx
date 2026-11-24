@@ -134,6 +134,9 @@ export default function VolunteerPage() {
             </div>
             <ProgrammeImagePlaceholder
               label="SeedPower volunteer mission trip photography placeholder"
+              imageSrc="/images/programmes/volunteer-outreach-team.jpg"
+              imageAlt="SeedPower volunteers and partners gather outside a school."
+              imageSizes="(max-width: 767px) 100vw, 50vw"
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />
           </div>

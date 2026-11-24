@@ -72,6 +72,8 @@ export default function CommunityOutreachPage() {
         title="Community Outreach"
         description="Food assistance, hygiene supplies, child rights advocacy, and substance-abuse prevention in Nyakach and Oyugis."
         imageLabel="Community outreach programme photography placeholder"
+        imageSrc="/images/programmes/turkana-relief-food-distribution.jpg"
+        imageAlt="Community members receive food during an outreach in Turkana."
       />
 
       <Section background="white" aria-labelledby="activities-heading">

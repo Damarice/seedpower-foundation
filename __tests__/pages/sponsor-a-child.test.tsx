@@ -13,14 +13,21 @@ jest.mock('next/navigation', () => ({
 }));
 
 describe('SponsorAChildPage', () => {
-  it('renders a single page heading and a photography placeholder', () => {
+  it('renders a single page heading and an education photograph', () => {
     render(<SponsorAChildPage />);
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
     expect(
       screen.getByRole('heading', { level: 1, name: 'Sponsor a Child' })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: 'SeedPower education photography placeholder' })
+      screen.getByRole('img', {
+        name: 'Pupils present their learning materials in a classroom.',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'A teacher guides pupils during a classroom activity.',
+      })
     ).toBeInTheDocument();
   });
 

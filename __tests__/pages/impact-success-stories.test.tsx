@@ -2,7 +2,7 @@
  * Tests for the Success Stories page — /impact/success-stories
  */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import SuccessStoriesPage from '@/app/(content)/impact/success-stories/page';
 
@@ -66,28 +66,25 @@ describe('SuccessStoriesPage', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'Impact in Pictures' })).toBeInTheDocument();
   });
 
-  it('renders gallery placeholders instead of broken image references', () => {
+  it('renders matched gallery photographs and retains date-specific placeholders', () => {
     render(<SuccessStoriesPage />);
-    // All gallery items should be placeholder divs with role="img", not <img> elements
-    const imgElements = document.querySelectorAll('img');
-    // Any <img> tags present must NOT have empty or broken src attributes
-    imgElements.forEach((img) => {
+    const galleryContainer = screen.getByLabelText('Impact photo gallery');
+    const imageElements = galleryContainer.querySelectorAll('img');
+    expect(imageElements).toHaveLength(4);
+    imageElements.forEach((img) => {
       expect(img.getAttribute('src')).not.toBe('');
       expect(img.getAttribute('src')).not.toBeNull();
     });
-    // The gallery container should exist — check via aria-label directly
-    const galleryContainer = document.querySelector('[aria-label="Photo gallery — images pending"]');
-    expect(galleryContainer).not.toBeNull();
-  });
-
-  it('does not reference /public/images/ paths in gallery', () => {
-    render(<SuccessStoriesPage />);
-    // No <img> element should have a src pointing to /images/
-    const imgElements = document.querySelectorAll('img');
-    imgElements.forEach((img) => {
-      const src = img.getAttribute('src') ?? '';
-      expect(src).not.toMatch(/^\/images\//);
-    });
+    expect(
+      within(galleryContainer).getByRole('img', {
+        name: 'SeedPower January 2019 success story photograph placeholder',
+      })
+    ).toBeInTheDocument();
+    expect(
+      within(galleryContainer).getByRole('img', {
+        name: 'SeedPower March 2023 success story photograph placeholder',
+      })
+    ).toBeInTheDocument();
   });
 
   it('does not invent individual case studies or testimonials', () => {

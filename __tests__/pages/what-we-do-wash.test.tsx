@@ -19,11 +19,11 @@ describe('WashPage', () => {
     expect(h1s[0]).toHaveTextContent('Water, Sanitation & Hygiene');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with its water-project photograph', () => {
     render(<WashPage />);
     expect(
       screen.getByRole('img', {
-        name: 'Water, sanitation, and hygiene programme photography placeholder',
+        name: 'Water storage tanks on school grounds.',
       })
     ).toBeInTheDocument();
   });

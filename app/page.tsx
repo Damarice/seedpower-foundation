@@ -91,6 +91,8 @@ export default function HomePage() {
               'Inclusive learning and educational support for children, including those with special needs, across our Oyugis and Grinnell Family campuses.',
             impactDetail: '375 students supported',
             href: '/what-we-do/education',
+            imageSrc: '/images/programmes/pupils-sharing-classwork.jpg',
+            imageAlt: 'Pupils present their learning materials in a classroom.',
           },
           {
             title: "Women's Empowerment",
@@ -98,6 +100,8 @@ export default function HomePage() {
               'Practical skills training in sewing, basket making and entrepreneurship, helping women build confidence, household stability and self-reliance.',
             impactDetail: 'Nearly 100 women trained',
             href: '/what-we-do/womens-empowerment',
+            imageSrc: '/images/programmes/women-basket-weaving.jpg',
+            imageAlt: 'Women weave baskets during a community skills activity.',
           },
           {
             title: 'Teacher Training',
@@ -111,6 +115,8 @@ export default function HomePage() {
             description:
               'Improving access to clean water, sanitation facilities and hygiene education for students and surrounding communities.',
             href: '/what-we-do/wash',
+            imageSrc: '/images/programmes/community-water-access.jpg',
+            imageAlt: 'A community member transports water containers by donkey.',
           },
           {
             title: 'Sustainable Food Project',
@@ -118,12 +124,16 @@ export default function HomePage() {
               'Developing practical agricultural initiatives through poultry, aquaponics, regenerative gardening and dairy farming to strengthen nutrition and agricultural skills.',
             status: 'In Development',
             href: '/what-we-do/food-project',
+            imageSrc: '/images/programmes/poultry-farming.jpg',
+            imageAlt: 'Chickens in a poultry shelter.',
           },
           {
             title: 'Community Outreach',
             description:
               'Supporting vulnerable communities through relief food distribution, hygiene supplies, substance abuse prevention and child rights advocacy.',
             href: '/what-we-do/community-outreach',
+            imageSrc: '/images/programmes/community-food-assistance.jpg',
+            imageAlt: 'Community members receive relief food during an outreach.',
           },
         ]}
         viewAllHref="/what-we-do"

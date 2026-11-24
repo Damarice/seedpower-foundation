@@ -68,6 +68,11 @@ describe('TeacherTrainingPage', () => {
     // The heading "International Conference — January 2022" contains the date
     expect(screen.getByRole('heading', { name: /January 2022/i })).toBeInTheDocument();
     expect(screen.getByText(/305/)).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'Participants attend a teacher development conference in Kisumu.',
+      })
+    ).toBeInTheDocument();
   });
 
   it('does not invent a date range for the cumulative 1,738 figure', () => {

@@ -19,14 +19,14 @@ describe('EducationPage', () => {
     expect(h1s[0]).toHaveTextContent('Education Centers');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with its education photograph', () => {
     render(<EducationPage />);
     expect(
       screen.getByText(/campuses in Oyugis and Nyakach offer education/i)
     ).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: 'SeedPower education campuses photography placeholder',
+        name: 'Pupils and staff gather at a SeedPower education campus.',
       })
     ).toBeInTheDocument();
   });
@@ -56,13 +56,13 @@ describe('EducationPage', () => {
     expect(total.closest('p')).toHaveTextContent('375 pupils across both campuses');
   });
 
-  it('provides separate photo placeholders for both campuses', () => {
+  it('provides distinct photographs for both campuses', () => {
     render(<EducationPage />);
     expect(
-      screen.getByRole('img', { name: /Oyugis education campus photography placeholder/i })
+      screen.getByRole('img', { name: 'Pupils gather in front of the Oyugis Campus.' })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: /Nyakach education campus photography placeholder/i })
+      screen.getByRole('img', { name: 'Pupils gather outside the Nyakach Campus.' })
     ).toBeInTheDocument();
   });
 

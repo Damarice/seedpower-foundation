@@ -5,7 +5,8 @@
  * The source lists programme milestones rather than named personal stories
  * or testimonials. Conflicting overall student and Turkana totals are omitted.
  *
- * All photographs remain placeholders until image assets are approved.
+ * The date-specific photographs remain placeholders because matching images
+ * were not available; general programme photographs are used where verified.
  */
 import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
@@ -93,26 +94,38 @@ const galleryItems = [
   {
     label: 'SeedPower January 2019 success story photograph placeholder',
     caption: 'SeedPower, January 2019',
+    imageSrc: undefined,
+    imageAlt: undefined,
   },
   {
     label: 'SeedPower March 2023 success story photograph placeholder',
     caption: 'SeedPower, March 2023',
+    imageSrc: undefined,
+    imageAlt: undefined,
   },
   {
     label: 'School and classroom success story photograph placeholder',
     caption: 'School and classroom',
+    imageSrc: '/images/programmes/classroom-learning-activity.jpg',
+    imageAlt: 'A pupil practices writing in class.',
   },
   {
     label: 'Community water project photograph placeholder',
     caption: 'Water projects',
+    imageSrc: '/images/programmes/water-carrier-with-child.jpg',
+    imageAlt: 'A community member carries water containers along a rural path with a child.',
   },
   {
     label: 'Student assembly success story photograph placeholder',
     caption: 'School assembly',
+    imageSrc: '/images/programmes/student-assembly.jpg',
+    imageAlt: 'Pupils gather for a school assembly.',
   },
   {
     label: 'Community engagement success story photograph placeholder',
     caption: 'Community engagement',
+    imageSrc: '/images/programmes/community-outreach-workshop.jpg',
+    imageAlt: 'Community members take part in an outreach meeting.',
   },
 ] as const;
 
@@ -266,16 +279,20 @@ export default function SuccessStoriesPage() {
           >
             The original page references photographs from January 2019 and
             March 2023, alongside school, water-project, and community images.
-            These areas remain placeholders until photographs are approved.
+            The dated images remain placeholders because no matching
+            photographs were available.
           </Text>
           <div
             className="grid grid-cols-2 gap-x-4 gap-y-6 tablet:grid-cols-3 desktop:grid-cols-4"
-            aria-label="Photo gallery — images pending"
+            aria-label="Impact photo gallery"
           >
             {galleryItems.map((item) => (
               <figure key={item.label} className="m-0">
                 <ProgrammeImagePlaceholder
                   label={item.label}
+                  imageSrc={item.imageSrc}
+                  imageAlt={item.imageAlt}
+                  imageSizes="(max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
                   className="aspect-[4/3] w-full rounded-[var(--radius-md)]"
                 />
                 <figcaption className="mt-2 font-[var(--font-body)] text-sm text-[var(--color-text-secondary)]">

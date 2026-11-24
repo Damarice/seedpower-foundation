@@ -37,6 +37,8 @@ const programmes = [
       'Two campuses serving 375 vulnerable children and those with special needs in Oyugis (est. 2019) and Nyakach (est. 2021), Kenya.',
     stats: [{ label: '375 students' }, { label: 'Two campuses' }],
     href: '/what-we-do/education',
+    imageSrc: '/images/programmes/programme-education-card.jpg',
+    imageAlt: 'Two pupils read together in a classroom.',
   },
   {
     title: "Women's Empowerment",
@@ -64,12 +66,16 @@ const programmes = [
       'Poultry, aquaponics, regenerative gardening, and dairy farming to provide nutrition and agricultural skills training. Currently in development.',
     stats: [{ label: 'In development' }],
     href: '/what-we-do/food-project',
+    imageSrc: '/images/programmes/regenerative-garden-field.jpg',
+    imageAlt: 'Leafy vegetables growing in prepared garden beds.',
   },
   {
     title: 'Community Outreach',
     description:
       'Relief food distribution, hygiene supplies, child rights advocacy, and substance abuse prevention reaching disadvantaged families and youth.',
     href: '/what-we-do/community-outreach',
+    imageSrc: '/images/programmes/outreach-food-distribution.jpg',
+    imageAlt: 'A community member receives food during an outreach.',
   },
 ];
 

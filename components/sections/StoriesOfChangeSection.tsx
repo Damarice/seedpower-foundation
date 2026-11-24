@@ -4,6 +4,7 @@
  * StoriesOfChangeSection — compact, image-led editorial story gallery.
  */
 import { useState } from 'react';
+import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 
@@ -17,6 +18,8 @@ const stories = [
     impact: '375 children supported',
     placeholder: 'Education and inclusive classroom photography placeholder',
     href: '/what-we-do/education',
+    imageSrc: '/images/programmes/inclusive-classroom-support.jpg',
+    imageAlt: 'A teacher works with pupils using classroom learning materials.',
   },
   {
     id: 'women',
@@ -27,6 +30,8 @@ const stories = [
     impact: 'Nearly 100 women trained',
     placeholder: "Women's empowerment and skills training photography placeholder",
     href: '/what-we-do/womens-empowerment',
+    imageSrc: undefined,
+    imageAlt: undefined,
   },
   {
     id: 'water',
@@ -37,6 +42,8 @@ const stories = [
     impact: 'Oyugis: 220 pupils · 360 community members',
     placeholder: 'Clean water infrastructure photography placeholder',
     href: '/what-we-do/wash',
+    imageSrc: '/images/programmes/school-handwashing.jpg',
+    imageAlt: 'Pupils wash their hands at an outdoor handwashing station.',
   },
 ] as const;
 
@@ -94,23 +101,35 @@ export function StoriesOfChangeSection() {
                   isActive ? 'border-[var(--color-brand)] shadow-[var(--shadow-card)]' : '',
                 ].join(' ')}
               >
-                <div
-                  role="img"
-                  aria-label={story.placeholder}
-                  className={[
-                    'absolute inset-0 flex items-center justify-center',
-                    'bg-[radial-gradient(ellipse_at_72%_24%,rgba(255,255,255,0.78),transparent_38%),linear-gradient(145deg,var(--color-bg-warm),var(--color-bg-soft))]',
-                    'text-[var(--color-text-secondary)]',
-                    '[transition:transform_var(--transition-slow)]',
-                    '[@media(hover:hover)]:group-hover:scale-[1.025]',
-                    '[@media(hover:hover)]:group-focus-within:scale-[1.025]',
-                    isActive ? 'scale-[1.025]' : '',
-                  ].join(' ')}
-                >
-                  <span className="max-w-[210px] px-6 text-center text-sm font-medium">
-                    {story.placeholder}
-                  </span>
-                </div>
+                {story.imageSrc ? (
+                  <Image
+                    src={story.imageSrc}
+                    alt={story.imageAlt ?? ''}
+                    fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                    className={[
+                      'object-cover',
+                      '[transition:transform_var(--transition-slow)]',
+                      '[@media(hover:hover)]:group-hover:scale-[1.025]',
+                      '[@media(hover:hover)]:group-focus-within:scale-[1.025]',
+                      isActive ? 'scale-[1.025]' : '',
+                    ].join(' ')}
+                  />
+                ) : (
+                  <div
+                    role="img"
+                    aria-label={story.placeholder}
+                    className={[
+                      'absolute inset-0 flex items-center justify-center',
+                      'bg-[radial-gradient(ellipse_at_72%_24%,rgba(255,255,255,0.78),transparent_38%),linear-gradient(145deg,var(--color-bg-warm),var(--color-bg-soft))]',
+                      'text-[var(--color-text-secondary)]',
+                    ].join(' ')}
+                  >
+                    <span className="max-w-[210px] px-6 text-center text-sm font-medium">
+                      {story.placeholder}
+                    </span>
+                  </div>
+                )}
 
                 <div
                   aria-hidden="true"

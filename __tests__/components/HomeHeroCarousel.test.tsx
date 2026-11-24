@@ -3,7 +3,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { HomeHeroCarousel } from '@/components/sections/HomeHeroCarousel';
 
 describe('HomeHeroCarousel', () => {
-  it('renders only the mission headline, description, CTA, and image placeholder', () => {
+  it('renders the mission headline, description, CTA, and authentic hero image', () => {
     render(<HomeHeroCarousel />);
 
     expect(
@@ -24,7 +24,7 @@ describe('HomeHeroCarousel', () => {
     expect(screen.queryByText(/375|1,738/i)).not.toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: 'Mission photography placeholder',
+        name: 'Pupils and staff gather for an outdoor school assembly.',
       })
     ).toBeInTheDocument();
   });
@@ -47,6 +47,11 @@ describe('HomeHeroCarousel', () => {
     expect(
       screen.getByRole('link', { name: 'Explore Our Schools' })
     ).toHaveAttribute('href', '/what-we-do/education');
+    expect(
+      screen.getByRole('img', {
+        name: 'Children in school uniforms play outdoors at school.',
+      })
+    ).toBeInTheDocument();
     expect(screen.getAllByRole('link')).toHaveLength(1);
     expect(screen.queryByText(/375|1,738|EDUCATION/i)).not.toBeInTheDocument();
 

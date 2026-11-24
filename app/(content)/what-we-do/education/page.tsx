@@ -30,6 +30,8 @@ const campuses = [
     pupils: '220 pupils',
     location: 'Oyugis community, Kenya',
     imageLabel: 'Oyugis education campus photography placeholder',
+    imageSrc: '/images/programmes/oyugis-campus-pupils.jpg',
+    imageAlt: 'Pupils gather in front of the Oyugis Campus.',
     description:
       'SeedPower Education Center Oyugis Campus offers education to vulnerable children, children at risk, and children with special needs in the Oyugis community. SeedPower educates, equips, and empowers these children to become Godly leaders and agents of community transformation.',
   },
@@ -41,6 +43,8 @@ const campuses = [
     pupils: '155 pupils',
     location: 'Nyakach community, Kenya',
     imageLabel: 'Nyakach education campus photography placeholder',
+    imageSrc: '/images/programmes/nyakach-campus-pupils.jpg',
+    imageAlt: 'Pupils gather outside the Nyakach Campus.',
     description:
       'SeedPower Education Center GF Campus was established in 2021 to offer education to vulnerable children, children at risk, and children with special needs in the Nyakach community.',
   },
@@ -68,6 +72,8 @@ export default function EducationPage() {
         title="Education Centers"
         description="SeedPower’s campuses in Oyugis and Nyakach offer education to vulnerable children, children at risk, and children with special needs."
         imageLabel="SeedPower education campuses photography placeholder"
+        imageSrc="/images/programmes/education-school-gathering.jpg"
+        imageAlt="Pupils and staff gather at a SeedPower education campus."
       />
 
       <Section background="white" aria-labelledby="campuses-heading">
@@ -99,6 +105,9 @@ export default function EducationPage() {
                 >
                   <ProgrammeImagePlaceholder
                     label={campus.imageLabel}
+                    imageSrc={campus.imageSrc}
+                    imageAlt={campus.imageAlt}
+                    imageSizes="(max-width: 767px) 100vw, 50vw"
                     className={`relative aspect-[4/3] w-full rounded-[var(--radius-md)] ${
                       isReversed ? 'tablet:order-2' : ''
                     }`}

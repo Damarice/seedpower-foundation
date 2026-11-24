@@ -78,11 +78,11 @@ describe('VolunteerPage', () => {
     ).toBeInTheDocument();
   });
 
-  it('uses a placeholder for the mission-trip image', () => {
+  it('uses an authentic volunteer photograph for the mission-trip section', () => {
     render(<VolunteerPage />);
     expect(
       screen.getByRole('img', {
-        name: 'SeedPower volunteer mission trip photography placeholder',
+        name: 'SeedPower volunteers and partners gather outside a school.',
       })
     ).toBeInTheDocument();
   });
