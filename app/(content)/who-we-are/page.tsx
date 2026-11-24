@@ -26,7 +26,6 @@
  */
 import type { Metadata } from 'next';
 import { ButtonLink } from '@/components/ui/ButtonLink';
-import { Card } from '@/components/ui/Card';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
@@ -223,23 +222,10 @@ export default function WhoWeArePage() {
                 non-profit community-based organisation. Its mandate is to
                 empower vulnerable children, youth and women in the community.
               </Text>
-              <div className="mt-7 grid max-w-[440px] grid-cols-2 gap-3">
-                <Card className="border-0 bg-white p-4 tablet:p-5">
-                  <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
-                    2018
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-[var(--color-text-secondary)]">
-                    Founded
-                  </p>
-                </Card>
-                <Card className="border-0 bg-white p-4 tablet:p-5">
-                  <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
-                    2019
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-[var(--color-text-secondary)]">
-                    Registered
-                  </p>
-                </Card>
+              <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-white/85">
+                <span>Established September 2018</span>
+                <span aria-hidden="true" className="text-white/50">·</span>
+                <span>Registered 2019</span>
               </div>
               <ButtonLink
                 href="#founders-heading"
@@ -278,27 +264,24 @@ export default function WhoWeArePage() {
             </div>
             <div className="grid gap-4 tablet:grid-cols-2 tablet:gap-7">
               <Text variant="body" className="text-[var(--color-text-secondary)]">
-                Beldon and Peter have over 13 years of experience working with
-                vulnerable communities. They have worked with different
-                communities, trained and benchmarked with educational
-                institutions in Africa and the USA, where they caught the
-                vision to start SeedPower in Kenya in 2018.
+                Beldon and Peter bring over 13 years of experience working
+                with vulnerable communities. They trained and benchmarked
+                with educational institutions in Africa and the USA, where
+                they were inspired to start SeedPower in Kenya in 2018.
               </Text>
               <Text variant="body" className="text-[var(--color-text-secondary)]">
-                Their similar humble childhood experiences drove them to start
-                SeedPower as a way of giving back to the community and helping
-                vulnerable communities exploit their potential and become
-                agents of community transformation.
+                Their shared childhood experiences inspired them to start
+                SeedPower in Kenya in 2018, giving back and helping communities
+                realise their potential as agents of transformation.
               </Text>
             </div>
           </div>
 
           <div className="grid gap-5 tablet:grid-cols-2 tablet:gap-6 desktop:gap-7">
             {founders.map((founder) => (
-              <Card
-                as="article"
+              <article
                 key={founder.id}
-                className="h-full p-4 tablet:p-5 desktop:p-6"
+                className="min-w-0"
               >
                 <PhotoPlaceholder
                   label={founder.imageAlt}
@@ -318,7 +301,7 @@ export default function WhoWeArePage() {
                     {founder.role}
                   </Text>
                 </div>
-              </Card>
+              </article>
             ))}
           </div>
         </Container>
@@ -330,12 +313,12 @@ export default function WhoWeArePage() {
         className="py-12 tablet:py-16 desktop:py-20"
       >
         <Container>
-          <div className="grid gap-5 desktop:grid-cols-2 desktop:gap-7">
-            <Card as="article" className="border-0">
+          <div className="grid gap-x-12 gap-y-8 desktop:grid-cols-2 desktop:gap-y-10">
+            <article className="border-t border-[var(--color-border)] pt-5">
               <Heading
                 variant="h2"
                 id="mission-heading"
-                className="mb-3 text-[var(--color-brand)]"
+                className="mb-3 text-[var(--color-text-primary)]"
               >
                 Our Mission
               </Heading>
@@ -344,12 +327,12 @@ export default function WhoWeArePage() {
                 education, resources and skills for future self-reliance and
                 the eradication of poverty.
               </Text>
-            </Card>
-            <Card as="article" className="border-0">
+            </article>
+            <article className="border-t border-[var(--color-border)] pt-5">
               <Heading
                 variant="h2"
                 id="vision-heading"
-                className="mb-3 text-[var(--color-brand)]"
+                className="mb-3 text-[var(--color-text-primary)]"
               >
                 Our Vision
               </Heading>
@@ -358,68 +341,67 @@ export default function WhoWeArePage() {
                 families are empowered and equitably access sustainable
                 livelihood opportunities in order to eradicate poverty.
               </Text>
-            </Card>
+            </article>
           </div>
-          <Card className="mt-5 border-l-4 border-l-[var(--color-brand)] desktop:mt-7">
-            <Heading
-              variant="h2"
-              id="aim-heading"
-              className="mb-3 text-[var(--color-brand)]"
-            >
-              Our Aim
-            </Heading>
-            <Text variant="body" className="max-w-[980px] text-[var(--color-text-primary)]">
-              SeedPower seeks to empower vulnerable communities to act as
-              change agents, initiate solutions and actively participate in
-              activities that impact their communities and beyond. The
-              organisation seeks to empower children, women and youth to help
-              them exploit their potential, while sharing the love and glory
-              of God with all.
-            </Text>
-          </Card>
-          <Card className="mt-5 border-0 desktop:mt-7">
-            <Heading
-              variant="h3"
-              className="mb-3 text-[var(--color-brand)]"
-            >
-              Our Overall Objective
-            </Heading>
-            <Text variant="body" className="text-[var(--color-text-primary)]">
-              To improve the quality of life of vulnerable children through
-              environmentally sound interventions and programs, with a
-              specific focus on providing basic essential services.
-            </Text>
-            <Heading
-              variant="h3"
-              className="mb-4 mt-6 text-[var(--color-brand)]"
-            >
-              We do this by
-            </Heading>
-            <ul className="m-0 grid list-none gap-3 p-0 tablet:grid-cols-2 desktop:grid-cols-4">
+          <div className="mt-10 grid gap-8 border-t border-[var(--color-border)] pt-7 desktop:grid-cols-[0.8fr_1.2fr] desktop:gap-12">
+            <div>
+              <Heading
+                variant="h3"
+                id="aim-heading"
+                className="mb-3 text-[var(--color-text-primary)]"
+              >
+                Our Aim
+              </Heading>
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                SeedPower seeks to empower vulnerable communities to act as
+                change agents, initiate solutions and participate in
+                activities that affect their communities, while helping
+                children, women and youth realise their potential and sharing
+                the love and glory of God with all.
+              </Text>
+            </div>
+            <div>
+              <Heading
+                variant="h3"
+                className="mb-3 text-[var(--color-text-primary)]"
+              >
+                Our Overall Objective
+              </Heading>
+              <Text variant="body" className="mb-5 text-[var(--color-text-secondary)]">
+                To improve the quality of life of vulnerable children through
+                environmentally sound interventions and programs focused on
+                basic essential services.
+              </Text>
+              <Text
+                as="p"
+                variant="label-sm"
+                className="mb-3 text-[var(--color-brand)]"
+              >
+                We do this by
+              </Text>
+              <ul className="m-0 grid list-none gap-x-8 gap-y-3 p-0 tablet:grid-cols-2">
               {[
                 'Increasing access to education for vulnerable children, children with special needs and those at risk.',
                 'Working to reduce malnutrition among students in food programs at learning centers.',
                 'Providing access to clean and safe water, sanitation, and hygiene education in schools and the community.',
                 "Introducing youth and women's empowerment programs to build skills for self-reliance and help eradicate poverty.",
               ].map((objective) => (
-                <li
-                  key={objective}
-                  className="flex items-start gap-3 rounded-[var(--radius-md)] bg-[var(--color-bg-soft)] p-4"
-                >
+                <li key={objective} className="flex items-start gap-3">
                   <span
                     aria-hidden="true"
-                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand)]"
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]"
                   />
                   <Text
                     variant="body-sm"
-                    className="text-[var(--color-text-primary)]"
+                    className="text-[var(--color-text-secondary)]"
                   >
                     {objective}
                   </Text>
                 </li>
               ))}
-            </ul>
-          </Card>
+              </ul>
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -442,25 +424,23 @@ export default function WhoWeArePage() {
             </Heading>
           </div>
           <ul
-            className="m-0 grid list-none grid-cols-1 gap-4 p-0 tablet:grid-cols-2 desktop:grid-cols-3 desktop:gap-5"
+            className="m-0 grid list-none grid-cols-1 gap-x-8 p-0 tablet:grid-cols-2 desktop:grid-cols-3"
             aria-label="Core values"
           >
             {coreValues.map((value) => (
-              <li key={value.id}>
-                <Card
-                  as="article"
-                  className="h-full border-l-4 border-l-[var(--color-brand)] p-5 tablet:p-6"
-                >
+              <li
+                key={value.id}
+                className="border-t border-[var(--color-border)] py-5"
+              >
                   <Heading
                     variant="h3"
-                    className="mb-2 text-[var(--color-brand)]"
+                    className="mb-2 text-[var(--color-text-primary)]"
                   >
                     {value.name}
                   </Heading>
                   <Text variant="body" className="text-[var(--color-text-secondary)]">
                     {value.description}
                   </Text>
-                </Card>
               </li>
             ))}
           </ul>
@@ -486,36 +466,20 @@ export default function WhoWeArePage() {
             </Heading>
           </div>
 
-          <div className="mb-10 grid gap-4 tablet:grid-cols-2 desktop:mb-12 desktop:grid-cols-3 desktop:gap-5">
-            <Card as="article" className="h-full bg-[var(--color-bg-page)]">
-              <Text variant="body" className="text-[var(--color-text-primary)]">
-                The Board promotes, supports and enhances the vision and
-                mission of SeedPower Ministry, and seeks opportunities to grow
-                and sustain the ministry.
-              </Text>
-            </Card>
-            <Card as="article" className="h-full bg-[var(--color-bg-page)]">
-              <Text variant="body" className="text-[var(--color-text-primary)]">
-                Board members come from many walks of life and bring unique
-                skills and talents to SeedPower&apos;s operations in support
-                of its mission and vision.
-              </Text>
-            </Card>
-            <Card as="article" className="h-full bg-[var(--color-bg-page)] tablet:col-span-2 desktop:col-span-1">
-              <Text variant="body" className="text-[var(--color-text-primary)]">
-                Board members serve without pay to enable the best use of
-                funds. An Advisory Board brings additional knowledge, skills
-                and abilities to support the organisation.
-              </Text>
-            </Card>
+          <div className="mb-8 max-w-[850px] desktop:mb-10">
+            <Text variant="body" className="text-[var(--color-text-secondary)]">
+              The Board supports SeedPower&apos;s vision and mission, bringing
+              together people with different skills and experience. Members
+              serve without pay, and the Advisory Board adds knowledge and
+              abilities to help grow and sustain the organisation.
+            </Text>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 tablet:grid-cols-3 tablet:gap-5 desktop:grid-cols-5 desktop:gap-6">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 tablet:grid-cols-3 desktop:grid-cols-5 desktop:gap-x-6 desktop:gap-y-10">
             {boardMembers.map((member) => (
-              <Card
-                as="article"
+              <article
                 key={member.id}
-                className="flex h-full flex-col items-center gap-3 p-3 text-center tablet:p-4"
+                className="min-w-0"
               >
                 <PhotoPlaceholder
                   label={member.imageAlt}
@@ -535,7 +499,7 @@ export default function WhoWeArePage() {
                     {member.role}
                   </Text>
                 </div>
-              </Card>
+              </article>
             ))}
           </div>
         </Container>
