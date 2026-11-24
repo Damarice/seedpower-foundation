@@ -54,159 +54,154 @@ const donationTiers = [
 export default function DonatePage() {
   return (
     <>
-      {/* Page header */}
-      <Section background="soft" aria-labelledby="donate-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="donate-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Donate
-          </Heading>
-          {/* Source: "A cheerful giver will change the world in a special way" */}
-          <Text
-            variant="body-lg"
-            className="font-semibold text-[var(--color-brand)]"
-          >
-            A cheerful giver will change the world in a special way.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* Why donate */}
-      <Section background="white" aria-labelledby="why-donate-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="why-donate-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Your Gift Matters
-          </Heading>
-          {/* Source: "Your generous gift will bring joy and purpose to the lives
-              of the vulnerable families and children at risk." */}
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-4">
-            Your generous gift will bring joy and purpose to the lives of
-            vulnerable families and children at risk.
-          </Text>
-          {/* Source: "every amount counts; even a small donation can make
-              a big impact" */}
-          <Text variant="body" className="text-[var(--color-text-primary)] mb-4">
-            Whether it&apos;s a one-time donation or a recurring monthly
-            contribution, every amount counts. Even a small donation can make
-            a big impact on a child&apos;s education and future.
-          </Text>
-          {/* Source: monthly giving option */}
-          <Text variant="body" className="text-[var(--color-text-primary)]">
-            You may also consider a monthly gift to provide ongoing support
-            for vulnerable families throughout the year.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* Donation impact tiers */}
-      <Section background="warm" aria-labelledby="impact-tiers-heading">
+      <Section
+        background="brand"
+        aria-labelledby="donate-heading"
+        className="py-10 tablet:py-12 desktop:py-14"
+      >
         <Container>
-          <Heading
-            variant="h2"
-            id="impact-tiers-heading"
-            className="text-[var(--color-text-primary)] mb-2"
-          >
-            Your Gift in Action
-          </Heading>
-          <Text
-            variant="body-lg"
-            className="text-[var(--color-text-secondary)] mb-8 max-w-[600px]"
-          >
-            Here are some examples of how donations support SeedPower&apos;s
-            work.
-          </Text>
-          <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4 tablet:gap-6">
-            {donationTiers.map((tier) => (
-              <div
-                key={tier.amount}
-                className="p-5 bg-[var(--color-bg-page)] rounded-[var(--radius-md)]
-                           border border-[var(--color-border)] text-center"
+          <div className="flex flex-col items-start gap-6 tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-10">
+            <div className="max-w-[680px]">
+              <Heading
+                variant="hero"
+                id="donate-heading"
+                className="mb-3 text-white"
               >
-                <p
-                  className="font-[var(--font-heading)] font-bold
-                             text-[var(--color-brand)] text-[2rem] mb-2"
-                >
-                  {tier.amount}
-                </p>
-                <Text variant="body" className="text-[var(--color-text-primary)]">
-                  {tier.description}
-                </Text>
-              </div>
-            ))}
+                Donate
+              </Heading>
+              <Text variant="body-lg" className="max-w-[620px] text-white/90">
+                A cheerful giver will change the world in a special way.
+              </Text>
+            </div>
+            <ExternalLink
+              href="https://btgii.app.neoncrm.com/forms/seedpower"
+              className={[
+                'inline-flex min-h-[var(--touch-target-min)] shrink-0 items-center justify-center',
+                'rounded-[var(--radius-sm)] bg-white px-6 py-3 text-base font-semibold text-[var(--color-brand)]',
+                'no-underline transition-colors duration-[var(--transition-std)]',
+                'hover:bg-white/90 active:bg-white/80',
+                'focus-visible:outline focus-visible:outline-2 focus-visible:outline-white',
+                'focus-visible:outline-offset-[var(--focus-ring-offset)]',
+              ].join(' ')}
+              aria-label="Donate to SeedPower Foundation via our secure giving platform (opens in new tab)"
+            >
+              Donate Now
+            </ExternalLink>
           </div>
         </Container>
       </Section>
 
-      {/* NeonCRM external donation link */}
-      <Section background="white" aria-labelledby="donate-now-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h2"
-            id="donate-now-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Make a Secure Donation
-          </Heading>
-          <Text variant="body-lg" className="text-[var(--color-text-primary)] mb-6">
-            Donations are processed securely through SeedPower Foundation&apos;s
-            online giving platform. Click below to make your contribution.
-          </Text>
-          <ExternalLink
-            href="https://btgii.app.neoncrm.com/forms/seedpower"
-            className={[
-              'inline-flex items-center justify-center',
-              'rounded-[var(--radius-sm)]',
-              'bg-[var(--color-brand)] text-[var(--color-text-on-brand)]',
-              'px-6 py-3 text-base font-semibold',
-              'min-h-[var(--touch-target-min)]',
-              'no-underline',
-              'transition-colors duration-[var(--transition-std)]',
-              'hover:bg-[var(--color-brand-hover)]',
-              'active:bg-[var(--color-brand-active)]',
-              'focus-visible:outline',
-              'focus-visible:outline-[length:var(--focus-ring-width)]',
-              'focus-visible:outline-[color:var(--focus-ring-color)]',
-              'focus-visible:[outline-style:var(--focus-ring-style)]',
-              'focus-visible:outline-offset-[var(--focus-ring-offset)]',
-            ].join(' ')}
-            aria-label="Donate to SeedPower Foundation via our secure giving platform (opens in new tab)"
-          >
-            Donate Now
-          </ExternalLink>
+      <Section background="white" aria-labelledby="why-donate-heading">
+        <Container>
+          <div className="grid gap-5 tablet:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] tablet:gap-10 desktop:gap-16">
+            <Heading
+              variant="h2"
+              id="why-donate-heading"
+              className="text-[var(--color-brand)]"
+            >
+              Your Gift Matters
+            </Heading>
+            <div className="max-w-[760px] space-y-4">
+              <Text variant="body-lg" className="text-[var(--color-text-primary)]">
+                Your generous gift will bring joy and purpose to the lives of
+                vulnerable families and children at risk.
+              </Text>
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                Whether it&apos;s a one-time donation or a recurring monthly
+                contribution, every amount counts. Even a small donation can make
+                a big impact on a child&apos;s education and future.
+              </Text>
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                You may also consider a monthly gift to provide ongoing support
+                for vulnerable families throughout the year.
+              </Text>
+              <div className="border-t border-[var(--color-border)] pt-5">
+                <Heading
+                  variant="h3"
+                  id="donate-now-heading"
+                  className="mb-2 text-[var(--color-brand)]"
+                >
+                  Make a Secure Donation
+                </Heading>
+                <Text
+                  variant="body"
+                  className="text-[var(--color-text-secondary)]"
+                >
+                  Donations are processed securely through SeedPower Foundation&apos;s
+                  online giving platform. Click below to make your contribution.
+                </Text>
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
 
-      {/* Other ways */}
-      <Section background="brand" aria-labelledby="other-ways-donate-heading">
-        <Container variant="narrow">
-          <div className="flex flex-col items-center text-center gap-6">
+      <Section background="warm" aria-labelledby="impact-tiers-heading">
+        <Container>
+          <div className="mb-8 max-w-[640px]">
             <Heading
               variant="h2"
-              id="other-ways-donate-heading"
-              className="text-[var(--color-text-on-brand)]"
+              id="impact-tiers-heading"
+              className="mb-3 text-[var(--color-text-primary)]"
             >
-              Other Ways to Help
+              Your Gift in Action
             </Heading>
             <Text
               variant="body-lg"
-              className="text-[var(--color-text-on-brand)] max-w-prose"
+              className="text-[var(--color-text-secondary)]"
             >
-              There are more ways to make a difference for children and
-              communities in Kenya.
+              Here are some examples of how donations support SeedPower&apos;s
+              work.
             </Text>
-            <div className="flex flex-col tablet:flex-row gap-3 justify-center">
+          </div>
+          <ul className="m-0 grid list-none grid-cols-1 gap-0 p-0 tablet:grid-cols-3">
+            {donationTiers.map((tier) => (
+              <li
+                key={tier.amount}
+                className="border-t border-[var(--color-border)] py-5 first:border-t-0 tablet:border-t-0 tablet:border-l tablet:pl-6 tablet:first:border-l-0 tablet:first:pl-0"
+              >
+                <p
+                  className="font-[var(--font-heading)] font-bold
+                             mb-2 text-[2.5rem] leading-none text-[var(--color-brand)]"
+                >
+                  {tier.amount}
+                </p>
+                <Text
+                  variant="body"
+                  className="max-w-[240px] text-[var(--color-text-secondary)]"
+                >
+                  {tier.description}
+                </Text>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section background="soft" aria-labelledby="other-ways-donate-heading">
+        <Container>
+          <div className="grid gap-6 tablet:grid-cols-[minmax(0,1fr)_auto] tablet:items-center tablet:gap-10">
+            <div className="max-w-[640px]">
+              <Heading
+                variant="h2"
+                id="other-ways-donate-heading"
+                className="mb-3 text-[var(--color-text-primary)]"
+              >
+                Other Ways to Help
+              </Heading>
+              <Text
+                variant="body-lg"
+                className="text-[var(--color-text-secondary)]"
+              >
+                There are more ways to make a difference for children and
+                communities in Kenya.
+              </Text>
+            </div>
+            <div className="flex flex-col gap-3 tablet:flex-row tablet:flex-wrap">
               <ButtonLink
                 href="/get-involved/sponsor-a-child"
                 variant="ghost"
                 size="default"
-                className="border-white text-white hover:bg-white/10"
               >
                 Sponsor a Child
               </ButtonLink>
@@ -214,7 +209,6 @@ export default function DonatePage() {
                 href="/get-involved/volunteer"
                 variant="ghost"
                 size="default"
-                className="border-white text-white hover:bg-white/10"
               >
                 Volunteer
               </ButtonLink>

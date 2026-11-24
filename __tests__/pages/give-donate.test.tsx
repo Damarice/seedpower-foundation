@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import DonatePage from '@/app/(content)/give/donate/page';
 
@@ -53,7 +53,8 @@ describe('DonatePage', () => {
 
   it('renders the primary NeonCRM donation link with the exact confirmed URL', () => {
     render(<DonatePage />);
-    const neonLinks = screen
+    const donateRegion = screen.getByRole('region', { name: 'Donate' });
+    const neonLinks = within(donateRegion)
       .getAllByRole('link')
       .filter(
         (el) =>
