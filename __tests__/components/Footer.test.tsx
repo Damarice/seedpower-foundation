@@ -1,103 +1,112 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { Footer } from '@/components/layout/Footer';
 
 expect.extend(toHaveNoViolations);
 
 describe('Footer', () => {
-  it('renders without error', () => {
+  it('renders the organisation identity and original description', () => {
     render(<Footer />);
-    expect(document.querySelector('footer')).toBeInTheDocument();
-  });
 
-  it('displays the confirmed tagline', () => {
-    render(<Footer />);
+    expect(screen.getByRole('link', { name: 'SeedPower Foundation — home' })).toHaveAttribute(
+      'href',
+      '/'
+    );
     expect(
-      screen.getByText(/exploit potential\. eradicate poverty\./i)
+      screen.getByRole('heading', { level: 2, name: 'Exploring Potential' })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Educating, equipping and empowering the vulnerable, children with special needs, and those at risk to become Godly leaders and agents of community transformation.'
+      )
     ).toBeInTheDocument();
   });
 
-  it('displays copyright text with the current year', () => {
+  it('renders all quick links with existing routes', () => {
+    render(<Footer />);
+    const quickLinks = within(screen.getByRole('navigation', { name: 'Quick links' }));
+
+    const expectedLinks = [
+      ['About Us', '/who-we-are'],
+      ['What We Do', '/what-we-do'],
+      ['Stories of Change', '/impact/success-stories'],
+      ['Get Involved', '/get-involved/volunteer'],
+      ['Donate', '/give/donate'],
+      ['Contact Us', '/contact'],
+    ];
+
+    for (const [label, href] of expectedLinks) {
+      expect(quickLinks.getByRole('link', { name: label })).toHaveAttribute('href', href);
+    }
+  });
+
+  it('renders all programme links with existing routes', () => {
+    render(<Footer />);
+    const programmes = within(
+      screen.getByRole('navigation', { name: 'Our programmes' })
+    );
+
+    const expectedLinks = [
+      ['Education', '/what-we-do/education'],
+      ["Women's Empowerment", '/what-we-do/womens-empowerment'],
+      ['Teacher Training', '/what-we-do/teacher-training'],
+      ['Water & Sanitation', '/what-we-do/wash'],
+      ['Sustainable Food Project', '/what-we-do/food-project'],
+      ['Community Outreach', '/what-we-do/community-outreach'],
+    ];
+
+    for (const [label, href] of expectedLinks) {
+      expect(programmes.getByRole('link', { name: label })).toHaveAttribute('href', href);
+    }
+  });
+
+  it('renders functional phone and email links', () => {
+    render(<Footer />);
+
+    expect(screen.getByRole('link', { name: '+254 758 585750' })).toHaveAttribute(
+      'href',
+      'tel:+254758585750'
+    );
+    expect(screen.getByRole('link', { name: 'seedpf2019@gmail.com' })).toHaveAttribute(
+      'href',
+      'mailto:seedpf2019@gmail.com'
+    );
+    expect(
+      screen.getByRole('link', { name: 'seedpowerfoundation@gmail.com' })
+    ).toHaveAttribute('href', 'mailto:seedpowerfoundation@gmail.com');
+  });
+
+  it('uses the verified Facebook destination and an accessible label', () => {
+    render(<Footer />);
+    const facebook = screen.getByRole('link', {
+      name: 'Follow SeedPower Foundation on Facebook (opens in a new tab)',
+    });
+
+    expect(facebook).toHaveAttribute(
+      'href',
+      'https://www.facebook.com/seedpoweredfoundation'
+    );
+    expect(facebook).toHaveAttribute('target', '_blank');
+    expect(facebook).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('displays the exact copyright text with the current year', () => {
     render(<Footer />);
     const year = new Date().getFullYear().toString();
-    // CopyrightYear renders via useEffect (client-only); in jsdom it runs synchronously.
-    // Find the copyright paragraph by its registration number text.
-    const allPs = Array.from(document.querySelectorAll('p'));
-    const copyrightP = allPs.find(
-      (p) =>
-        p.textContent?.includes('SeedPower Foundation') &&
-        p.textContent?.includes('SRD')
+    const copyright = screen.getByText(
+      new RegExp(`©\\s*${year}\\s*SeedPower Foundation\\. All Rights Reserved\\.`)
     );
-    expect(copyrightP).toBeDefined();
-    expect(copyrightP?.textContent).toContain(year);
+
+    expect(copyright).toBeInTheDocument();
   });
 
-  it('displays the registration number', () => {
+  it('does not render a physical address or links to nonexistent routes', () => {
     render(<Footer />);
-    expect(screen.getByText(/SRD\/KK\/121731\/2019/)).toBeInTheDocument();
-  });
 
-  it('What We Do column links are present with correct hrefs', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /education/i })).toHaveAttribute(
-      'href',
-      '/what-we-do/education'
-    );
-    expect(screen.getByRole('link', { name: /teacher training/i })).toHaveAttribute(
-      'href',
-      '/what-we-do/teacher-training'
-    );
-    expect(screen.getByRole('link', { name: /community outreach/i })).toHaveAttribute(
-      'href',
-      '/what-we-do/community-outreach'
-    );
-  });
-
-  it('Get Involved column links are present with correct hrefs', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /volunteer/i })).toHaveAttribute(
-      'href',
-      '/get-involved/volunteer'
-    );
-    expect(screen.getByRole('link', { name: /sponsor a child/i })).toHaveAttribute(
-      'href',
-      '/get-involved/sponsor-a-child'
-    );
-  });
-
-  it('Give column Donate link has correct href', () => {
-    render(<Footer />);
-    // Donate link in footer (may be multiple — confirm at least one points to /give/donate)
-    const donateLinks = screen.getAllByRole('link', { name: /donate/i });
-    const footerDonate = donateLinks.find(
-      (el) => el.getAttribute('href') === '/give/donate'
-    );
-    expect(footerDonate).toBeDefined();
-  });
-
-  it('Give column Events link has correct href', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /events/i })).toHaveAttribute(
-      'href',
-      '/give/events'
-    );
-  });
-
-  it('Privacy Policy link is present', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /privacy policy/i })).toHaveAttribute(
-      'href',
-      '/privacy-policy'
-    );
-  });
-
-  it('Sitemap link is present', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /sitemap/i })).toHaveAttribute(
-      'href',
-      '/sitemap'
-    );
+    expect(screen.queryByText(/P\.?O\.? Box|postal address|office address/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /privacy policy|sitemap|events|visit your child/i }))
+      .not.toBeInTheDocument();
   });
 
   it('passes axe accessibility check', async () => {
