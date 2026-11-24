@@ -1,6 +1,6 @@
 /**
  * Contact — /contact
- * Phase 6 shell: contact information and form placeholder.
+ * Contact information and enquiry form.
  *
  * Content sourced from:
  *   - docs/research/full-website-discovery-report.md (sections 6, 7)
@@ -21,11 +21,9 @@
  *   - Postal address, office hours — not found in any source document.
  *
  * Contact form:
- *   - Phase 7 deliverable (Architecture v1.2 Section 13).
- *   - Requires: React Hook Form, Zod, API route, email delivery decision,
- *     Upstash Redis for rate limiting, confirmed recipient email.
- *   - A clearly labelled placeholder is shown; no non-functional form is
- *     rendered.
+ *   - Uses React Hook Form and Zod validation with POST /api/contact.
+ *   - Email delivery and recipient address remain unconfigured; see the API
+ *     route for its current submission behavior.
  *
  * Architecture v1.2 — Sections 5.1, 5.3, 8.2, 11.1, 13 (Phase 6 / Phase 7).
  * Visual Design Direction v2.0 — Sections 1–3.
@@ -35,16 +33,17 @@ import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
 import { ExternalLink } from '@/components/primitives/ExternalLink';
+import { ContactForm } from '@/components/forms/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with SeedPower Foundation. Reach us on WhatsApp or Facebook — an online enquiry form is coming soon.',
+    'Contact SeedPower Foundation using the enquiry form, WhatsApp, or Facebook.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact | SeedPower Foundation',
     description:
-      'Reach SeedPower Foundation via WhatsApp or Facebook. An online enquiry form is coming soon.',
+      'Contact SeedPower Foundation using the enquiry form, WhatsApp, or Facebook.',
     url: '/contact',
     type: 'website',
   },
@@ -68,9 +67,8 @@ export default function ContactPage() {
               Contact
             </Heading>
             <Text variant="body-lg" className="max-w-[680px] text-white/90">
-              We would love to hear from you. Reach SeedPower Foundation
-              through any of the channels below. An online enquiry form
-              will be available here soon.
+              We would love to hear from you. Send us a message using the form
+              below, or connect with us on WhatsApp or Facebook.
             </Text>
           </div>
         </Container>
@@ -156,20 +154,8 @@ export default function ContactPage() {
             >
               Send an Enquiry
             </Heading>
-            <div className="max-w-[760px] space-y-3">
-              <Text
-                variant="body-lg"
-                className="font-semibold text-[var(--color-brand)]"
-              >
-                Contact form coming soon.
-              </Text>
-              <Text
-                variant="body-sm"
-                className="text-[var(--color-text-secondary)]"
-              >
-                An online enquiry form will be available here in a future update.
-                In the meantime, please reach us via WhatsApp or Facebook above.
-              </Text>
+            <div className="max-w-[760px]">
+              <ContactForm />
             </div>
           </div>
         </Container>

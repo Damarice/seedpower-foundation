@@ -106,7 +106,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /send message/i }));
     await waitFor(() => {
       expect(screen.getByRole('status')).toBeInTheDocument();
-      expect(screen.getByText(/message sent/i)).toBeInTheDocument();
+      expect(screen.getByText(/message received/i)).toBeInTheDocument();
     });
   });
 
@@ -140,6 +140,7 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /send message/i }));
     await waitFor(() => {
       expect(screen.getByRole('status')).toBeInTheDocument();
+      expect(screen.getByText(/message received/i)).toBeInTheDocument();
     });
     // Form fields should no longer be visible after success
     expect(screen.queryByLabelText(/name/i)).not.toBeInTheDocument();

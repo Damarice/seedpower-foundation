@@ -118,9 +118,9 @@ export function ContactForm() {
 
       if (response.ok && json.success) {
         setStatus('success');
-        // Server confirmed success — message reflects actual processing state
+        // The API acknowledges receipt but does not deliver email.
         setServerMessage(
-          json.message ?? 'Your message has been received. We will be in touch soon.'
+          json.message ?? 'Your message has been received.'
         );
         reset();
       } else {
@@ -152,7 +152,7 @@ export function ContactForm() {
         ].join(' ')}
       >
         <p className="font-semibold text-[var(--color-brand)] mb-1">
-          Message sent
+          Message received
         </p>
         <p className="text-sm text-[var(--color-text-primary)]">
           {serverMessage}

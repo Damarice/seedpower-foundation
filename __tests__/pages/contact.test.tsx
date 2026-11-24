@@ -71,14 +71,18 @@ describe('ContactPage', () => {
     expect(fbLink!.getAttribute('rel')).toContain('noreferrer');
   });
 
-  it('shows a form placeholder explaining it is coming soon', () => {
+  it('renders the contact form with its accessible fields', () => {
     render(<ContactPage />);
-    expect(screen.getByText(/contact form coming soon/i)).toBeInTheDocument();
-  });
-
-  it('does not render a functional form element', () => {
-    render(<ContactPage />);
-    expect(document.querySelector('form')).toBeNull();
+    expect(
+      screen.getByRole('form', { name: /contact seedpower foundation/i })
+    ).toBeInTheDocument();
+    expect(screen.getByLabelText(/^name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^subject/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/^message/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: /send message/i })
+    ).toBeInTheDocument();
   });
 
   it('does not display the unconfirmed phone number as a confirmed contact detail', () => {
@@ -102,35 +106,14 @@ describe('ContactPage', () => {
     expect(screen.queryByText(/P\.?O\.? Box|postal|zip code|postcode/i)).not.toBeInTheDocument();
   });
 
-  it('does not imply the contact form is currently available in the intro text', () => {
-    render(<ContactPage />);
-    // The intro must not say "send us an enquiry using the contact form"
-    // or similar present-tense form availability language
-    expect(
-      screen.queryByText(/send us an enquiry using the contact form/i)
-    ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(/send an enquiry through our contact form/i)
-    ).not.toBeInTheDocument();
-  });
-
-  it('metadata.description does not imply the form is currently available', () => {
-    expect(metadata.description).not.toMatch(/send an enquiry through our contact form/i);
-    expect(metadata.description).not.toMatch(/send us an enquiry/i);
-    // Should mention available channels and coming-soon status
+  it('metadata describes the available contact channels', () => {
     expect(metadata.description).toMatch(/whatsapp/i);
     expect(metadata.description).toMatch(/facebook/i);
-    expect(metadata.description).toMatch(/coming soon/i);
-  });
-
-  it('metadata.openGraph.description does not imply the form is currently available', () => {
     const ogDesc = metadata.openGraph?.description ?? '';
-    expect(ogDesc).not.toMatch(/our enquiry form/i);
-    expect(ogDesc).not.toMatch(/send an enquiry/i);
-    // Should mention available channels and coming-soon status
     expect(ogDesc).toMatch(/whatsapp/i);
     expect(ogDesc).toMatch(/facebook/i);
-    expect(ogDesc).toMatch(/coming soon/i);
+    expect(metadata.description).toMatch(/enquiry form/i);
+    expect(ogDesc).toMatch(/enquiry form/i);
   });
 
   it('passes axe accessibility check', async () => {
