@@ -56,14 +56,14 @@ describe('WhoWeArePage', () => {
   it('renders the mission statement', () => {
     render(<WhoWeArePage />);
     expect(
-      screen.getByText(/empower the vulnerable communities by providing them with/i)
+      screen.getByText(/empower vulnerable communities through education, resources and skills/i)
     ).toBeInTheDocument();
   });
 
   it('renders the vision statement', () => {
     render(<WhoWeArePage />);
     expect(
-      screen.getByText(/equitably access sustainable livelihood opportunities/i)
+      screen.getByText(/equitable access to sustainable livelihoods/i)
     ).toBeInTheDocument();
   });
 
@@ -113,6 +113,18 @@ describe('WhoWeArePage', () => {
     ).toBeInTheDocument();
   });
 
+  it('presents the founders’ background in one continuous paragraph', () => {
+    render(<WhoWeArePage />);
+    const biography = screen.getByText(
+      /Beldon Okeyo and Peter Opinya bring more than 13 years/i
+    );
+
+    expect(biography.tagName).toBe('P');
+    expect(biography).toHaveTextContent(/training and benchmarking/i);
+    expect(biography).toHaveTextContent(/shared childhood experiences/i);
+    expect(biography).toHaveTextContent(/established in September 2018 and registered in 2019/i);
+  });
+
   it('renders all five advisory board member names', () => {
     render(<WhoWeArePage />);
     const members = [
@@ -132,6 +144,17 @@ describe('WhoWeArePage', () => {
     expect(
       screen.getByRole('heading', { level: 2, name: 'Advisory Board' })
     ).toBeInTheDocument();
+  });
+
+  it('keeps the Advisory Board overview in one compact paragraph', () => {
+    render(<WhoWeArePage />);
+    const overview = screen.getByText(
+      /The Board promotes, supports and enhances SeedPower's vision/i
+    );
+
+    expect(overview.tagName).toBe('P');
+    expect(overview).toHaveTextContent(/serve without pay/i);
+    expect(overview).toHaveTextContent(/additional knowledge, skills and abilities/i);
   });
 
   it('preserves the existing section order and ends with the CTA', () => {

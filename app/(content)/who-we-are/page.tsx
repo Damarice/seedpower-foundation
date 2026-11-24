@@ -242,21 +242,20 @@ export default function WhoWeArePage() {
                 Our Founders
               </Heading>
             </div>
-            <div className="grid gap-4 tablet:grid-cols-2 tablet:gap-7">
-              <Text variant="body" className="text-[var(--color-text-secondary)]">
-                Beldon and Peter bring over 13 years of experience working
-                with vulnerable communities. They trained and benchmarked
-                with educational institutions in Africa and the USA, where
-                they were inspired to start SeedPower in Kenya in 2018.
-                The organisation was established in September 2018 and
-                registered in 2019.
-              </Text>
-              <Text variant="body" className="text-[var(--color-text-secondary)]">
-                Their shared childhood experiences inspired them to start
-                SeedPower in Kenya in 2018, giving back and helping communities
-                realise their potential as agents of transformation.
-              </Text>
-            </div>
+            <Text
+              variant="body-lg"
+              className="max-w-[850px] leading-relaxed text-[var(--color-text-secondary)]"
+            >
+              Beldon Okeyo and Peter Opinya bring more than 13 years of
+              experience working with vulnerable communities. After working
+              with different communities and training and benchmarking with
+              educational institutions in Africa and the USA, they were
+              inspired to start SeedPower in Kenya in 2018. Their shared
+              childhood experiences led them to give back by helping
+              vulnerable communities realise their potential and become
+              agents of transformation; SeedPower was established in
+              September 2018 and registered in 2019.
+            </Text>
           </div>
 
           <div className="grid gap-5 tablet:grid-cols-2 tablet:gap-6 desktop:gap-7">
@@ -300,95 +299,99 @@ export default function WhoWeArePage() {
               <Heading
                 variant="h2"
                 id="mission-heading"
-                className="mb-3 text-[var(--color-text-primary)]"
+                className="mb-3 text-[var(--color-brand)]"
               >
                 Our Mission
               </Heading>
               <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-                To empower the vulnerable communities by providing them with
-                education, resources and skills for future self-reliance and
-                the eradication of poverty.
+                To empower vulnerable communities through education, resources
+                and skills for future self-reliance and poverty eradication.
               </Text>
             </article>
             <article className="border-t border-[var(--color-border)] pt-5">
               <Heading
                 variant="h2"
                 id="vision-heading"
-                className="mb-3 text-[var(--color-text-primary)]"
+                className="mb-3 text-[var(--color-brand)]"
               >
                 Our Vision
               </Heading>
               <Text variant="body-lg" className="text-[var(--color-text-primary)]">
-                We envision a society where vulnerable children and their
-                families are empowered and equitably access sustainable
-                livelihood opportunities in order to eradicate poverty.
+                A society where vulnerable children and their families are
+                empowered and have equitable access to sustainable livelihoods
+                to eradicate poverty.
               </Text>
             </article>
           </div>
-          <div className="mt-10 grid gap-8 border-t border-[var(--color-border)] pt-7 desktop:grid-cols-[0.8fr_1.2fr] desktop:gap-12">
-            <div>
-              <Heading
-                variant="h3"
-                id="aim-heading"
-                className="mb-3 text-[var(--color-text-primary)]"
-              >
-                Our Aim
-              </Heading>
-              <Text variant="body" className="text-[var(--color-text-secondary)]">
-                SeedPower seeks to empower vulnerable communities to act as
-                change agents, initiate solutions and participate in
-                activities that affect their communities, while helping
-                children, women and youth realise their potential and sharing
-                the love and glory of God with all.
-              </Text>
-            </div>
-            <div>
-              <Heading
-                variant="h3"
-                className="mb-3 text-[var(--color-text-primary)]"
-              >
-                Our Overall Objective
-              </Heading>
-              <Text variant="body" className="mb-5 text-[var(--color-text-secondary)]">
-                To improve the quality of life of vulnerable children through
-                environmentally sound interventions and programs focused on
-                basic essential services.
-              </Text>
-              <Text
-                as="p"
-                variant="label-sm"
-                className="mb-3 text-[var(--color-brand)]"
-              >
-                We do this by
-              </Text>
-              <ul className="m-0 grid list-none gap-x-8 gap-y-3 p-0 tablet:grid-cols-2">
-              {[
-                'Increasing access to education for vulnerable children, children with special needs and those at risk.',
-                'Working to reduce malnutrition among students in food programs at learning centers.',
-                'Providing access to clean and safe water, sanitation, and hygiene education in schools and the community.',
-                "Introducing youth and women's empowerment programs to build skills for self-reliance and help eradicate poverty.",
-              ].map((objective) => (
-                <li key={objective} className="flex items-start gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]"
-                  />
-                  <Text
-                    variant="body-sm"
-                    className="text-[var(--color-text-secondary)]"
-                  >
-                    {objective}
-                  </Text>
-                </li>
-              ))}
-              </ul>
+          <div className="mt-10 overflow-hidden border border-[var(--color-border)] desktop:mt-12">
+            <div className="grid desktop:grid-cols-[0.72fr_1.28fr]">
+              <div className="bg-brand p-6 text-white tablet:p-8 desktop:p-10">
+                <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-white/75">
+                  Our strategy
+                </p>
+                <Heading
+                  variant="h3"
+                  id="aim-heading"
+                  className="mb-3 text-white"
+                >
+                  Our Aim
+                </Heading>
+                <Text variant="body" className="text-white/90">
+                  Empower vulnerable communities to become change agents,
+                  initiate solutions and take part in activities that affect
+                  their communities and beyond. Help children, women and youth
+                  realise their potential, while sharing the love and glory of
+                  God.
+                </Text>
+              </div>
+              <div className="bg-[var(--color-bg-page)] p-6 tablet:p-8 desktop:p-10">
+                <Heading
+                  variant="h3"
+                  className="mb-3 text-[var(--color-brand)]"
+                >
+                  Our Overall Objective
+                </Heading>
+                <Text variant="body" className="mb-5 text-[var(--color-text-secondary)]">
+                  To improve the quality of life of vulnerable children through
+                  environmentally sound interventions and programs, with a
+                  specific focus on providing basic essential services.
+                </Text>
+                <Text
+                  as="p"
+                  variant="label-sm"
+                  className="mb-3 text-[var(--color-brand)]"
+                >
+                  We do this by
+                </Text>
+                <ul className="m-0 grid list-none gap-x-8 gap-y-3 p-0 tablet:grid-cols-2">
+                  {[
+                    'Education access for vulnerable children, those with special needs and those at risk.',
+                    'Reducing malnutrition among students in food programs at learning centers.',
+                    'Clean water, sanitation and hygiene education in schools and the community.',
+                    "Youth and women's empowerment programs that build skills for self-reliance and help eradicate poverty.",
+                  ].map((objective) => (
+                    <li key={objective} className="flex items-start gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-brand)]"
+                      />
+                      <Text
+                        variant="body-sm"
+                        className="text-[var(--color-text-secondary)]"
+                      >
+                        {objective}
+                      </Text>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Container>
       </Section>
 
       <Section
-        background="white"
+        background="soft"
         aria-labelledby="values-heading"
         className="py-12 tablet:py-16 desktop:py-20"
       >
@@ -406,23 +409,23 @@ export default function WhoWeArePage() {
             </Heading>
           </div>
           <ul
-            className="m-0 grid list-none grid-cols-1 gap-x-8 p-0 tablet:grid-cols-2 desktop:grid-cols-3"
+            className="m-0 grid list-none grid-cols-1 gap-x-10 gap-y-2 p-0 tablet:grid-cols-2 desktop:grid-cols-3"
             aria-label="Core values"
           >
             {coreValues.map((value) => (
               <li
                 key={value.id}
-                className="border-t border-[var(--color-border)] py-5"
+                className="border-l border-[var(--color-brand)]/50 py-3 pl-4 tablet:pl-5"
               >
-                  <Heading
-                    variant="h3"
-                    className="mb-2 text-[var(--color-text-primary)]"
-                  >
-                    {value.name}
-                  </Heading>
-                  <Text variant="body" className="text-[var(--color-text-secondary)]">
-                    {value.description}
-                  </Text>
+                <Heading
+                  variant="h3"
+                  className="mb-1 text-[var(--color-text-primary)]"
+                >
+                  {value.name}
+                </Heading>
+                <Text variant="body-sm" className="text-[var(--color-text-secondary)]">
+                  {value.description}
+                </Text>
               </li>
             ))}
           </ul>
@@ -448,16 +451,18 @@ export default function WhoWeArePage() {
             </Heading>
           </div>
 
-          <div className="mb-8 max-w-[850px] desktop:mb-10">
+          <div className="mb-8 max-w-[1050px] border-l-2 border-[var(--color-brand)] pl-4 tablet:mb-10 tablet:pl-6">
             <Text variant="body" className="text-[var(--color-text-secondary)]">
-              The Board supports SeedPower&apos;s vision and mission, bringing
-              together people with different skills and experience. Members
-              serve without pay, and the Advisory Board adds knowledge and
-              abilities to help grow and sustain the organisation.
+              The Board promotes, supports and enhances SeedPower&apos;s vision
+              and mission, seeking opportunities to grow and sustain its work.
+              Its committed members come from different walks of life and bring
+              their skills and talents; they serve without pay to make the best
+              use of funds, while the Advisory Board brings additional
+              knowledge, skills and abilities.
             </Text>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-5 gap-y-8 tablet:grid-cols-3 desktop:grid-cols-5 desktop:gap-x-6 desktop:gap-y-10">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 tablet:grid-cols-5 tablet:gap-x-4 desktop:gap-x-6 desktop:gap-y-10">
             {boardMembers.map((member) => (
               <article
                 key={member.id}
