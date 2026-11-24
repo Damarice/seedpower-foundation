@@ -7,7 +7,7 @@
  *   - The standalone mission strip is omitted from the homepage.
  *   - Impact statistics section with all four confirmed figures.
  *   - Programme grid section heading and all six programme titles.
- *   - Featured story heading and content.
+ *   - Stories of Change heading and three story features.
  *   - Get Involved CTA section heading and three column links.
  *   - Sections have accessible labels.
  *   - axe accessibility check.
@@ -88,7 +88,7 @@ describe('HomePage', () => {
       )
     ).toBeInTheDocument();
     expect(screen.getByText('375 students supported')).toBeInTheDocument();
-    expect(screen.getByText('Nearly 100 women trained')).toBeInTheDocument();
+    expect(screen.getAllByText('Nearly 100 women trained').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('1,738 people reached across 47 counties')).toBeInTheDocument();
     expect(screen.getByLabelText('Programme status')).toHaveTextContent('In Development');
   });
@@ -112,18 +112,29 @@ describe('HomePage', () => {
     );
   });
 
-  it('renders the featured story heading', () => {
+  it('renders the Stories of Change heading', () => {
     render(<HomePage />);
     expect(
-      screen.getByRole('heading', { level: 2, name: /growing from 12 to 375 students/i })
+      screen.getByRole('heading', { level: 2, name: 'Stories of Change' })
     ).toBeInTheDocument();
   });
 
-  it('renders the confirmed growth narrative', () => {
+  it('renders all three verified story headlines', () => {
     render(<HomePage />);
-    expect(
-      screen.getByText(/12 students.*375 children/i)
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'From 12 Students to 375' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'Skills That Build Stronger Communities' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'Bringing Clean Water Closer' })).toBeInTheDocument();
+  });
+
+  it('uses the existing programme and success stories routes', () => {
+    render(<HomePage />);
+    expect(screen.getAllByRole('link', { name: 'Explore Story' })).toHaveLength(3);
+    expect(screen.getAllByRole('link', { name: 'Explore Story' }).map((link) => link.getAttribute('href'))).toEqual([
+      '/what-we-do/education',
+      '/what-we-do/womens-empowerment',
+      '/what-we-do/wash',
+    ]);
+    expect(screen.getByRole('link', { name: 'View All Stories' })).toHaveAttribute('href', '/impact/success-stories');
   });
 
   it('renders the Get Involved section with accessible label', () => {
@@ -165,14 +176,6 @@ describe('HomePage', () => {
     render(<HomePage />);
     const region = screen.getByRole('region', { name: /get involved/i });
     expect(region.className).toContain('bg-brand');
-  });
-
-  it('renders the "More Stories" link with a descriptive accessible name', () => {
-    // F4 fix: disambiguate the out-of-context "More Stories" link name.
-    render(<HomePage />);
-    expect(
-      screen.getByRole('link', { name: /more success stories/i })
-    ).toBeInTheDocument();
   });
 
   it('passes axe accessibility check', async () => {

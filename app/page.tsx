@@ -18,7 +18,7 @@ import type { Metadata } from 'next';
 import {
   ImpactStatsSection,
   ProgrammeGridSection,
-  FeaturedStorySection,
+  StoriesOfChangeSection,
   GetInvolvedCTA,
 } from '@/components/sections';
 import { HomeHeroCarousel } from '@/components/sections/HomeHeroCarousel';
@@ -129,15 +129,8 @@ export default function HomePage() {
         viewAllHref="/what-we-do"
       />
 
-      {/* ══ Featured Story ══
-          Source: Success Stories page (full-website-discovery-report.md, page 14).
-          Verified: "12 students (first month 2019) → 375 students (January 2026)"
-          ══ */}
-      <FeaturedStorySection
-        heading="Growing From 12 to 375 Students"
-        content="When SeedPower Foundation opened its first education centre in Oyugis in January 2019, just 12 students enrolled in that first month. Today, 375 children across two campuses receive quality education and the support they need to thrive in school, their families, and the community. This growth reflects lives changed — children who were once at risk now developing toward their full potential."
-        ctaHref="/impact/success-stories"
-      />
+      {/* ══ Stories of Change ══ */}
+      <StoriesOfChangeSection />
 
       {/* ══ Get Involved CTA ══ */}
       <GetInvolvedCTA

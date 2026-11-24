@@ -5,4 +5,5 @@ export * from './MissionStrip';
 export * from './ImpactStatsSection';
 export * from './ProgrammeGridSection';
 export * from './FeaturedStorySection';
+export * from './StoriesOfChangeSection';
 export * from './GetInvolvedCTA';
