@@ -22,10 +22,12 @@ describe('SuccessStoriesPage', () => {
     expect(h1s[0]).toHaveTextContent('Success Stories');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with a classroom photograph', () => {
     render(<SuccessStoriesPage />);
     expect(
-      screen.getByRole('img', { name: 'Success stories photography placeholder' })
+      screen.getByRole('img', {
+        name: 'Pupils take part in a classroom activity at a SeedPower education centre.',
+      })
     ).toBeInTheDocument();
   });
 
@@ -66,23 +68,28 @@ describe('SuccessStoriesPage', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'Impact in Pictures' })).toBeInTheDocument();
   });
 
-  it('renders matched gallery photographs and retains date-specific placeholders', () => {
+  it('renders the matched January 2019 and March 2023 photographs in the gallery', () => {
     render(<SuccessStoriesPage />);
     const galleryContainer = screen.getByLabelText('Impact photo gallery');
     const imageElements = galleryContainer.querySelectorAll('img');
-    expect(imageElements).toHaveLength(4);
+    expect(imageElements).toHaveLength(6);
     imageElements.forEach((img) => {
       expect(img.getAttribute('src')).not.toBe('');
       expect(img.getAttribute('src')).not.toBeNull();
     });
     expect(
       within(galleryContainer).getByRole('img', {
-        name: 'SeedPower January 2019 success story photograph placeholder',
+        name: 'Pupils work around tables in a classroom in a January 2019 SeedPower photograph.',
       })
     ).toBeInTheDocument();
     expect(
       within(galleryContainer).getByRole('img', {
-        name: 'SeedPower March 2023 success story photograph placeholder',
+        name: 'Pupils and community members gather outside a SeedPower school in a March 2023 photograph.',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'Children gather outdoors beside a building in a 2019 SeedPower photograph.',
       })
     ).toBeInTheDocument();
   });

@@ -75,6 +75,8 @@ export default function ImpactPage() {
         title="Our Impact"
         description="SeedPower seeks to empower vulnerable communities to develop their potential and shape solutions for their communities."
         imageLabel="Impact photography placeholder"
+        imageSrc="/images/programmes/impact-classroom-learning.jpg"
+        imageAlt="Pupils take part in a classroom lesson at a SeedPower education centre."
       />
 
       <ImpactStatsSection

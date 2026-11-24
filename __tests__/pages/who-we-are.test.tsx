@@ -201,9 +201,9 @@ describe('WhoWeArePage', () => {
     expect(screen.queryByText(/sixth year/i)).not.toBeInTheDocument();
   });
 
-  it('renders portrait placeholders for all founders', () => {
+  it('renders identified portraits for both founders', () => {
     render(<WhoWeArePage />);
-    // Each founder placeholder has role="img" with an accessible name
+    // Each portrait image has an accessible name identifying the person.
     expect(
       screen.getByRole('img', { name: /beldon okeyo.*co-executive director/i })
     ).toBeInTheDocument();
@@ -212,7 +212,7 @@ describe('WhoWeArePage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders portrait placeholders for all five board members', () => {
+  it('renders identified portraits for all five board members', () => {
     render(<WhoWeArePage />);
     const boardAlts = [
       /jean karsten winfrey/i,

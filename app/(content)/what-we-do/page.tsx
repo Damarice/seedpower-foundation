@@ -46,6 +46,8 @@ const programmes = [
       'Skills training in sewing, basket making, and entrepreneurship for nearly 100 women, strengthening households and building self-reliance.',
     stats: [{ label: '~100 women trained' }],
     href: '/what-we-do/womens-empowerment',
+    imageSrc: '/images/programmes/community-homebuilding.jpg',
+    imageAlt: 'Community members work together while constructing a home.',
   },
   {
     title: 'Teacher Training',
@@ -53,12 +55,16 @@ const programmes = [
       'Partnership with Little Light House USA has reached 1,738 individuals — including teachers, social workers, parents, and community leaders — across 47 Kenyan counties in special needs education.',
     stats: [{ label: '1,738 trained' }, { label: '47 counties' }],
     href: '/what-we-do/teacher-training',
+    imageSrc: '/images/programmes/teacher-development-workshop.jpg',
+    imageAlt: 'Participants demonstrate a visual-skills activity during a teacher conference in Kisumu.',
   },
   {
     title: 'Water & Sanitation',
     description:
       'Clean water access, sanitation facilities, and hygiene education for students and community members at both campuses.',
     href: '/what-we-do/wash',
+    imageSrc: '/images/programmes/school-water-point.jpg',
+    imageAlt: 'Pupils collect water at a school water point.',
   },
   {
     title: 'Sustainable Food Project',

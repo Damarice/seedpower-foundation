@@ -80,6 +80,15 @@ describe('HomePage', () => {
     }
   });
 
+  it('uses a teacher-training photograph on the Teacher Training programme card', () => {
+    render(<HomePage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Teachers and community participants gather at a teacher-development conference in Kisumu.',
+      })
+    ).toBeInTheDocument();
+  });
+
   it('renders the requested programme introduction and impact details', () => {
     render(<HomePage />);
     expect(

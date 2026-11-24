@@ -19,11 +19,11 @@ describe('TeacherTrainingPage', () => {
     expect(h1s[0]).toHaveTextContent('Teacher Training');
   });
 
-  it('renders the programme hero with its photo placeholder', () => {
+  it('renders the programme hero with a conference photograph', () => {
     render(<TeacherTrainingPage />);
     expect(
       screen.getByRole('img', {
-        name: 'Teacher training programme photography placeholder',
+        name: 'Participants attend a teacher-development conference in Kisumu.',
       })
     ).toBeInTheDocument();
   });
@@ -70,7 +70,7 @@ describe('TeacherTrainingPage', () => {
     expect(screen.getByText(/305/)).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: 'Participants attend a teacher development conference in Kisumu.',
+        name: 'Participants work through an activity at a teacher-development conference.',
       })
     ).toBeInTheDocument();
   });

@@ -35,10 +35,12 @@ describe('VolunteerPage', () => {
     expect(h1s[0]).toHaveTextContent('Volunteer');
   });
 
-  it('renders the shared hero with a photography placeholder', () => {
+  it('renders the shared hero with an outreach photograph', () => {
     render(<VolunteerPage />);
     expect(
-      screen.getByRole('img', { name: 'Volunteer photography placeholder' })
+      screen.getByRole('img', {
+        name: 'Participants meet during a school-based outreach activity.',
+      })
     ).toBeInTheDocument();
   });
 

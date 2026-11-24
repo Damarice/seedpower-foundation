@@ -105,10 +105,10 @@ export function ProgrammeCard({
       </div>
 
       {/* ── Content area ────────────────────────────────────────── */}
-      <div className="flex flex-1 flex-col items-start p-5 tablet:p-6">
+      <div className="flex flex-1 flex-col items-start p-4 tablet:p-5">
         <h3
           className={cn(
-            'mb-3 font-[var(--font-heading)] text-[length:var(--text-h3)]',
+            'mb-2 font-[var(--font-heading)] text-[length:var(--text-h3)]',
             'leading-[var(--text-h3--lh)] font-semibold text-[var(--color-brand)]'
           )}
         >
@@ -138,7 +138,7 @@ export function ProgrammeCard({
           </p>
         )}
 
-        <div className="mt-auto pt-5">
+        <div className="mt-auto pt-4">
           <ButtonLink href={href} variant="ghost" size="sm" aria-label={`Learn more about ${title}`}>
             Learn More
           </ButtonLink>

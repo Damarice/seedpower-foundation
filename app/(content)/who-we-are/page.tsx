@@ -89,58 +89,65 @@ const coreValues = [
 /**
  * Co-founders.
  * Source: page-who-we-are.html and docs/research/full-website-discovery-report.md (page 3).
- * No verified portraits were available in the selected image collection.
+ * Portraits were identified on the original SeedPower Who We Are page.
  */
 const founders = [
   {
     id: 'beldon',
     name: 'Beldon Okeyo',
     role: 'Co-Executive Director, Co-Founder',
-    imageAlt: 'Portrait placeholder for Beldon Okeyo, Co-Executive Director and Co-Founder',
+    imageSrc: '/images/programmes/beldon-okeyo-portrait.jpg',
+    imageAlt: 'Portrait of Beldon Okeyo, Co-Executive Director and Co-Founder.',
   },
   {
     id: 'peter',
     name: 'Peter Opinya',
     role: 'Co-Executive Director, Co-Founder',
-    imageAlt: 'Portrait placeholder for Peter Opinya, Co-Executive Director and Co-Founder',
+    imageSrc: '/images/programmes/peter-opinya-portrait.jpg',
+    imageAlt: 'Portrait of Peter Opinya, Co-Executive Director and Co-Founder.',
   },
 ] as const;
 
 /**
  * Advisory board members.
  * Source: page-who-we-are.html and docs/research/full-website-discovery-report.md (page 3).
- * Portraits remain placeholders because no verified member photographs were available.
+ * Portraits were identified on the original SeedPower Who We Are page.
  */
 const boardMembers = [
   {
     id: 'jean-winfrey',
     name: 'Jean Karsten Winfrey',
     role: 'Board Member',
-    imageAlt: 'Portrait placeholder for Jean Karsten Winfrey, Board Member',
+    imageSrc: '/images/programmes/jean-karsten-winfrey-portrait.jpg',
+    imageAlt: 'Portrait of Jean Karsten Winfrey, Board Member.',
   },
   {
     id: 'jim-grinnell',
     name: 'Jim Grinnell',
     role: 'Board Member',
-    imageAlt: 'Portrait placeholder for Jim Grinnell, Board Member',
+    imageSrc: '/images/programmes/jim-grinnell-portrait.jpg',
+    imageAlt: 'Portrait of Jim Grinnell, Board Member.',
   },
   {
     id: 'laura-grinnell',
     name: 'Laura Grinnell',
     role: 'Board Member',
-    imageAlt: 'Portrait placeholder for Laura Grinnell, Board Member',
+    imageSrc: '/images/programmes/laura-grinnell-portrait.jpg',
+    imageAlt: 'Portrait of Laura Grinnell, Board Member.',
   },
   {
     id: 'linda-steed',
     name: 'Linda Steed',
     role: 'Board Member',
-    imageAlt: 'Portrait placeholder for Linda Steed, Board Member',
+    imageSrc: '/images/programmes/linda-steed-portrait.jpg',
+    imageAlt: 'Portrait of Linda Steed, Board Member.',
   },
   {
     id: 'keith-winfrey',
     name: 'Keith Winfrey',
     role: 'Board Member',
-    imageAlt: 'Portrait placeholder for Keith Winfrey, Board Member',
+    imageSrc: '/images/programmes/keith-winfrey-portrait.jpg',
+    imageAlt: 'Portrait of Keith Winfrey, Board Member.',
   },
 ] as const;
 
@@ -216,7 +223,7 @@ export default function WhoWeArePage() {
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(20,32,15,0.92)_0%,rgba(20,32,15,0.76)_52%,rgba(20,32,15,0.52)_100%)]"
+          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(20,32,15,0.8)_0%,rgba(20,32,15,0.6)_52%,rgba(20,32,15,0.34)_100%)]"
         />
         <PhotoPlaceholder
           label="SeedPower community activities photography placeholder"
@@ -285,6 +292,9 @@ export default function WhoWeArePage() {
                 <PhotoPlaceholder
                   label={founder.imageAlt}
                   className="aspect-[4/3] w-full"
+                  imageSrc={founder.imageSrc}
+                  imageAlt={founder.imageAlt}
+                  imageSizes="(max-width: 767px) 100vw, 50vw"
                 />
                 <div className="pt-4">
                   <Heading
@@ -489,6 +499,9 @@ export default function WhoWeArePage() {
                 <PhotoPlaceholder
                   label={member.imageAlt}
                   className="aspect-[4/5] w-full"
+                  imageSrc={member.imageSrc}
+                  imageAlt={member.imageAlt}
+                  imageSizes="(max-width: 767px) 50vw, (max-width: 1279px) 20vw, 16vw"
                 />
                 <div>
                   <Heading

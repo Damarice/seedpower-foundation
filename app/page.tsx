@@ -109,6 +109,8 @@ export default function HomePage() {
               'Teacher development and community training initiatives that strengthen inclusive education and support children with special needs.',
             impactDetail: '1,738 people reached across 47 counties',
             href: '/what-we-do/teacher-training',
+            imageSrc: '/images/programmes/teacher-training-participants.jpg',
+            imageAlt: 'Teachers and community participants gather at a teacher-development conference in Kisumu.',
           },
           {
             title: 'Water & Sanitation',

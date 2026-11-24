@@ -50,7 +50,7 @@ describe('WomensEmpowermentPage', () => {
     expect(screen.getByText(/elderly woman.*house|house.*elderly woman/i)).toBeInTheDocument();
     expect(
       screen.getByRole('img', {
-        name: 'Community members work together while constructing a home.',
+        name: 'A woman stands outside a home built by community members.',
       })
     ).toBeInTheDocument();
   });

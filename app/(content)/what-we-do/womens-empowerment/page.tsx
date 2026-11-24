@@ -62,6 +62,8 @@ export default function WomensEmpowermentPage() {
         imageLabel="Women's empowerment programme photography placeholder"
         imageSrc="/images/programmes/women-sewing-training.jpg"
         imageAlt="A woman works at a sewing machine during a skills session."
+        imageSizes="(max-width: 1023px) 100vw, 260px"
+        imageClassName="object-[center_22%] desktop:object-contain desktop:object-right"
       />
 
       <Section background="white" aria-labelledby="approach-heading">
@@ -163,9 +165,9 @@ export default function WomensEmpowermentPage() {
         <Container>
           <div className="grid items-center gap-8 tablet:grid-cols-2 desktop:gap-16">
             <ProgrammeImagePlaceholder
-              label="Community home-building project photography placeholder"
-              imageSrc="/images/programmes/community-homebuilding.jpg"
-              imageAlt="Community members work together while constructing a home."
+              label="Community home-building project photograph"
+              imageSrc="/images/programmes/women-home-beneficiary.jpg"
+              imageAlt="A woman stands outside a home built by community members."
               imageSizes="(max-width: 767px) 100vw, 50vw"
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />

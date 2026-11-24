@@ -135,12 +135,12 @@ export function StoriesOfChangeSection() {
                   aria-hidden="true"
                   className={[
                     'absolute inset-0',
-                    'bg-[linear-gradient(180deg,rgba(20,32,15,0.08)_18%,rgba(20,32,15,0.88)_100%)]',
-                    '[@media(hover:hover)]:group-hover:bg-[linear-gradient(180deg,rgba(20,32,15,0.18)_8%,rgba(20,32,15,0.94)_100%)]',
-                    '[@media(hover:hover)]:group-focus-within:bg-[linear-gradient(180deg,rgba(20,32,15,0.18)_8%,rgba(20,32,15,0.94)_100%)]',
+                    'bg-[linear-gradient(180deg,rgba(20,32,15,0.06)_18%,rgba(20,32,15,0.68)_100%)]',
+                    '[@media(hover:hover)]:group-hover:bg-[linear-gradient(180deg,rgba(20,32,15,0.12)_8%,rgba(20,32,15,0.82)_100%)]',
+                    '[@media(hover:hover)]:group-focus-within:bg-[linear-gradient(180deg,rgba(20,32,15,0.12)_8%,rgba(20,32,15,0.82)_100%)]',
                     'transition-[background] duration-[var(--transition-slow)]',
                     isActive
-                      ? 'bg-[linear-gradient(180deg,rgba(20,32,15,0.18)_8%,rgba(20,32,15,0.94)_100%)]'
+                      ? 'bg-[linear-gradient(180deg,rgba(20,32,15,0.12)_8%,rgba(20,32,15,0.82)_100%)]'
                       : '',
                   ].join(' ')}
                 />

@@ -60,6 +60,8 @@ export default function VolunteerPage() {
         title="Volunteer"
         description="Share your time at SeedPower in children’s learning, community outreach, empowerment programmes, or teacher development."
         imageLabel="Volunteer photography placeholder"
+        imageSrc="/images/programmes/volunteer-outreach-session.jpg"
+        imageAlt="Participants meet during a school-based outreach activity."
       />
 
       <Section background="white" aria-labelledby="volunteer-areas-heading">

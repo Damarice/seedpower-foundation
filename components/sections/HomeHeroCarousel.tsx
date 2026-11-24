@@ -135,15 +135,11 @@ export function HomeHeroCarousel() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#14200f]/95 via-[#1a2713]/85 via-45% to-transparent"
+        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#14200f]/78 via-[#1a2713]/58 via-45% to-transparent"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(20,32,15,0.42),transparent_36%)] desktop:bg-none"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[56%] bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_1px,transparent_1px,transparent_24px)] tablet:block"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(20,32,15,0.18),transparent_36%)] desktop:bg-none"
       />
 
       <div className="mx-auto flex min-h-[inherit] w-full max-w-[var(--container-max)] flex-col justify-center px-[var(--container-padding-mobile)] pb-24 pt-8 tablet:px-[var(--container-padding-tablet)] tablet:pb-28">

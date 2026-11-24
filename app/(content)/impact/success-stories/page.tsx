@@ -4,9 +4,8 @@
  *
  * The source lists programme milestones rather than named personal stories
  * or testimonials. Conflicting overall student and Turkana totals are omitted.
- *
- * The date-specific photographs remain placeholders because matching images
- * were not available; general programme photographs are used where verified.
+ * Date-specific photographs are matched to the January 2019 and March 2023
+ * groupings on the original Success Stories page.
  */
 import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
@@ -92,16 +91,16 @@ const milestones = [
 
 const galleryItems = [
   {
-    label: 'SeedPower January 2019 success story photograph placeholder',
+    label: 'SeedPower January 2019 success story photograph',
     caption: 'SeedPower, January 2019',
-    imageSrc: undefined,
-    imageAlt: undefined,
+    imageSrc: '/images/programmes/january-2019-classroom.jpg',
+    imageAlt: 'Pupils work around tables in a classroom in a January 2019 SeedPower photograph.',
   },
   {
-    label: 'SeedPower March 2023 success story photograph placeholder',
+    label: 'SeedPower March 2023 success story photograph',
     caption: 'SeedPower, March 2023',
-    imageSrc: undefined,
-    imageAlt: undefined,
+    imageSrc: '/images/programmes/march-2023-pupils-and-community.jpg',
+    imageAlt: 'Pupils and community members gather outside a SeedPower school in a March 2023 photograph.',
   },
   {
     label: 'School and classroom success story photograph placeholder',
@@ -137,6 +136,8 @@ export default function SuccessStoriesPage() {
         title="Success Stories"
         description="Documented milestones from SeedPower’s education, teacher development, water, and community programmes."
         imageLabel="Success stories photography placeholder"
+        imageSrc="/images/programmes/success-stories-classroom.jpg"
+        imageAlt="Pupils take part in a classroom activity at a SeedPower education centre."
       />
 
       <Section background="white" aria-labelledby="growth-story-heading">
@@ -162,7 +163,9 @@ export default function SuccessStoriesPage() {
               </Text>
             </div>
             <ProgrammeImagePlaceholder
-              label="SeedPower January 2019 success story photograph placeholder"
+              label="SeedPower January 2019 success story photograph"
+              imageSrc="/images/programmes/early-students-2019.jpg"
+              imageAlt="Children gather outdoors beside a building in a 2019 SeedPower photograph."
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />
           </div>
@@ -279,8 +282,7 @@ export default function SuccessStoriesPage() {
           >
             The original page references photographs from January 2019 and
             March 2023, alongside school, water-project, and community images.
-            The dated images remain placeholders because no matching
-            photographs were available.
+            The gallery includes photographs from those dated groupings.
           </Text>
           <div
             className="grid grid-cols-2 gap-x-4 gap-y-6 tablet:grid-cols-3 desktop:grid-cols-4"
@@ -306,7 +308,7 @@ export default function SuccessStoriesPage() {
 
       <Section background="brand" aria-labelledby="stories-cta-heading">
         <Container>
-          <div className="flex flex-col items-start gap-6 tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-10">
+          <div className="flex flex-col items-start gap-6 tablet:flex-col tablet:items-start tablet:gap-6 desktop:flex-row desktop:items-center desktop:justify-between desktop:gap-10">
             <div className="max-w-[680px]">
               <Heading
                 variant="h2"

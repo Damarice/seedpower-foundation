@@ -10,6 +10,7 @@ interface ProgrammeImagePlaceholderProps {
   imageSrc?: string;
   imageAlt?: string;
   imageSizes?: string;
+  imageClassName?: string;
   className?: string;
   placement?: 'center' | 'bottom-right';
 }
@@ -19,6 +20,7 @@ export function ProgrammeImagePlaceholder({
   imageSrc,
   imageAlt,
   imageSizes = '100vw',
+  imageClassName,
   className,
   placement = 'center',
 }: ProgrammeImagePlaceholderProps) {
@@ -36,7 +38,7 @@ export function ProgrammeImagePlaceholder({
           alt={imageAlt ?? label}
           fill
           sizes={imageSizes}
-          className="object-cover object-center"
+          className={cn('object-cover object-center', imageClassName)}
         />
       ) : (
         <span
@@ -75,6 +77,7 @@ interface ProgrammePageHeroProps {
   imageSrc?: string;
   imageAlt?: string;
   imageSizes?: string;
+  imageClassName?: string;
 }
 
 export function ProgrammePageHero({
@@ -85,6 +88,7 @@ export function ProgrammePageHero({
   imageSrc,
   imageAlt,
   imageSizes = '100vw',
+  imageClassName,
 }: ProgrammePageHeroProps) {
   return (
     <Section
@@ -97,12 +101,13 @@ export function ProgrammePageHero({
         imageSrc={imageSrc}
         imageAlt={imageAlt}
         imageSizes={imageSizes}
+        imageClassName={imageClassName}
         placement="bottom-right"
         className="absolute inset-0 z-0 rounded-none"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(45,80,22,0.94)_0%,rgba(45,80,22,0.82)_55%,rgba(45,80,22,0.5)_100%)]"
+        className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(45,80,22,0.82)_0%,rgba(45,80,22,0.62)_55%,rgba(45,80,22,0.24)_100%)]"
       />
       <Container>
         <div className="relative z-20 max-w-[680px]">

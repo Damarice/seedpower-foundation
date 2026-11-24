@@ -22,10 +22,12 @@ describe('ImpactPage', () => {
     expect(h1s[0]).toHaveTextContent('Our Impact');
   });
 
-  it('renders the full-width hero with an image placeholder', () => {
+  it('renders the full-width hero with a classroom photograph', () => {
     render(<ImpactPage />);
     expect(
-      screen.getByRole('img', { name: 'Impact photography placeholder' })
+      screen.getByRole('img', {
+        name: 'Pupils take part in a classroom lesson at a SeedPower education centre.',
+      })
     ).toBeInTheDocument();
   });
 

@@ -41,6 +41,23 @@ describe('WhatWeDoPage', () => {
     }
   });
 
+  it('uses distinct photographs for women’s empowerment, teacher training, and water access', () => {
+    render(<WhatWeDoPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'Community members work together while constructing a home.',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'Participants demonstrate a visual-skills activity during a teacher conference in Kisumu.',
+      })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: 'Pupils collect water at a school water point.' })
+    ).toBeInTheDocument();
+  });
+
   it('all programme cards link to their correct routes', () => {
     render(<WhatWeDoPage />);
     const routes = [

@@ -56,6 +56,8 @@ export default function TeacherTrainingPage() {
         title="Teacher Training"
         description="In partnership with Little Light House USA, SeedPower trains teachers and community stakeholders in special needs education across Kenya."
         imageLabel="Teacher training programme photography placeholder"
+        imageSrc="/images/programmes/teacher-training-conference.jpg"
+        imageAlt="Participants attend a teacher-development conference in Kisumu."
       />
 
       <Section background="white" aria-labelledby="reach-heading">
@@ -117,8 +119,8 @@ export default function TeacherTrainingPage() {
           <div className="grid items-center gap-8 tablet:grid-cols-2 desktop:gap-16">
             <ProgrammeImagePlaceholder
               label="Teacher conference photography placeholder"
-              imageSrc="/images/programmes/teacher-training-conference.jpg"
-              imageAlt="Participants attend a teacher development conference in Kisumu."
+              imageSrc="/images/programmes/teacher-conference-activity.jpg"
+              imageAlt="Participants work through an activity at a teacher-development conference."
               imageSizes="(max-width: 767px) 100vw, 50vw"
               className="relative aspect-[4/3] w-full rounded-[var(--radius-md)]"
             />
