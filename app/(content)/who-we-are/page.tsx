@@ -162,6 +162,7 @@ function PhotoPlaceholder({
   imageSrc,
   imageAlt,
   imageSizes = '100vw',
+  imagePosition = 'center',
   position = 'center',
 }: {
   label: string;
@@ -169,6 +170,7 @@ function PhotoPlaceholder({
   imageSrc?: string;
   imageAlt?: string;
   imageSizes?: string;
+  imagePosition?: 'center' | 'top';
   position?: 'center' | 'bottom-right';
 }) {
   return (
@@ -182,7 +184,7 @@ function PhotoPlaceholder({
           alt={imageAlt ?? label}
           fill
           sizes={imageSizes}
-          className="object-cover object-center"
+          className={`object-cover ${imagePosition === 'top' ? 'object-top' : 'object-center'}`}
         />
       ) : (
         <span
@@ -295,6 +297,7 @@ export default function WhoWeArePage() {
                   imageSrc={founder.imageSrc}
                   imageAlt={founder.imageAlt}
                   imageSizes="(max-width: 767px) 100vw, 50vw"
+                  imagePosition="top"
                 />
                 <div className="pt-4">
                   <Heading

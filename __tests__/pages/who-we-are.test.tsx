@@ -215,7 +215,9 @@ describe('WhoWeArePage', () => {
       /peter opinya.*co-executive director/i,
     ];
     for (const pattern of founderAlts) {
-      expect(screen.getByRole('img', { name: pattern }).parentElement).toHaveClass('relative');
+      const image = screen.getByRole('img', { name: pattern });
+      expect(image.parentElement).toHaveClass('relative');
+      expect(image).toHaveClass('object-top');
     }
   });
 
