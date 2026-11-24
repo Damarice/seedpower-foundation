@@ -17,17 +17,15 @@
  *     on the original site (SRD/KK/121731/2019 vs DSD/43/245/02/82873).
  *     Requires client confirmation before either is displayed here.
  *   - "Sixth year" statement NOT carried over: would be inaccurate in 2026.
- *     Replaced with "since 2018".
- *   - Jean Winfrey and Keith Winfrey: no portrait found in media inventory.
- *     The original site shows incorrect photos in those slots (CMS error).
- *     A consistent placeholder is used instead.
- *   - No image assets have been downloaded to /public/images/ yet.
- *     All portrait slots use accessible placeholders until assets arrive.
+ *     The founding date is used instead.
+ *   - All photo slots use accessible placeholders until genuine photographs
+ *     are approved for this page.
  *
  * Architecture v1.2 — Sections 2, 5.1, 7, 11.1, 13 (Phase 6).
- * Visual Design Direction v2.0 — Sections 1–4, 2.11 (portrait 2:3 ratio).
+ * Visual Design Direction v2.0 — Sections 1–4.
  */
 import type { Metadata } from 'next';
+import { Card } from '@/components/ui/Card';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Heading, Text } from '@/components/ui/Typography';
@@ -97,103 +95,89 @@ const founders = [
     id: 'beldon',
     name: 'Beldon Okeyo',
     role: 'Co-Executive Director, Co-Founder',
-    bio: 'Beldon has over 13 years of experience working with vulnerable communities across Africa and the United States. He caught the vision for SeedPower in Kenya in 2018 and has led the organisation since its founding.',
-    // Confirmed in media inventory: /wp-content/uploads/2022/09/beldon-website...jpg (937×937px)
-    // Not yet copied to /public/images/ — placeholder used until assets are provided.
-    imageSrc: null as string | null,
-    imageAlt: 'Beldon Okeyo, Co-Executive Director and Co-Founder of SeedPower Foundation',
+    imageAlt: 'Portrait placeholder for Beldon Okeyo, Co-Executive Director and Co-Founder',
   },
   {
     id: 'peter',
     name: 'Peter Opinya',
     role: 'Co-Executive Director, Co-Founder',
-    bio: "Peter has over 13 years of experience working with vulnerable communities. His shared childhood experiences shaped his commitment to empowering others and helped inspire the founding of SeedPower in 2018.",
-    // Confirmed in media inventory: /wp-content/uploads/2023/05/peter-web...jpg (540×540px)
-    // Not yet copied to /public/images/ — placeholder used until assets are provided.
-    imageSrc: null as string | null,
-    imageAlt: 'Peter Opinya, Co-Executive Director and Co-Founder of SeedPower Foundation',
+    imageAlt: 'Portrait placeholder for Peter Opinya, Co-Executive Director and Co-Founder',
   },
 ] as const;
 
 /**
  * Advisory board members.
  * Source: page-who-we-are.html and docs/research/full-website-discovery-report.md (page 3).
- *
- * Photo availability from media inventory:
- *   - Jim Grinnell:   James-Grinnell.jpg (408×432) — confirmed ✓
- *   - Laura Grinnell: laura-3-863x1024.jpg (863×1024) — confirmed ✓
- *   - Linda Steed:    Linda.-1.jpg (600×600) — confirmed ✓
- *   - Jean K. Winfrey: NO confirmed portrait (original site shows incorrect photo — CMS error)
- *   - Keith Winfrey:   NO confirmed portrait (original site shows incorrect photo — CMS error)
- *
- * All imageSrc values are null until assets are copied to /public/images/.
+ * Portraits remain placeholders until genuine photographs are approved.
  */
 const boardMembers = [
   {
     id: 'jean-winfrey',
     name: 'Jean Karsten Winfrey',
     role: 'Board Member',
-    // No confirmed portrait in media inventory.
-    imageSrc: null as string | null,
-    imageAlt: 'Jean Karsten Winfrey, Board Member',
+    imageAlt: 'Portrait placeholder for Jean Karsten Winfrey, Board Member',
   },
   {
     id: 'jim-grinnell',
     name: 'Jim Grinnell',
     role: 'Board Member',
-    // Confirmed: James-Grinnell.jpg (408×432px). Path pending asset copy.
-    imageSrc: null as string | null,
-    imageAlt: 'Jim Grinnell, Board Member',
+    imageAlt: 'Portrait placeholder for Jim Grinnell, Board Member',
   },
   {
     id: 'laura-grinnell',
     name: 'Laura Grinnell',
     role: 'Board Member',
-    // Confirmed: laura-3-863x1024.jpg (863×1024px). Path pending asset copy.
-    imageSrc: null as string | null,
-    imageAlt: 'Laura Grinnell, Board Member',
+    imageAlt: 'Portrait placeholder for Laura Grinnell, Board Member',
   },
   {
     id: 'linda-steed',
     name: 'Linda Steed',
     role: 'Board Member',
-    // Confirmed: Linda.-1.jpg (600×600px). Path pending asset copy.
-    imageSrc: null as string | null,
-    imageAlt: 'Linda Steed, Board Member',
+    imageAlt: 'Portrait placeholder for Linda Steed, Board Member',
   },
   {
     id: 'keith-winfrey',
     name: 'Keith Winfrey',
     role: 'Board Member',
-    // No confirmed portrait in media inventory.
-    imageSrc: null as string | null,
-    imageAlt: 'Keith Winfrey, Board Member',
+    imageAlt: 'Portrait placeholder for Keith Winfrey, Board Member',
   },
 ] as const;
 
 /* ── Portrait placeholder ──────────────────────────────────────────── */
 
 /**
- * Accessible portrait placeholder.
- * Used for all portraits until image assets are copied to /public/images/.
- * 2:3 aspect ratio per VDD v2.0 Section 2.11.
+ * Accessible photo placeholder, designed to be replaced when approved photos arrive.
  */
-function PortraitPlaceholder({ alt }: { alt: string }) {
+function PhotoPlaceholder({
+  label,
+  className,
+}: {
+  label: string;
+  className: string;
+}) {
   return (
     <div
-      className="w-full aspect-[2/3] bg-[var(--color-bg-soft)]
-                 rounded-[var(--radius-md)] flex items-center justify-center"
+      className={`flex items-center justify-center overflow-hidden rounded-[var(--radius-md)] bg-[radial-gradient(ellipse_at_72%_24%,rgba(255,255,255,0.78),transparent_38%),linear-gradient(145deg,var(--color-bg-warm),var(--color-bg-soft))] ${className}`}
       role="img"
-      aria-label={alt}
+      aria-label={label}
     >
-      <svg
-        className="w-12 h-12 text-[var(--color-border)]"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5.33 0-8 2.67-8 4v1h16v-1c0-1.33-2.67-4-8-4z" />
-      </svg>
+      <span className="flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)]">
+        <svg
+          className="h-10 w-10 text-[var(--color-brand)]/70"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          aria-hidden="true"
+        >
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M7 5l1-2h8l1 2" />
+        </svg>
+        <span className="text-xs font-semibold uppercase tracking-[0.12em]">
+          Photography placeholder
+        </span>
+      </span>
     </div>
   );
 }
@@ -203,226 +187,339 @@ function PortraitPlaceholder({ alt }: { alt: string }) {
 export default function WhoWeArePage() {
   return (
     <>
-      {/* ── Page header ────────────────────────────────────────────── */}
-      <Section background="soft" aria-labelledby="who-we-are-heading">
-        <Container variant="narrow">
-          <Heading
-            variant="h1"
-            id="who-we-are-heading"
-            className="text-[var(--color-text-primary)] mb-4"
-          >
-            Who We Are
-          </Heading>
-          <Text
-            variant="body-lg"
-            className="text-[var(--color-text-primary)]"
-          >
-            SeedPower Foundation is a community-based nonprofit organisation
-            founded in 2018 and registered in 2019 in Kenya. It was established
-            with the mandate to empower vulnerable children, youth and women
-            in the community — giving them the education, resources and skills
-            they need to become self-reliant and to eradicate poverty.
-          </Text>
-        </Container>
-      </Section>
-
-      {/* ── Mission, Vision and Values ─────────────────────────────── */}
-      <Section background="white" aria-labelledby="mission-heading">
-        <Container variant="narrow">
-          {/* Mission */}
-          <div className="mb-10 tablet:mb-12">
-            <Heading
-              variant="h2"
-              id="mission-heading"
-              className="text-[var(--color-text-primary)] mb-4"
-            >
-              Our Mission
-            </Heading>
-            <Text
-              variant="body-lg"
-              className="text-[var(--color-text-primary)]"
-            >
-              To empower the vulnerable communities by providing them with
-              education, resources and skill set for future self-reliance and
-              eradication of poverty.
-            </Text>
-          </div>
-
-          {/* Vision */}
-          <div className="mb-10 tablet:mb-12">
-            <Heading
-              variant="h2"
-              className="text-[var(--color-text-primary)] mb-4"
-            >
-              Our Vision
-            </Heading>
-            <Text
-              variant="body-lg"
-              className="text-[var(--color-text-primary)]"
-            >
-              We envision a society where the vulnerable children and their
-              families are empowered and equitably access sustainable livelihood
-              opportunities in order to eradicate poverty.
-            </Text>
-          </div>
-
-          {/* Values */}
-          <div>
-            <Heading
-              variant="h2"
-              className="text-[var(--color-text-primary)] mb-6"
-            >
-              Our Values
-            </Heading>
-            {/* Values rendered as a simple list — avoids dl/dt/dd nesting constraints */}
-            <ul className="space-y-4 list-none p-0 m-0" aria-label="Core values">
-              {coreValues.map((value) => (
-                <li key={value.id} className="flex gap-3">
-                  {/* Accent dot — decorative */}
-                  <span
-                    className="flex-shrink-0 w-2 h-2 rounded-full
-                               bg-[var(--color-brand)] mt-[0.6em] block"
-                    aria-hidden="true"
-                  />
-                  <p className="font-[var(--font-body)] text-[length:var(--text-body)]
-                                text-[var(--color-text-primary)] m-0">
-                    <strong className="font-[var(--font-heading)] font-semibold">
-                      {value.name}
-                    </strong>
-                    {' \u2014 '}{value.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ── Founders ───────────────────────────────────────────────── */}
-      <Section background="warm" aria-labelledby="founders-heading">
+      <Section
+        background="soft"
+        aria-labelledby="who-we-are-heading"
+        className="py-12 tablet:py-16 desktop:py-20"
+      >
         <Container>
-          <Heading
-            variant="h2"
-            id="founders-heading"
-            className="text-[var(--color-text-primary)] mb-2 text-center"
-          >
-            Our Founders
-          </Heading>
-          <Text
-            variant="body-lg"
-            className="text-[var(--color-text-secondary)] text-center mb-10
-                       tablet:mb-12 max-w-[600px] mx-auto"
-          >
-            Beldon Okeyo and Peter Opinya co-founded SeedPower Foundation
-            in Kenya in 2018, drawing on over 13 years of combined experience
-            serving vulnerable communities.
-          </Text>
+          <div className="grid items-center gap-8 desktop:grid-cols-[1.05fr_0.95fr] desktop:gap-16">
+            <div className="max-w-[620px]">
+              <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                SeedPower Foundation
+              </p>
+              <Heading
+                variant="h1"
+                id="who-we-are-heading"
+                className="mb-5 text-[var(--color-text-primary)]"
+              >
+                Who We Are
+              </Heading>
+              <Text
+                variant="body-lg"
+                className="text-[var(--color-text-primary)]"
+              >
+                SeedPower Foundation Community Based Organization was
+                established in September 2018 and registered in 2019 as a
+                non-profit community-based organisation. Its mandate is to
+                empower vulnerable children, youth and women in the community.
+              </Text>
+              <div className="mt-7 grid max-w-[440px] grid-cols-2 gap-3">
+                <Card className="border-0 bg-[var(--color-bg-page)] p-4 tablet:p-5">
+                  <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
+                    2018
+                  </p>
+                  <p className="mt-2 text-sm font-medium text-[var(--color-text-secondary)]">
+                    Founded
+                  </p>
+                </Card>
+                <Card className="border-0 bg-[var(--color-bg-page)] p-4 tablet:p-5">
+                  <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
+                    2019
+                  </p>
+                  <p className="mt-2 text-sm font-medium text-[var(--color-text-secondary)]">
+                    Registered
+                  </p>
+                </Card>
+              </div>
+            </div>
+            <PhotoPlaceholder
+              label="SeedPower community activities photography placeholder"
+              className="aspect-[4/3] w-full desktop:aspect-[5/4]"
+            />
+          </div>
+        </Container>
+      </Section>
 
-          <div
-            className="grid grid-cols-1 tablet:grid-cols-2 gap-8 tablet:gap-12"
-          >
+      <Section
+        background="white"
+        aria-labelledby="founders-heading"
+        className="py-12 tablet:py-16 desktop:py-20"
+      >
+        <Container>
+          <div className="mb-8 grid gap-5 tablet:mb-10 desktop:grid-cols-[0.8fr_1.2fr] desktop:items-end desktop:gap-12">
+            <div>
+              <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+                Our beginnings
+              </p>
+              <Heading
+                variant="h2"
+                id="founders-heading"
+                className="text-[var(--color-text-primary)]"
+              >
+                Our Founders
+              </Heading>
+            </div>
+            <div className="max-w-[760px]">
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                Beldon and Peter have over 13 years of experience working with
+                vulnerable communities. They have worked with different
+                communities, trained and benchmarked with educational
+                institutions in Africa and the USA, where they caught the
+                vision to start SeedPower in Kenya in 2018.
+              </Text>
+              <Text variant="body" className="text-[var(--color-text-secondary)]">
+                Their similar humble childhood experiences drove them to start
+                SeedPower as a way of giving back to the community and helping
+                vulnerable communities exploit their potential and become
+                agents of community transformation.
+              </Text>
+            </div>
+          </div>
+
+          <div className="grid gap-5 desktop:grid-cols-2 desktop:gap-7">
             {founders.map((founder) => (
-              <div key={founder.id} className="flex flex-col gap-4">
-                {/* Portrait — 2:3 ratio per VDD Section 2.11 */}
-                <div className="w-full max-w-[260px] mx-auto tablet:mx-0">
-                  <PortraitPlaceholder alt={founder.imageAlt} />
-                </div>
-
-                {/* Name and role */}
+              <Card
+                as="article"
+                key={founder.id}
+                className="grid gap-5 p-4 tablet:grid-cols-[minmax(180px,0.8fr)_minmax(0,1.2fr)] tablet:items-center tablet:gap-6 tablet:p-5 desktop:p-6"
+              >
+                <PhotoPlaceholder
+                  label={founder.imageAlt}
+                  className="aspect-[4/5] w-full"
+                />
                 <div>
                   <Heading
                     variant="h3"
-                    className="text-[var(--color-brand)] mb-1"
+                    className="mb-2 text-[var(--color-brand)]"
                   >
                     {founder.name}
                   </Heading>
                   <Text
                     variant="body-sm"
-                    className="font-medium text-[var(--color-text-secondary)]
-                               uppercase tracking-[0.04em] mb-3"
+                    className="font-semibold text-[var(--color-text-secondary)]"
                   >
                     {founder.role}
                   </Text>
-                  <Text
-                    variant="body"
-                    className="text-[var(--color-text-primary)]"
-                  >
-                    {founder.bio}
-                  </Text>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* ── Advisory Board ─────────────────────────────────────────── */}
-      <Section background="white" aria-labelledby="board-heading">
+      <Section
+        background="warm"
+        aria-label="Our mission, vision and aim"
+        className="py-12 tablet:py-16 desktop:py-20"
+      >
         <Container>
-          <Heading
-            variant="h2"
-            id="board-heading"
-            className="text-[var(--color-text-primary)] mb-2 text-center"
-          >
-            Advisory Board
-          </Heading>
-          <Text
-            variant="body-lg"
-            className="text-[var(--color-text-secondary)] text-center mb-4
-                       max-w-[640px] mx-auto"
-          >
-            Our advisory board brings diverse skills and experience to support
-            and strengthen SeedPower&apos;s vision and mission.
-          </Text>
-
-          {/* Board philosophy */}
-          <div
-            className="max-w-[720px] mx-auto mb-10 tablet:mb-12 p-6
-                       bg-[var(--color-bg-soft)] rounded-[var(--radius-md)]"
-          >
-            <Text
-              variant="body"
-              className="text-[var(--color-text-primary)] italic"
+          <div className="grid gap-5 desktop:grid-cols-2 desktop:gap-7">
+            <Card as="article" className="border-0">
+              <Heading
+                variant="h2"
+                id="mission-heading"
+                className="mb-3 text-[var(--color-brand)]"
+              >
+                Our Mission
+              </Heading>
+              <Text variant="body-lg" className="text-[var(--color-text-primary)]">
+                To empower the vulnerable communities by providing them with
+                education, resources and skills for future self-reliance and
+                the eradication of poverty.
+              </Text>
+            </Card>
+            <Card as="article" className="border-0">
+              <Heading
+                variant="h2"
+                id="vision-heading"
+                className="mb-3 text-[var(--color-brand)]"
+              >
+                Our Vision
+              </Heading>
+              <Text variant="body-lg" className="text-[var(--color-text-primary)]">
+                We envision a society where vulnerable children and their
+                families are empowered and equitably access sustainable
+                livelihood opportunities in order to eradicate poverty.
+              </Text>
+            </Card>
+          </div>
+          <Card className="mt-5 border-l-4 border-l-[var(--color-brand)] desktop:mt-7">
+            <Heading
+              variant="h2"
+              id="aim-heading"
+              className="mb-3 text-[var(--color-brand)]"
             >
-              &ldquo;The SeedPower Board promotes, supports, and enhances the
-              vision and mission of SeedPower Ministry and seeks opportunities
-              to grow and sustain the ministry. Board members bring unique
-              skills and talents, serve without pay, and are committed to the
-              mission and vision of SeedPower.&rdquo;
+              Our Aim
+            </Heading>
+            <Text variant="body" className="max-w-[980px] text-[var(--color-text-primary)]">
+              SeedPower seeks to empower vulnerable communities to act as
+              change agents, initiate solutions and actively participate in
+              activities that impact their communities and beyond. The
+              organisation seeks to empower children, women and youth to help
+              them exploit their potential, while sharing the love and glory
+              of God with all.
             </Text>
+          </Card>
+          <Card className="mt-5 border-0 desktop:mt-7">
+            <Heading
+              variant="h3"
+              className="mb-3 text-[var(--color-brand)]"
+            >
+              Our Overall Objective
+            </Heading>
+            <Text variant="body" className="text-[var(--color-text-primary)]">
+              To improve the quality of life of vulnerable children through
+              environmentally sound interventions and programs, with a
+              specific focus on providing basic essential services.
+            </Text>
+            <Heading
+              variant="h3"
+              className="mb-4 mt-6 text-[var(--color-brand)]"
+            >
+              We do this by
+            </Heading>
+            <ul className="m-0 grid list-none gap-3 p-0 tablet:grid-cols-2 desktop:grid-cols-4">
+              {[
+                'Increasing access to education for vulnerable children, children with special needs and those at risk.',
+                'Working to reduce malnutrition among students in food programs at learning centers.',
+                'Providing access to clean and safe water, sanitation, and hygiene education in schools and the community.',
+                "Introducing youth and women's empowerment programs to build skills for self-reliance and help eradicate poverty.",
+              ].map((objective) => (
+                <li
+                  key={objective}
+                  className="flex items-start gap-3 rounded-[var(--radius-md)] bg-[var(--color-bg-soft)] p-4"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-brand)]"
+                  />
+                  <Text
+                    variant="body-sm"
+                    className="text-[var(--color-text-primary)]"
+                  >
+                    {objective}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </Container>
+      </Section>
+
+      <Section
+        background="white"
+        aria-labelledby="values-heading"
+        className="py-12 tablet:py-16 desktop:py-20"
+      >
+        <Container>
+          <div className="mb-8 max-w-[680px] tablet:mb-10">
+            <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+              What guides us
+            </p>
+            <Heading
+              variant="h2"
+              id="values-heading"
+              className="text-[var(--color-text-primary)]"
+            >
+              Our Values
+            </Heading>
+          </div>
+          <ul
+            className="m-0 grid list-none grid-cols-1 gap-4 p-0 tablet:grid-cols-2 desktop:grid-cols-3 desktop:gap-5"
+            aria-label="Core values"
+          >
+            {coreValues.map((value) => (
+              <li key={value.id}>
+                <Card
+                  as="article"
+                  className="h-full border-l-4 border-l-[var(--color-brand)] p-5 tablet:p-6"
+                >
+                  <Heading
+                    variant="h3"
+                    className="mb-2 text-[var(--color-brand)]"
+                  >
+                    {value.name}
+                  </Heading>
+                  <Text variant="body" className="text-[var(--color-text-secondary)]">
+                    {value.description}
+                  </Text>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section
+        background="soft"
+        aria-labelledby="board-heading"
+        className="py-12 tablet:py-16 desktop:py-20"
+      >
+        <Container>
+          <div className="mb-8 tablet:mb-10">
+            <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+              Organisation
+            </p>
+            <Heading
+              variant="h2"
+              id="board-heading"
+              className="mb-3 text-[var(--color-text-primary)]"
+            >
+              Advisory Board
+            </Heading>
           </div>
 
-          {/* Board member grid */}
-          <div
-            className="grid grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-5
-                       gap-6 tablet:gap-8"
-          >
+          <div className="mb-10 grid gap-4 tablet:grid-cols-2 desktop:mb-12 desktop:grid-cols-3 desktop:gap-5">
+            <Card as="article" className="h-full bg-[var(--color-bg-page)]">
+              <Text variant="body" className="text-[var(--color-text-primary)]">
+                The Board promotes, supports and enhances the vision and
+                mission of SeedPower Ministry, and seeks opportunities to grow
+                and sustain the ministry.
+              </Text>
+            </Card>
+            <Card as="article" className="h-full bg-[var(--color-bg-page)]">
+              <Text variant="body" className="text-[var(--color-text-primary)]">
+                Board members come from many walks of life and bring unique
+                skills and talents to SeedPower&apos;s operations in support
+                of its mission and vision.
+              </Text>
+            </Card>
+            <Card as="article" className="h-full bg-[var(--color-bg-page)] tablet:col-span-2 desktop:col-span-1">
+              <Text variant="body" className="text-[var(--color-text-primary)]">
+                Board members serve without pay to enable the best use of
+                funds. An Advisory Board brings additional knowledge, skills
+                and abilities to support the organisation.
+              </Text>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 tablet:grid-cols-3 tablet:gap-5 desktop:grid-cols-5 desktop:gap-6">
             {boardMembers.map((member) => (
-              <div
+              <Card
+                as="article"
                 key={member.id}
-                className="flex flex-col items-center text-center gap-3"
+                className="flex h-full flex-col items-center gap-3 p-3 text-center tablet:p-4"
               >
-                {/* Portrait — 2:3 ratio */}
-                <div className="w-full max-w-[140px]">
-                  <PortraitPlaceholder alt={member.imageAlt} />
-                </div>
+                <PhotoPlaceholder
+                  label={member.imageAlt}
+                  className="aspect-[4/5] w-full"
+                />
                 <div>
-                  <Text
-                    as="p"
-                    variant="body-sm"
-                    className="font-semibold text-[var(--color-text-primary)]"
+                  <Heading
+                    variant="h3"
+                    className="mb-1 text-[var(--color-text-primary)]"
                   >
                     {member.name}
-                  </Text>
+                  </Heading>
                   <Text
-                    as="p"
                     variant="body-sm"
                     className="text-[var(--color-text-secondary)]"
                   >
                     {member.role}
                   </Text>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </Container>
