@@ -3,7 +3,7 @@
  * Routes are drawn exclusively from the verified route map in
  * Technical Implementation Architecture v1.2 — Section 5.1.
  *
- * /give/campaigns is explicitly deferred (no confirmed content).
+ * /give/campaigns and /give/events are deferred until content is confirmed.
  * /impact/gallery is explicitly deferred (not in verified route map).
  */
 
@@ -51,7 +51,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/give',
     children: [
       { label: 'Donate', href: '/give/donate' },
-      { label: 'Events', href: '/give/events' },
     ],
   },
   {

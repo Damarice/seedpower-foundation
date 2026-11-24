@@ -109,6 +109,16 @@ describe('MobileNav', () => {
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
   });
 
+  it('does not show Events in the Give submenu', async () => {
+    await act(async () => {
+      render(<MobileNav {...defaultProps} />);
+    });
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /^give$/i }));
+    });
+    expect(screen.queryByRole('link', { name: /^events$/i })).not.toBeInTheDocument();
+  });
+
   it('accordion button starts with aria-expanded="false"', async () => {
     await act(async () => {
       render(<MobileNav {...defaultProps} />);

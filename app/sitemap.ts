@@ -8,7 +8,7 @@
  * Includes the 16 canonical routes currently implemented.
  * Conditional/deferred routes are excluded per Architecture Section 11.4:
  *   - /what-we-do/turkana   — pending client decision
- *   - /give/events          — pending client decision
+ *   - /give/events          — deferred; no verified current event content
  * Redirect-source URLs are not included (they are not canonical pages).
  *
  * No lastModified dates are included; no reliable per-page modification date
