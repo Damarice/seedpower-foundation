@@ -59,10 +59,10 @@ describe('EducationPage', () => {
   it('provides distinct photographs for both campuses', () => {
     render(<EducationPage />);
     expect(
-      screen.getByRole('img', { name: 'Pupils gather in front of the Oyugis Campus.' })
+      screen.getByRole('img', { name: 'Pupils gather outside the SeedPower Education Center at the Oyugis Campus.' })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: 'Pupils gather outside the Nyakach Campus.' })
+      screen.getByRole('img', { name: 'Pupils gather outside the Grinnell Family Campus in Nyakach.' })
     ).toBeInTheDocument();
   });
 

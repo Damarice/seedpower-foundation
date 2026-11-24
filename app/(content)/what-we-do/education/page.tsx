@@ -30,8 +30,8 @@ const campuses = [
     pupils: '220 pupils',
     location: 'Oyugis community, Kenya',
     imageLabel: 'Oyugis education campus photography placeholder',
-    imageSrc: '/images/programmes/oyugis-campus-pupils.jpg',
-    imageAlt: 'Pupils gather in front of the Oyugis Campus.',
+    imageSrc: '/images/programmes/oyugis-campus-students-new.jpg',
+    imageAlt: 'Pupils gather outside the SeedPower Education Center at the Oyugis Campus.',
     description:
       'SeedPower Education Center Oyugis Campus offers education to vulnerable children, children at risk, and children with special needs in the Oyugis community. SeedPower educates, equips, and empowers these children to become Godly leaders and agents of community transformation.',
   },
@@ -43,8 +43,8 @@ const campuses = [
     pupils: '155 pupils',
     location: 'Nyakach community, Kenya',
     imageLabel: 'Nyakach education campus photography placeholder',
-    imageSrc: '/images/programmes/nyakach-campus-pupils.jpg',
-    imageAlt: 'Pupils gather outside the Nyakach Campus.',
+    imageSrc: '/images/programmes/grinnell-family-campus-students.jpg',
+    imageAlt: 'Pupils gather outside the Grinnell Family Campus in Nyakach.',
     description:
       'SeedPower Education Center GF Campus was established in 2021 to offer education to vulnerable children, children at risk, and children with special needs in the Nyakach community.',
   },

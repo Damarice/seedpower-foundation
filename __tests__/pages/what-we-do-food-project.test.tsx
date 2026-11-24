@@ -23,7 +23,7 @@ describe('FoodProjectPage', () => {
     render(<FoodProjectPage />);
     expect(
       screen.getByRole('img', {
-        name: 'A field at the SeedPower sustainable food project site.',
+        name: 'Community members gather around the sustainable food project site.',
       })
     ).toBeInTheDocument();
   });

@@ -52,8 +52,8 @@ export default function FoodProjectPage() {
         title="Sustainable Food Project"
         description="An agricultural initiative in development to provide nutrition and hands-on farming skills for learners and the wider SeedPower community."
         imageLabel="Sustainable food project photography placeholder"
-        imageSrc="/images/programmes/sustainable-food-project-site.jpg"
-        imageAlt="A field at the SeedPower sustainable food project site."
+        imageSrc="/images/programmes/sustainable-food-project-community.jpg"
+        imageAlt="Community members gather around the sustainable food project site."
       />
 
       <Section background="white" aria-labelledby="vision-heading">

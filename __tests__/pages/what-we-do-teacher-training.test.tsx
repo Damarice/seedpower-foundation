@@ -23,7 +23,7 @@ describe('TeacherTrainingPage', () => {
     render(<TeacherTrainingPage />);
     expect(
       screen.getByRole('img', {
-        name: 'Participants attend a teacher-development conference in Kisumu.',
+        name: 'Participants attend the SeedPower teacher outreach and training conference.',
       })
     ).toBeInTheDocument();
   });

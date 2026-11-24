@@ -56,8 +56,8 @@ export default function TeacherTrainingPage() {
         title="Teacher Training"
         description="In partnership with Little Light House USA, SeedPower trains teachers and community stakeholders in special needs education across Kenya."
         imageLabel="Teacher training programme photography placeholder"
-        imageSrc="/images/programmes/teacher-training-conference.jpg"
-        imageAlt="Participants attend a teacher-development conference in Kisumu."
+        imageSrc="/images/programmes/teacher-outreach-training-conference.jpg"
+        imageAlt="Participants attend the SeedPower teacher outreach and training conference."
       />
 
       <Section background="white" aria-labelledby="reach-heading">
