@@ -37,6 +37,13 @@ describe('WhoWeArePage', () => {
     expect(h1s[0]).toHaveTextContent('Who We Are');
   });
 
+  it('links from the hero to the founders section', () => {
+    render(<WhoWeArePage />);
+    expect(
+      screen.getByRole('link', { name: /meet our founders/i })
+    ).toHaveAttribute('href', '#founders-heading');
+  });
+
   it('renders the mission statement', () => {
     render(<WhoWeArePage />);
     expect(

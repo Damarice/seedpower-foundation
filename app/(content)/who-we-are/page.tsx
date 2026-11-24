@@ -25,6 +25,7 @@
  * Visual Design Direction v2.0 — Sections 1–4.
  */
 import type { Metadata } from 'next';
+import { ButtonLink } from '@/components/ui/ButtonLink';
 import { Card } from '@/components/ui/Card';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
@@ -188,26 +189,34 @@ export default function WhoWeArePage() {
   return (
     <>
       <Section
-        background="soft"
+        background="dark"
         aria-labelledby="who-we-are-heading"
-        className="py-12 tablet:py-16 desktop:py-20"
+        className="relative isolate overflow-hidden py-12 tablet:py-16 desktop:py-20"
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#14200f]/95 via-[#1a2713]/85 via-45% to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[56%] bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_1px,transparent_1px,transparent_24px)] tablet:block"
+        />
         <Container>
           <div className="grid items-center gap-8 desktop:grid-cols-[1.05fr_0.95fr] desktop:gap-16">
             <div className="max-w-[620px]">
-              <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+              <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-white/75">
                 SeedPower Foundation
               </p>
               <Heading
-                variant="h1"
+                variant="hero"
                 id="who-we-are-heading"
-                className="mb-5 text-[var(--color-text-primary)]"
+                className="mb-5 text-white"
               >
                 Who We Are
               </Heading>
               <Text
                 variant="body-lg"
-                className="text-[var(--color-text-primary)]"
+                className="text-white/90"
               >
                 SeedPower Foundation Community Based Organization was
                 established in September 2018 and registered in 2019 as a
@@ -215,7 +224,7 @@ export default function WhoWeArePage() {
                 empower vulnerable children, youth and women in the community.
               </Text>
               <div className="mt-7 grid max-w-[440px] grid-cols-2 gap-3">
-                <Card className="border-0 bg-[var(--color-bg-page)] p-4 tablet:p-5">
+                <Card className="border-0 bg-white p-4 tablet:p-5">
                   <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
                     2018
                   </p>
@@ -223,7 +232,7 @@ export default function WhoWeArePage() {
                     Founded
                   </p>
                 </Card>
-                <Card className="border-0 bg-[var(--color-bg-page)] p-4 tablet:p-5">
+                <Card className="border-0 bg-white p-4 tablet:p-5">
                   <p className="font-[var(--font-heading)] text-3xl font-bold leading-none text-[var(--color-brand)]">
                     2019
                   </p>
@@ -232,10 +241,17 @@ export default function WhoWeArePage() {
                   </p>
                 </Card>
               </div>
+              <ButtonLink
+                href="#founders-heading"
+                variant="ghost"
+                className="mt-7 !border-white !text-white hover:!bg-white/10 focus-visible:!outline-white"
+              >
+                Meet our founders
+              </ButtonLink>
             </div>
             <PhotoPlaceholder
               label="SeedPower community activities photography placeholder"
-              className="aspect-[4/3] w-full desktop:aspect-[5/4]"
+              className="aspect-[4/3] w-full border border-white/20 desktop:aspect-[5/4]"
             />
           </div>
         </Container>
@@ -247,8 +263,8 @@ export default function WhoWeArePage() {
         className="py-12 tablet:py-16 desktop:py-20"
       >
         <Container>
-          <div className="mb-8 grid gap-5 tablet:mb-10 desktop:grid-cols-[0.8fr_1.2fr] desktop:items-end desktop:gap-12">
-            <div>
+          <div className="mb-8 tablet:mb-10">
+            <div className="mb-5">
               <p className="mb-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-brand)]">
                 Our beginnings
               </p>
@@ -260,7 +276,7 @@ export default function WhoWeArePage() {
                 Our Founders
               </Heading>
             </div>
-            <div className="max-w-[760px]">
+            <div className="grid gap-4 tablet:grid-cols-2 tablet:gap-7">
               <Text variant="body" className="text-[var(--color-text-secondary)]">
                 Beldon and Peter have over 13 years of experience working with
                 vulnerable communities. They have worked with different
@@ -277,18 +293,18 @@ export default function WhoWeArePage() {
             </div>
           </div>
 
-          <div className="grid gap-5 desktop:grid-cols-2 desktop:gap-7">
+          <div className="grid gap-5 tablet:grid-cols-2 tablet:gap-6 desktop:gap-7">
             {founders.map((founder) => (
               <Card
                 as="article"
                 key={founder.id}
-                className="grid gap-5 p-4 tablet:grid-cols-[minmax(180px,0.8fr)_minmax(0,1.2fr)] tablet:items-center tablet:gap-6 tablet:p-5 desktop:p-6"
+                className="h-full p-4 tablet:p-5 desktop:p-6"
               >
                 <PhotoPlaceholder
                   label={founder.imageAlt}
-                  className="aspect-[4/5] w-full"
+                  className="aspect-[4/3] w-full"
                 />
-                <div>
+                <div className="pt-4">
                   <Heading
                     variant="h3"
                     className="mb-2 text-[var(--color-brand)]"
