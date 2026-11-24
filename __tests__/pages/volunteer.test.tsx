@@ -35,6 +35,13 @@ describe('VolunteerPage', () => {
     expect(h1s[0]).toHaveTextContent('Volunteer');
   });
 
+  it('renders the shared hero with a photography placeholder', () => {
+    render(<VolunteerPage />);
+    expect(
+      screen.getByRole('img', { name: 'Volunteer photography placeholder' })
+    ).toBeInTheDocument();
+  });
+
   it('renders all five volunteering area headings as H3', () => {
     render(<VolunteerPage />);
     const expectedAreas = [
@@ -51,21 +58,32 @@ describe('VolunteerPage', () => {
     }
   });
 
-  it('renders numbered badges 1 through 5 for volunteering areas', () => {
+  it('renders five volunteering areas in an accessible list', () => {
     render(<VolunteerPage />);
-    // aria-hidden badges; check via text content in the DOM
-    const badges = document
-      .querySelectorAll('[aria-hidden="true"]');
-    const numberBadges = Array.from(badges).filter((el) =>
-      ['1', '2', '3', '4', '5'].includes(el.textContent?.trim() ?? '')
-    );
-    expect(numberBadges).toHaveLength(5);
+    const list = screen.getByRole('list', { name: /volunteering areas/i });
+    expect(list.querySelectorAll(':scope > li')).toHaveLength(5);
   });
 
   it('renders Mission Trips section heading', () => {
     render(<VolunteerPage />);
     expect(
       screen.getByRole('heading', { level: 2, name: 'Mission Trips' })
+    ).toBeInTheDocument();
+  });
+
+  it('preserves the original visit duration and individual-or-group options', () => {
+    render(<VolunteerPage />);
+    expect(
+      screen.getByText(/individual or as a group for one week up to one month/i)
+    ).toBeInTheDocument();
+  });
+
+  it('uses a placeholder for the mission-trip image', () => {
+    render(<VolunteerPage />);
+    expect(
+      screen.getByRole('img', {
+        name: 'SeedPower volunteer mission trip photography placeholder',
+      })
     ).toBeInTheDocument();
   });
 
