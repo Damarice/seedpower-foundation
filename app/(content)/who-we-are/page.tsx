@@ -151,9 +151,11 @@ const boardMembers = [
 function PhotoPlaceholder({
   label,
   className,
+  position = 'center',
 }: {
   label: string;
   className: string;
+  position?: 'center' | 'bottom-right';
 }) {
   return (
     <div
@@ -161,7 +163,11 @@ function PhotoPlaceholder({
       role="img"
       aria-label={label}
     >
-      <span className="flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)]">
+      <span
+        className={`flex flex-col items-center gap-3 px-5 text-center text-[var(--color-text-secondary)] ${
+          position === 'bottom-right' ? 'absolute bottom-5 right-5 scale-90' : ''
+        }`}
+      >
         <svg
           className="h-10 w-10 text-[var(--color-brand)]/70"
           viewBox="0 0 24 24"
@@ -190,55 +196,29 @@ export default function WhoWeArePage() {
       <Section
         background="dark"
         aria-labelledby="who-we-are-heading"
-        className="relative isolate overflow-hidden py-12 tablet:py-16 desktop:py-20"
+        className="relative isolate flex min-h-[360px] items-center overflow-hidden py-12 tablet:min-h-[400px] tablet:py-16 desktop:min-h-[440px] desktop:py-20"
       >
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#14200f]/95 via-[#1a2713]/85 via-45% to-transparent"
+          className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(20,32,15,0.92)_0%,rgba(20,32,15,0.76)_52%,rgba(20,32,15,0.52)_100%)]"
         />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-[56%] bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_1px,transparent_1px,transparent_24px)] tablet:block"
+        <PhotoPlaceholder
+          label="SeedPower community activities photography placeholder"
+          className="absolute inset-0 z-0 h-full w-full rounded-none bg-cover bg-center"
+          position="bottom-right"
         />
         <Container>
-          <div className="grid items-center gap-8 desktop:grid-cols-[1.05fr_0.95fr] desktop:gap-16">
-            <div className="max-w-[620px]">
-              <p className="mb-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.16em] text-white/75">
-                SeedPower Foundation
-              </p>
-              <Heading
-                variant="hero"
-                id="who-we-are-heading"
-                className="mb-5 text-white"
-              >
-                Who We Are
-              </Heading>
-              <Text
-                variant="body-lg"
-                className="text-white/90"
-              >
-                SeedPower Foundation Community Based Organization was
-                established in September 2018 and registered in 2019 as a
-                non-profit community-based organisation. Its mandate is to
-                empower vulnerable children, youth and women in the community.
-              </Text>
-              <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-white/85">
-                <span>Established September 2018</span>
-                <span aria-hidden="true" className="text-white/50">·</span>
-                <span>Registered 2019</span>
-              </div>
-              <ButtonLink
-                href="#founders-heading"
-                variant="ghost"
-                className="mt-7 !border-white !text-white hover:!bg-white/10 focus-visible:!outline-white"
-              >
-                Meet our founders
-              </ButtonLink>
-            </div>
-            <PhotoPlaceholder
-              label="SeedPower community activities photography placeholder"
-              className="aspect-[4/3] w-full border border-white/20 desktop:aspect-[5/4]"
-            />
+          <div className="relative z-20 max-w-[650px]">
+            <Heading
+              variant="hero"
+              id="who-we-are-heading"
+              className="mb-4 text-white"
+            >
+              Who We Are
+            </Heading>
+            <Text variant="body-lg" className="max-w-[560px] text-white/90">
+              Empowering vulnerable children, youth and women in the community.
+            </Text>
           </div>
         </Container>
       </Section>
@@ -268,6 +248,8 @@ export default function WhoWeArePage() {
                 with vulnerable communities. They trained and benchmarked
                 with educational institutions in Africa and the USA, where
                 they were inspired to start SeedPower in Kenya in 2018.
+                The organisation was established in September 2018 and
+                registered in 2019.
               </Text>
               <Text variant="body" className="text-[var(--color-text-secondary)]">
                 Their shared childhood experiences inspired them to start
@@ -501,6 +483,46 @@ export default function WhoWeArePage() {
                 </div>
               </article>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section
+        background="brand"
+        aria-labelledby="who-we-are-cta-heading"
+        className="py-12 tablet:py-14 desktop:py-16"
+      >
+        <Container>
+          <div className="flex flex-col items-start gap-6 tablet:flex-row tablet:items-center tablet:justify-between tablet:gap-10">
+            <div className="max-w-[680px]">
+              <Heading
+                variant="h2"
+                id="who-we-are-cta-heading"
+                className="mb-3 text-white"
+              >
+                Support SeedPower&apos;s work
+              </Heading>
+              <Text variant="body-lg" className="text-white/90">
+                SeedPower works to empower vulnerable children, youth and
+                women in the community.
+              </Text>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <ButtonLink
+                href="/give/donate"
+                variant="ghost"
+                className="!border-white !text-white hover:!bg-white/10 focus-visible:!outline-white"
+              >
+                Donate
+              </ButtonLink>
+              <ButtonLink
+                href="/contact"
+                variant="ghost"
+                className="!border-white !text-white hover:!bg-white/10 focus-visible:!outline-white"
+              >
+                Contact Us
+              </ButtonLink>
+            </div>
           </div>
         </Container>
       </Section>

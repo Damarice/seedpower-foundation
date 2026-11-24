@@ -37,11 +37,20 @@ describe('WhoWeArePage', () => {
     expect(h1s[0]).toHaveTextContent('Who We Are');
   });
 
-  it('links from the hero to the founders section', () => {
+  it('keeps the hero to its heading, short description and photo placeholder', () => {
     render(<WhoWeArePage />);
+    const hero = screen.getByRole('region', { name: 'Who We Are' });
+
     expect(
-      screen.getByRole('link', { name: /meet our founders/i })
-    ).toHaveAttribute('href', '#founders-heading');
+      screen.getByText('Empowering vulnerable children, youth and women in the community.')
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', {
+        name: 'SeedPower community activities photography placeholder',
+      })
+    ).toBeInTheDocument();
+    expect(hero.querySelectorAll('a')).toHaveLength(0);
+    expect(hero.querySelectorAll('h1')).toHaveLength(1);
   });
 
   it('renders the mission statement', () => {
@@ -123,6 +132,35 @@ describe('WhoWeArePage', () => {
     expect(
       screen.getByRole('heading', { level: 2, name: 'Advisory Board' })
     ).toBeInTheDocument();
+  });
+
+  it('preserves the existing section order and ends with the CTA', () => {
+    render(<WhoWeArePage />);
+    const regions = screen.getAllByRole('region');
+
+    expect(regions.map((region) => region.getAttribute('aria-label') || region.querySelector('h1, h2')?.textContent?.trim())).toEqual([
+      'Who We Are',
+      'Our Founders',
+      'Our mission, vision and aim',
+      'Our Values',
+      'Advisory Board',
+      "Support SeedPower's work",
+    ]);
+  });
+
+  it('offers Donate and Contact Us links in the closing CTA', () => {
+    render(<WhoWeArePage />);
+    const cta = screen.getByRole('region', { name: "Support SeedPower's work" });
+
+    expect(screen.getByRole('link', { name: 'Donate' })).toHaveAttribute(
+      'href',
+      '/give/donate'
+    );
+    expect(screen.getByRole('link', { name: 'Contact Us' })).toHaveAttribute(
+      'href',
+      '/contact'
+    );
+    expect(cta).toBeInTheDocument();
   });
 
   it('does not display the disputed registration number SRD/KK/121731/2019', () => {
