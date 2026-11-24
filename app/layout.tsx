@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { manrope, inter } from '@/lib/fonts';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppContactButton } from '@/components/layout/WhatsAppContactButton';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -77,6 +78,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppContactButton />
       </body>
     </html>
   );

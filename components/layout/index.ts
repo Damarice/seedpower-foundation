@@ -9,3 +9,4 @@ export { Navigation } from './Navigation';
 export { MobileNav } from './MobileNav';
 export type { MobileNavProps } from './MobileNav';
 export { Footer } from './Footer';
+export { WhatsAppContactButton } from './WhatsAppContactButton';
