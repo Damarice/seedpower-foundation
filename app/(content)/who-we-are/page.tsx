@@ -415,7 +415,7 @@ export default function WhoWeArePage() {
             {coreValues.map((value) => (
               <li
                 key={value.id}
-                className="border-l border-[var(--color-brand)]/50 py-3 pl-4 tablet:pl-5"
+                className="py-3"
               >
                 <Heading
                   variant="h3"
@@ -451,7 +451,7 @@ export default function WhoWeArePage() {
             </Heading>
           </div>
 
-          <div className="mb-8 max-w-[1050px] border-l-2 border-[var(--color-brand)] pl-4 tablet:mb-10 tablet:pl-6">
+          <div className="mb-8 max-w-[1050px] tablet:mb-10">
             <Text variant="body" className="text-[var(--color-text-secondary)]">
               The Board promotes, supports and enhances SeedPower&apos;s vision
               and mission, seeking opportunities to grow and sustain its work.
