@@ -4,7 +4,7 @@
  * Covers:
  *   - Rendering without error
  *   - Correct H1 heading
- *   - All five volunteering areas rendered with correct headings
+ *   - All four volunteering areas rendered with correct headings
  *   - Mission trips section present
  *   - CTA tagline and "Become a Volunteer" link present with correct destination
  *   - No invented content (statistics, quotes)
@@ -50,7 +50,6 @@ describe('VolunteerPage', () => {
       "Children's Education",
       'Sustainable Food Project',
       'Community and Family Outreach',
-      'Women and Youth Empowerment',
       'Teacher Professional Development',
     ];
     for (const area of expectedAreas) {
@@ -60,10 +59,10 @@ describe('VolunteerPage', () => {
     }
   });
 
-  it('renders five volunteering areas in an accessible list', () => {
+  it('renders four volunteering areas in an accessible list', () => {
     render(<VolunteerPage />);
     const list = screen.getByRole('list', { name: /volunteering areas/i });
-    expect(list.querySelectorAll(':scope > li')).toHaveLength(5);
+    expect(list.querySelectorAll(':scope > li')).toHaveLength(4);
   });
 
   it('renders Mission Trips section heading', () => {

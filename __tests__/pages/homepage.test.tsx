@@ -5,9 +5,9 @@
  *   - Renders without error.
  *   - Single H1 (the active hero carousel slide).
  *   - The standalone mission strip is omitted from the homepage.
- *   - Impact statistics section with all four confirmed figures.
- *   - Programme grid section heading and all six programme titles.
- *   - Stories of Change heading and three story features.
+ *   - Impact statistics section with the confirmed figures.
+ *   - Programme grid section heading and five programme titles.
+ *   - Stories of Change heading and two story features.
  *   - Get Involved CTA section heading and three column links.
  *   - Sections have accessible labels.
  *   - axe accessibility check.
@@ -40,21 +40,20 @@ describe('HomePage', () => {
     ).not.toBeInTheDocument();
   });
 
-  it('renders all four confirmed impact statistics', () => {
+  it('renders the confirmed impact statistics without women’s ministry content', () => {
     render(<HomePage />);
     const impact = screen.getByRole('region', { name: /our impact/i });
     // F3 fix: each stat's figure and label render as separate visible texts
     // (the combined aria-label was removed).
-    expect(within(impact).getByText('375', { selector: '.sr-only' })).toBeInTheDocument();
+    expect(within(impact).getByText('410', { selector: '.sr-only' })).toBeInTheDocument();
     expect(within(impact).getByText('Children Supported')).toBeInTheDocument();
     expect(within(impact).getByText('1,738', { selector: '.sr-only' })).toBeInTheDocument();
     expect(
       within(impact).getByText('People Reached Through Teacher Development')
     ).toBeInTheDocument();
     expect(within(impact).queryByText('Educators Trained')).not.toBeInTheDocument();
-    expect(within(impact).getByText('~100', { selector: '.sr-only' })).toBeInTheDocument();
-    expect(within(impact).getByText('Women Trained')).toBeInTheDocument();
     expect(within(impact).getByText('2018', { selector: '.sr-only' })).toBeInTheDocument();
+    expect(within(impact).queryByText(/women/i)).not.toBeInTheDocument();
     expect(within(impact).getByText('Year Founded')).toBeInTheDocument();
   });
 
@@ -65,11 +64,10 @@ describe('HomePage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all six programme card titles', () => {
+  it('renders the five programme card titles', () => {
     render(<HomePage />);
     const titles = [
       'Education Centers',
-      "Women's Empowerment",
       'Teacher Training',
       'Water & Sanitation',
       'Sustainable Food Project',
@@ -96,8 +94,8 @@ describe('HomePage', () => {
         'Creating opportunities and lasting change through education, empowerment and community care.'
       )
     ).toBeInTheDocument();
-    expect(screen.getByText('375 students supported')).toBeInTheDocument();
-    expect(screen.getAllByText('Nearly 100 women trained').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText('410 students supported')).toBeInTheDocument();
+    expect(screen.queryByText(/women/i)).not.toBeInTheDocument();
     expect(screen.getByText('1,738 people reached across 47 counties')).toBeInTheDocument();
     expect(screen.getByLabelText('Programme status')).toHaveTextContent('In Development');
   });
@@ -106,7 +104,6 @@ describe('HomePage', () => {
     render(<HomePage />);
     const routes = [
       ['/what-we-do/education', /learn more about education centers/i],
-      ['/what-we-do/womens-empowerment', /learn more about women's empowerment/i],
       ['/what-we-do/teacher-training', /learn more about teacher training/i],
       ['/what-we-do/wash', /learn more about water & sanitation/i],
       ['/what-we-do/food-project', /learn more about sustainable food project/i],
@@ -128,28 +125,23 @@ describe('HomePage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all three verified story headlines', () => {
+  it('renders both verified story headlines', () => {
     render(<HomePage />);
-    expect(screen.getByRole('heading', { level: 3, name: 'From 12 Students to 375' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Skills That Build Stronger Communities' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: 'From 12 Students to 410' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Bringing Clean Water Closer' })).toBeInTheDocument();
   });
 
-  it('renders the Women’s Empowerment story with a community home photograph', () => {
+  it('does not render women’s ministry information or links', () => {
     render(<HomePage />);
-    expect(
-      screen.getByRole('img', {
-        name: 'A woman stands outside the home built through community support.',
-      })
-    ).toBeInTheDocument();
+    expect(screen.queryByText(/women/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /women/i })).not.toBeInTheDocument();
   });
 
   it('uses the existing programme and success stories routes', () => {
     render(<HomePage />);
-    expect(screen.getAllByRole('link', { name: 'Explore Story' })).toHaveLength(3);
+    expect(screen.getAllByRole('link', { name: 'Explore Story' })).toHaveLength(2);
     expect(screen.getAllByRole('link', { name: 'Explore Story' }).map((link) => link.getAttribute('href'))).toEqual([
       '/what-we-do/education',
-      '/what-we-do/womens-empowerment',
       '/what-we-do/wash',
     ]);
     expect(screen.getByRole('link', { name: 'View All Stories' })).toHaveAttribute('href', '/impact/success-stories');

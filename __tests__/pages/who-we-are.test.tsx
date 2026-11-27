@@ -42,7 +42,7 @@ describe('WhoWeArePage', () => {
     const hero = screen.getByRole('region', { name: 'Who We Are' });
 
     expect(
-      screen.getByText('Empowering vulnerable children, youth and women in the community.')
+      screen.getByText('Empowering vulnerable children, young people, and communities.')
     ).toBeInTheDocument();
     expect(
       screen.getByRole('img', {

@@ -46,9 +46,9 @@ describe('SuccessStoriesPage', () => {
 
   it('renders water reach for each campus without combining different units', () => {
     render(<SuccessStoriesPage />);
-    expect(screen.getByText('220 pupils')).toBeInTheDocument();
+    expect(screen.getByText('225 students')).toBeInTheDocument();
     expect(screen.getByText('Over 360 community members')).toBeInTheDocument();
-    expect(screen.getByText('155 pupils')).toBeInTheDocument();
+    expect(screen.getByText('185 students')).toBeInTheDocument();
     expect(screen.getByText('290 families')).toBeInTheDocument();
   });
 
@@ -58,8 +58,8 @@ describe('SuccessStoriesPage', () => {
     expect(screen.getByText('500+')).toBeInTheDocument();
     expect(screen.getByText('100')).toBeInTheDocument();
     expect(screen.getByText('1,800')).toBeInTheDocument();
-    expect(screen.getByText('1,200')).toBeInTheDocument();
     expect(screen.getByText('59')).toBeInTheDocument();
+    expect(screen.queryByText(/teenage girls|sanitary and hygiene supplies|1,200/i)).not.toBeInTheDocument();
     expect(screen.getByText(/July 2022/i)).toBeInTheDocument();
   });
 

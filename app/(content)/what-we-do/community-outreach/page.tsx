@@ -45,12 +45,6 @@ const activities = [
       'SeedPower reaches out to disadvantaged families in the Nyakach and Oyugis communities through relief food programmes.',
   },
   {
-    id: 'hygiene',
-    title: 'Hygiene Supplies for Teenage Girls',
-    description:
-      'SeedPower reaches out to teenage girls in the community with hygiene supplies.',
-  },
-  {
     id: 'rights',
     title: 'Child Rights Advocacy',
     description:
@@ -99,8 +93,8 @@ export default function CommunityOutreachPage() {
                 variant="body-lg"
                 className="mb-6 text-[var(--color-text-secondary)]"
               >
-                SeedPower works with disadvantaged families, teenage girls,
-                children at risk, and children with special needs through:
+                SeedPower works with disadvantaged families, children at
+                risk, and children with special needs through:
               </Text>
             </div>
           </div>

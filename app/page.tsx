@@ -4,9 +4,8 @@
  * Visual Design Direction v2.0 — Section 3.2 (Homepage Section Sequence).
  *
  * STATISTICS — confirmed figures only (Architecture v1.2 Section 13, Phase 5):
- *   - 375 students served (confirmed across multiple source pages)
+ *   - 410 students across the Oyugis and Nyakach campuses
  *   - 1,738 individuals reached through teacher development across 47 counties
- *   - Nearly 100 women trained (scope unconfirmed: cumulative vs current)
  *   - Founded 2018, Registered 2019
  *
  * EXCLUDED (require client confirmation before display):
@@ -26,14 +25,14 @@ import { HomeHeroCarousel } from '@/components/sections/HomeHeroCarousel';
 export const metadata: Metadata = {
   title: 'SeedPower Foundation | Empowering Communities Through Education',
   description:
-    "SeedPower Foundation empowers vulnerable communities in Kenya through education, women's empowerment, teacher training, and sustainable development programmes.",
+    'SeedPower Foundation empowers vulnerable communities in Kenya through education, teacher development, and sustainable community programmes.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'SeedPower Foundation | Empowering Communities Through Education',
     description:
-      "Empowering vulnerable communities in Kenya through education, women's empowerment, teacher training, and sustainable development.",
+      'Empowering vulnerable communities in Kenya through education, teacher development, and sustainable development.',
     url: 'https://seedpowerfoundation.org/',
     siteName: 'SeedPower Foundation',
     type: 'website',
@@ -55,23 +54,19 @@ export default function HomePage() {
 
       {/* ══ Impact Statistics
           Confirmed figures only: Architecture v1.2 Section 13, Phase 5.
-          Source list: 375 students, founded 2018, 1,738 people reached, ~100 women.
+          Confirmed figures: 410 students, founded 2018, 1,738 people reached.
           "8 Active Programmes" excluded — not in confirmed list; campus count
           and in-development status make the figure inaccurate.
           ══ */}
       <ImpactStatsSection
         stats={[
           {
-            figure: '375',
+            figure: '410',
             label: 'Children Supported',
           },
           {
             figure: '1,738',
             label: 'People Reached Through Teacher Development',
-          },
-          {
-            figure: '~100',
-            label: 'Women Trained',
           },
           {
             figure: '2018',
@@ -80,7 +75,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* ══ What We Do — Programme Grid (6 programmes) ══ */}
+      {/* ══ What We Do — Programme Grid (5 programmes) ══ */}
       <ProgrammeGridSection
         heading="What We Do"
         subheading="Creating opportunities and lasting change through education, empowerment and community care."
@@ -89,19 +84,10 @@ export default function HomePage() {
             title: 'Education Centers',
             description:
               'Inclusive learning and educational support for children, including those with special needs, across our Oyugis and Grinnell Family campuses.',
-            impactDetail: '375 students supported',
+            impactDetail: '410 students supported',
             href: '/what-we-do/education',
             imageSrc: '/images/programmes/pupils-sharing-classwork.jpg',
             imageAlt: 'Pupils present their learning materials in a classroom.',
-          },
-          {
-            title: "Women's Empowerment",
-            description:
-              'Practical skills training in sewing, basket making and entrepreneurship, helping women build confidence, household stability and self-reliance.',
-            impactDetail: 'Nearly 100 women trained',
-            href: '/what-we-do/womens-empowerment',
-            imageSrc: '/images/programmes/women-basket-weaving.jpg',
-            imageAlt: 'Women weave baskets during a community skills activity.',
           },
           {
             title: 'Teacher Training',

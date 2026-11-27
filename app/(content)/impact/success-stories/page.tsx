@@ -34,12 +34,12 @@ export const metadata: Metadata = {
 const campusWaterProjects = [
   {
     campusName: 'Oyugis Campus',
-    pupilReach: '220 pupils',
+    pupilReach: '225 students',
     communityReach: 'Over 360 community members',
   },
   {
     campusName: 'Grinnell Family Campus · Nyakach',
-    pupilReach: '155 pupils',
+    pupilReach: '185 students',
     communityReach: '290 families',
   },
 ] as const;
@@ -72,13 +72,6 @@ const milestones = [
     title: 'Relief food in Oyugis and Nyakach',
     description:
       'Disadvantaged families were reached with relief food during and after the COVID period.',
-  },
-  {
-    figure: '1,200',
-    label: 'teenage girls reached',
-    title: 'Sanitary and hygiene supplies',
-    description:
-      'Girls received supplies at schools and in the community.',
   },
   {
     figure: '59',

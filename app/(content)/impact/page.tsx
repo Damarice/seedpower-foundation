@@ -18,7 +18,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink';
 export const metadata: Metadata = {
   title: 'Our Impact',
   description:
-    'Explore SeedPower Foundation’s published reach through education, teacher development, women’s empowerment, and community programmes.',
+    'Explore SeedPower Foundation’s published reach through education, teacher development, and community programmes.',
   alternates: { canonical: '/impact' },
   openGraph: {
     title: 'Our Impact | SeedPower Foundation',
@@ -41,17 +41,6 @@ const impactAreas = [
     description:
       'With Little Light House USA, SeedPower reaches special needs and ECDE teachers, social workers, parents, community leaders, and community organisations across Kenya’s 47 counties.',
     links: [{ label: 'Explore Teacher Training', href: '/what-we-do/teacher-training' }],
-  },
-  {
-    title: 'Women’s empowerment',
-    description:
-      'Training in sewing, basket making, and entrepreneurial skills is intended to support women’s self-reliance and household stability.',
-    links: [
-      {
-        label: 'Explore Women’s Empowerment',
-        href: '/what-we-do/womens-empowerment',
-      },
-    ],
   },
   {
     title: 'Community wellbeing',
@@ -82,12 +71,11 @@ export default function ImpactPage() {
       <ImpactStatsSection
         ariaLabel="Impact statistics"
         stats={[
-          { figure: '375', label: 'Children supported across two campuses' },
+          { figure: '410', label: 'Children supported across two campuses' },
           {
             figure: '1,738',
             label: 'People reached through teacher development',
           },
-          { figure: '~100', label: 'Women trained' },
           { figure: '2018', label: 'Year established' },
         ]}
       />
@@ -108,7 +96,7 @@ export default function ImpactPage() {
               </Heading>
               <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
                 These programme areas reflect SeedPower’s published work with
-                children, women, and communities.
+                children and communities.
               </Text>
             </div>
             <ButtonLink

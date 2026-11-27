@@ -1,6 +1,6 @@
 /**
  * What We Do — /what-we-do
- * Programme hub page linking to all six confirmed sub-pages.
+ * Programme hub page linking to the five programmes listed on this site.
  *
  * Content sourced from:
  *   - docs/research/full-website-discovery-report.md (page 4)
@@ -19,12 +19,12 @@ import { ProgrammeCard } from '@/components/composite/ProgrammeCard';
 export const metadata: Metadata = {
   title: 'What We Do',
   description:
-    'SeedPower Foundation works across six programme areas in Kenya — education, women\'s empowerment, teacher training, water and sanitation, sustainable food, and community outreach.',
+    'SeedPower Foundation works across five programme areas in Kenya — education, teacher training, water and sanitation, sustainable food, and community outreach.',
   alternates: { canonical: '/what-we-do' },
   openGraph: {
     title: 'What We Do | SeedPower Foundation',
     description:
-      'Explore SeedPower Foundation\'s six programme areas serving vulnerable children, women, and communities in Kenya.',
+      'Explore SeedPower Foundation\'s five programme areas serving vulnerable children and communities in Kenya.',
     url: '/what-we-do',
     type: 'website',
   },
@@ -34,18 +34,11 @@ const programmes = [
   {
     title: 'Education Centers',
     description:
-      'Two campuses serving 375 vulnerable children and those with special needs in Oyugis (est. 2019) and Nyakach (est. 2021), Kenya.',
-    stats: [{ label: '375 students' }, { label: 'Two campuses' }],
+      'Two campuses serving 410 vulnerable children and those with special needs in Oyugis (est. 2019) and Nyakach (est. 2021), Kenya.',
+    stats: [{ label: '410 students' }, { label: 'Two campuses' }],
     href: '/what-we-do/education',
     imageSrc: '/images/programmes/programme-education-card.jpg',
     imageAlt: 'Two pupils read together in a classroom.',
-  },
-  {
-    title: "Women's Empowerment",
-    description:
-      'Skills training in sewing, basket making, and entrepreneurship for nearly 100 women, strengthening households and building self-reliance.',
-    stats: [{ label: '~100 women trained' }],
-    href: '/what-we-do/womens-empowerment',
   },
   {
     title: 'Teacher Training',
@@ -119,7 +112,7 @@ export default function WhatWeDoPage() {
             className="text-[var(--color-text-secondary)] mb-10 tablet:mb-12 max-w-[600px]"
           >
             SeedPower works with the vulnerable and children with special
-            needs, those at risk, and their families across six core programme
+            needs, those at risk, and their families across five core programme
             areas.
           </Text>
           <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 tablet:gap-8">

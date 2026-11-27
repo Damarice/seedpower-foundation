@@ -16,14 +16,14 @@ import { Heading, Text } from '@/components/ui/Typography';
 export const metadata: Metadata = {
   title: 'Volunteer',
   description:
-    'Volunteer with SeedPower in children’s learning, community outreach, empowerment programmes, and teacher development.',
+    'Volunteer with SeedPower in children’s learning, community outreach, and teacher development.',
   alternates: {
     canonical: '/get-involved/volunteer',
   },
   openGraph: {
     title: 'Volunteer | SeedPower Foundation',
     description:
-      'Explore ways to volunteer with SeedPower in learning, outreach, empowerment, and teacher development.',
+      'Explore ways to volunteer with SeedPower in learning, outreach, and teacher development.',
     url: '/get-involved/volunteer',
     type: 'website',
   },
@@ -43,10 +43,6 @@ const volunteerAreas = [
     description: 'Join SeedPower’s community and family outreach.',
   },
   {
-    title: 'Women and Youth Empowerment',
-    description: 'Support SeedPower’s women and youth empowerment programmes.',
-  },
-  {
     title: 'Teacher Professional Development',
     description: 'Contribute to teacher professional development and training.',
   },
@@ -58,7 +54,7 @@ export default function VolunteerPage() {
       <ProgrammePageHero
         headingId="volunteer-page-heading"
         title="Volunteer"
-        description="Share your time at SeedPower in children’s learning, community outreach, empowerment programmes, or teacher development."
+        description="Share your time at SeedPower in children’s learning, community outreach, or teacher development."
         imageLabel="Volunteer photography placeholder"
         imageSrc="/images/programmes/volunteer-outreach-session.jpg"
         imageAlt="Participants meet during a school-based outreach activity."
@@ -75,7 +71,7 @@ export default function VolunteerPage() {
               Ways to Volunteer
             </Heading>
             <Text variant="body-lg" className="text-[var(--color-text-secondary)]">
-              You can volunteer across these five areas:
+              You can volunteer across these four areas:
             </Text>
           </div>
 

@@ -34,7 +34,7 @@ import { Heading, Text } from '@/components/ui/Typography';
 export const metadata: Metadata = {
   title: 'Who We Are',
   description:
-    'SeedPower Foundation is a community-based nonprofit founded in 2018 in Kenya. Meet the co-founders and advisory board who guide our mission to empower vulnerable children, youth and women.',
+    'SeedPower Foundation is a community-based nonprofit founded in 2018 in Kenya. Meet the co-founders and advisory board who guide our mission to empower vulnerable children, young people, and communities.',
   alternates: {
     canonical: '/who-we-are',
   },
@@ -244,7 +244,7 @@ export default function WhoWeArePage() {
               Who We Are
             </Heading>
             <Text variant="body-lg" className="max-w-[560px] text-white/90">
-              Empowering vulnerable children, youth and women in the community.
+              Empowering vulnerable children, young people, and communities.
             </Text>
           </div>
         </Container>
@@ -370,7 +370,7 @@ export default function WhoWeArePage() {
                 <Text variant="body" className="text-white/90">
                   Empower vulnerable communities to become change agents,
                   initiate solutions and take part in activities that affect
-                  their communities and beyond. Help children, women and youth
+                  their communities and beyond. Help children and young people
                   realise their potential, while sharing the love and glory of
                   God.
                 </Text>
@@ -399,7 +399,7 @@ export default function WhoWeArePage() {
                     'Education access for vulnerable children, those with special needs and those at risk.',
                     'Reducing malnutrition among students in food programs at learning centers.',
                     'Clean water, sanitation and hygiene education in schools and the community.',
-                    "Youth and women's empowerment programs that build skills for self-reliance and help eradicate poverty.",
+                    'Youth programmes that build skills for self-reliance and help eradicate poverty.',
                   ].map((objective) => (
                     <li key={objective} className="flex items-start gap-3">
                       <span
@@ -542,8 +542,8 @@ export default function WhoWeArePage() {
                 Support SeedPower&apos;s work
               </Heading>
               <Text variant="body-lg" className="text-white/90">
-                SeedPower works to empower vulnerable children, youth and
-                women in the community.
+                SeedPower works to empower vulnerable children, young people,
+                and communities.
               </Text>
             </div>
             <div className="flex flex-wrap gap-3">

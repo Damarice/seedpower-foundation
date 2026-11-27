@@ -33,9 +33,8 @@ describe('ImpactPage', () => {
 
   it('renders the verified impact statistics without adding programme totals', () => {
     render(<ImpactPage />);
-    expect(screen.getByTestId('impact-counter-375')).toHaveTextContent('375');
+    expect(screen.getByTestId('impact-counter-410')).toHaveTextContent('410');
     expect(screen.getByTestId('impact-counter-1738')).toHaveTextContent('1,738');
-    expect(screen.getByTestId('impact-counter-100')).toHaveTextContent('~100');
     expect(screen.getByTestId('impact-counter-2018')).toHaveTextContent('2018');
     expect(
       screen.getByText('Children supported across two campuses')
@@ -62,8 +61,8 @@ describe('ImpactPage', () => {
       screen.getByRole('link', { name: 'Explore Teacher Training' })
     ).toHaveAttribute('href', '/what-we-do/teacher-training');
     expect(
-      screen.getByRole('link', { name: 'Explore Women’s Empowerment' })
-    ).toHaveAttribute('href', '/what-we-do/womens-empowerment');
+      screen.queryByRole('link', { name: /women/i })
+    ).not.toBeInTheDocument();
     expect(
       screen.getByRole('link', { name: 'Explore Water & Sanitation' })
     ).toHaveAttribute('href', '/what-we-do/wash');

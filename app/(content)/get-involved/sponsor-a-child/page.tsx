@@ -31,7 +31,6 @@ const programmeAreas = [
   'Education for children from early childhood through elementary level',
   'Teacher training and outreach',
   'Family and community outreach',
-  'Women and girl-child empowerment',
   'Youth empowerment',
   'Sustainable food systems',
   'Water and sanitation',

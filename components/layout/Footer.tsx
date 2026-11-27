@@ -16,7 +16,6 @@ const QUICK_LINKS = [
 
 const PROGRAMME_LINKS = [
   { label: 'Education', href: '/what-we-do/education' },
-  { label: "Women's Empowerment", href: '/what-we-do/womens-empowerment' },
   { label: 'Teacher Training', href: '/what-we-do/teacher-training' },
   { label: 'Water & Sanitation', href: '/what-we-do/wash' },
   { label: 'Sustainable Food Project', href: '/what-we-do/food-project' },

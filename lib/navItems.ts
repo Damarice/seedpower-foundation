@@ -23,7 +23,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: '/what-we-do',
     children: [
       { label: 'Education', href: '/what-we-do/education' },
-      { label: "Women's Empowerment", href: '/what-we-do/womens-empowerment' },
       { label: 'Teacher Training', href: '/what-we-do/teacher-training' },
       { label: 'WASH', href: '/what-we-do/wash' },
       { label: 'Food Project', href: '/what-we-do/food-project' },

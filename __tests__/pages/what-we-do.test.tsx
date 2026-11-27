@@ -26,11 +26,10 @@ describe('WhatWeDoPage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all six programme card titles', () => {
+  it('renders the five programme card titles', () => {
     render(<WhatWeDoPage />);
     const titles = [
       'Education Centers',
-      "Women's Empowerment",
       'Teacher Training',
       'Water & Sanitation',
       'Sustainable Food Project',
@@ -57,7 +56,6 @@ describe('WhatWeDoPage', () => {
     render(<WhatWeDoPage />);
     const routes = [
       [/learn more about education centers/i, '/what-we-do/education'],
-      [/learn more about women's empowerment/i, '/what-we-do/womens-empowerment'],
       [/learn more about teacher training/i, '/what-we-do/teacher-training'],
       [/learn more about water & sanitation/i, '/what-we-do/wash'],
       [/learn more about sustainable food project/i, '/what-we-do/food-project'],

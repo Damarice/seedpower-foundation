@@ -12,26 +12,14 @@ const stories = [
   {
     id: 'education',
     category: 'Education & Inclusion',
-    title: 'From 12 Students to 375',
+    title: 'From 12 Students to 410',
     description:
-      'What began with 12 students in January 2019 has grown into two learning campuses supporting 375 children, including children with special educational needs.',
-    impact: '375 children supported',
+      'What began with 12 students in January 2019 has grown into two learning campuses supporting 410 children, including children with special educational needs.',
+    impact: '410 children supported',
     placeholder: 'Education and inclusive classroom photography placeholder',
     href: '/what-we-do/education',
     imageSrc: '/images/programmes/inclusive-classroom-support.jpg',
     imageAlt: 'A teacher works with pupils using classroom learning materials.',
-  },
-  {
-    id: 'women',
-    category: "Women's Empowerment",
-    title: 'Skills That Build Stronger Communities',
-    description:
-      'Through sewing, basket-making and entrepreneurship training, SeedPower has reached nearly 100 women. One women’s group also came together with community members to build a home for an elderly woman.',
-    impact: 'Nearly 100 women trained',
-    placeholder: "Women's empowerment and skills training photography placeholder",
-    href: '/what-we-do/womens-empowerment',
-    imageSrc: '/images/programmes/women-home-beneficiary.jpg',
-    imageAlt: 'A woman stands outside the home built through community support.',
   },
   {
     id: 'water',
@@ -39,13 +27,13 @@ const stories = [
     title: 'Bringing Clean Water Closer',
     description:
       'SeedPower’s school and community water projects support pupils and surrounding communities in Oyugis and Nyakach.',
-    impact: 'Oyugis: 220 pupils · 360 community members',
+    impact: 'Oyugis: 225 students · 360 community members',
     placeholder: 'Clean water infrastructure photography placeholder',
     href: '/what-we-do/wash',
     imageSrc: '/images/programmes/school-handwashing.jpg',
     imageAlt: 'Pupils wash their hands at an outdoor handwashing station.',
   },
-] ;
+];
 
 export function StoriesOfChangeSection() {
   const [activeStory, setActiveStory] = useState<string | null>(null);
@@ -81,7 +69,7 @@ export function StoriesOfChangeSection() {
           </ButtonLink>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 tablet:grid-cols-2 tablet:gap-6 desktop:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 tablet:grid-cols-2 tablet:gap-6">
           {stories.map((story) => {
             const isActive = activeStory === story.id;
 

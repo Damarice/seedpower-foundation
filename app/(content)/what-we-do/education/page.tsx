@@ -6,8 +6,8 @@
  *   - docs/research/full-website-discovery-report.md (page 4, 4a)
  *   - docs/research/content-verification-and-sitemap.md (page 4a)
  *
- * The combined figure of 375 students is presented as the total recorded
- * across both campuses; it is not stated as a live current enrolment.
+ * The combined figure reflects the campus enrolment figures supplied by
+ * SeedPower: 225 students in Oyugis and 185 in Nyakach.
  *
  * Architecture v1.2 — Sections 5.1, 11.1, 13 (Phase 6).
  * Visual Design Direction v2.0.
@@ -27,33 +27,33 @@ const campuses = [
     id: 'oyugis',
     name: 'Oyugis Campus',
     established: 'January 2019',
-    pupils: '220 pupils',
+    pupils: '225 students',
     location: 'Oyugis community, Kenya',
     imageLabel: 'Oyugis education campus photography placeholder',
     imageSrc: '/images/programmes/oyugis-campus-students-new.jpg',
-    imageAlt: 'Pupils gather outside the SeedPower Education Center at the Oyugis Campus.',
+    imageAlt: 'Pupils gather outside SeedPower School at the Oyugis Campus.',
     description:
-      'SeedPower Education Center Oyugis Campus offers education to vulnerable children, children at risk, and children with special needs in the Oyugis community. SeedPower educates, equips, and empowers these children to become Godly leaders and agents of community transformation.',
+      'SeedPower School Oyugis Campus offers education to vulnerable children, children at risk, and children with special needs in the Oyugis community. SeedPower educates, equips, and empowers these children to become Godly leaders and agents of community transformation.',
   },
   {
     id: 'nyakach',
     name: 'Nyakach Campus',
     subtitle: 'Grinnell Family Campus',
     established: '2021',
-    pupils: '155 pupils',
+    pupils: '185 students',
     location: 'Nyakach community, Kenya',
     imageLabel: 'Nyakach education campus photography placeholder',
     imageSrc: '/images/programmes/grinnell-family-campus-students.jpg',
     imageAlt: 'Pupils gather outside the Grinnell Family Campus in Nyakach.',
     description:
-      'SeedPower Education Center GF Campus was established in 2021 to offer education to vulnerable children, children at risk, and children with special needs in the Nyakach community.',
+      'SeedPower School GF Campus was established in 2021 to offer education to vulnerable children, children at risk, and children with special needs in the Nyakach community.',
   },
 ] as const;
 
 export const metadata: Metadata = {
   title: 'Education Centers',
   description:
-    'SeedPower Foundation operates two education campuses in Kenya — Oyugis (established 2019) and Nyakach (established 2021) — serving 375 vulnerable children and those with special needs.',
+    'SeedPower Foundation operates two education campuses in Kenya — Oyugis (established 2019) and Nyakach (established 2021) — serving 410 vulnerable children and those with special needs.',
   alternates: { canonical: '/what-we-do/education' },
   openGraph: {
     title: 'Education Centers | SeedPower Foundation',
@@ -88,9 +88,9 @@ export default function EducationPage() {
             </Heading>
             <p className="mb-0 font-[var(--font-body)] text-[var(--color-text-secondary)]">
               <span className="font-[var(--font-heading)] text-3xl font-bold text-[var(--color-brand)]">
-                375
+                410
               </span>{' '}
-              pupils across both campuses
+              students across both campuses
             </p>
           </div>
 

@@ -7,8 +7,8 @@ import { StoryCard } from '@/components/composite/StoryCard';
 expect.extend(toHaveNoViolations);
 
 const baseProps = {
-  heading: 'From 12 to 375 Students',
-  body: 'SeedPower Foundation began with just 12 students in 2019 and has grown to support 375 students across two campuses.',
+  heading: 'From 12 to 410 Students',
+  body: 'SeedPower Foundation began with just 12 students in 2019 and has grown to support 410 students across two campuses.',
 };
 
 describe('StoryCard', () => {
@@ -23,7 +23,7 @@ describe('StoryCard', () => {
     await act(async () => {
       render(<StoryCard {...baseProps} />);
     });
-    const heading = screen.getByRole('heading', { level: 3, name: 'From 12 to 375 Students' });
+    const heading = screen.getByRole('heading', { level: 3, name: 'From 12 to 410 Students' });
     expect(heading).toBeInTheDocument();
   });
 

@@ -53,7 +53,6 @@ describe('Footer', () => {
 
     const expectedLinks = [
       ['Education', '/what-we-do/education'],
-      ["Women's Empowerment", '/what-we-do/womens-empowerment'],
       ['Teacher Training', '/what-we-do/teacher-training'],
       ['Water & Sanitation', '/what-we-do/wash'],
       ['Sustainable Food Project', '/what-we-do/food-project'],

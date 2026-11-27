@@ -28,12 +28,12 @@ describe('CommunityOutreachPage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all four verified activity headings', () => {
+  it('renders the three activities that remain on this site', () => {
     render(<CommunityOutreachPage />);
     expect(screen.getByRole('heading', { level: 3, name: 'Relief Food Programmes' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 3, name: 'Hygiene Supplies for Teenage Girls' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Child Rights Advocacy' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 3, name: 'Substance Abuse Prevention' })).toBeInTheDocument();
+    expect(screen.queryByText(/girls|women/i)).not.toBeInTheDocument();
   });
 
   it('shows the 3,600 figure without an unverified timeframe', () => {

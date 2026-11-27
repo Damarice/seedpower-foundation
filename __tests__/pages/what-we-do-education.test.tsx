@@ -41,25 +41,25 @@ describe('EducationPage', () => {
   it('renders verified Oyugis figures', () => {
     render(<EducationPage />);
     expect(screen.getByText('January 2019')).toBeInTheDocument();
-    expect(screen.getByText('220 pupils')).toBeInTheDocument();
+    expect(screen.getByText('225 students')).toBeInTheDocument();
   });
 
   it('renders verified Nyakach figures', () => {
     render(<EducationPage />);
     expect(screen.getByText('2021')).toBeInTheDocument();
-    expect(screen.getByText('155 pupils')).toBeInTheDocument();
+    expect(screen.getByText('185 students')).toBeInTheDocument();
   });
 
-  it('mentions 375 students as combined total', () => {
+  it('mentions 410 students as combined total', () => {
     render(<EducationPage />);
-    const total = screen.getByText('375');
-    expect(total.closest('p')).toHaveTextContent('375 pupils across both campuses');
+    const total = screen.getByText('410');
+    expect(total.closest('p')).toHaveTextContent('410 students across both campuses');
   });
 
   it('provides distinct photographs for both campuses', () => {
     render(<EducationPage />);
     expect(
-      screen.getByRole('img', { name: 'Pupils gather outside the SeedPower Education Center at the Oyugis Campus.' })
+      screen.getByRole('img', { name: 'Pupils gather outside SeedPower School at the Oyugis Campus.' })
     ).toBeInTheDocument();
     expect(
       screen.getByRole('img', { name: 'Pupils gather outside the Grinnell Family Campus in Nyakach.' })

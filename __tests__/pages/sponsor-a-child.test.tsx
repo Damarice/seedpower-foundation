@@ -44,7 +44,7 @@ describe('SponsorAChildPage', () => {
     expect(screen.getByText(/early childhood through elementary level/i)).toBeInTheDocument();
     expect(screen.getByText('Teacher training and outreach')).toBeInTheDocument();
     expect(screen.getByText('Family and community outreach')).toBeInTheDocument();
-    expect(screen.getByText('Women and girl-child empowerment')).toBeInTheDocument();
+    expect(screen.queryByText(/women.*empowerment/i)).not.toBeInTheDocument();
     expect(screen.getByText('Youth empowerment')).toBeInTheDocument();
     expect(screen.getByText('Sustainable food systems')).toBeInTheDocument();
     expect(screen.getByText('Water and sanitation')).toBeInTheDocument();

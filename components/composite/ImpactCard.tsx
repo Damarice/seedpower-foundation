@@ -12,7 +12,7 @@ import React from 'react';
 import { cn } from '@/lib/cn';
 
 export interface ImpactCardProps {
-  /** The statistic or headline figure (e.g. "375", "2018", "1,738+"). */
+  /** The statistic or headline figure (e.g. "410", "2018", "1,738+"). */
   figure: string;
   /** Descriptive label for the figure (e.g. "Students supported"). */
   label: string;
